@@ -1,33 +1,34 @@
 ﻿# The script of the game goes in this file.
-
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-
-define e = Character("Eileen")
-
+# Characters 
+define al = Character("Alex", color="#ffffff")
+define be = Character("Bernard", color="#ffffff")
+define ex = Character("Joseph", color="#ffffff")
+define ma = Character("Marcos", color="#ffffff")
+define sa = Character("Sam", color="#ffffff")
+define son = Character("Sonal", color="#ffffff")
+define jo = Character("Josephine", color="#c3acce")
 
 # The game starts here.
 
 label start:
+    scene login
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+    #input name, saving it into Jo's character
+    $ playerName = renpy.input(_("My name is..."), default = "Josephine", length=12)
+    $ playerName = playerName.strip()
 
-    scene bg room
+    if playerName == "" or playerName == " ":
+        $ playerName = "Josephine"
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+    $ jo = Character("[playerName]", color="#c3acce")
 
-    show eileen happy
+    show screen login          
+    "Login Successful!"
+    hide screen login
 
-    # These display lines of dialogue.
-
-    e "You've created a new Ren'Py game."
-
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    jo "I have a name now"
 
     # This ends the game.
 
     return
+
