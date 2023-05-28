@@ -8,6 +8,14 @@ define sa = Character("Sam", color="#ffffff")
 define son = Character("Sonal", color="#ffffff")
 define jo = Character("Josephine", color="#c3acce")
 
+#Choices
+default goodChoiceBernard = 0
+default goodChoiceMarcos = 0
+default goodChoiceSam = 0
+default goodChoiceSonal = 0
+default goodChoiceJosephine = 0 #General Good Ending. 
+
+
 # The game starts here.
 
 label start:
@@ -26,6 +34,7 @@ label start:
     "Login Successful!"
     hide screen login
 
+    scene white
     jo "I have a name now"
 
     # This ends the game.
