@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/login.rpy", line 2: expected a keyword argument or child statement.
-    "Login Successful!"
-    ^
+File "game/script.rpy", line 70: expected simple expression
+    play music "audio/SAD - A Cool Electric Rainy Night by Mike Durek.mp3" fadein 
+                                                                                  ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Fri May 26 15:45:41 2023
+Tue Jun 27 17:54:23 2023
