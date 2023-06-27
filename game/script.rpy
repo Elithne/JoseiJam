@@ -87,9 +87,7 @@ label intro:
 
     centered "A month later"
 
-    #sfx - toilet flush
-    #sfx - sink noises
-    #sfx - paper towel noises
+    #sfx - bathroom
 
     scene bg_workbathroom with fade
 
