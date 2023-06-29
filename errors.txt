@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 70: expected simple expression
-    play music "audio/SAD - A Cool Electric Rainy Night by Mike Durek.mp3" fadein 
-                                                                                  ^
+File "game/script.rpy", line 2693: end of line expected.
+    jo "No use dwelling on "what-ifs.""
+                            ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Tue Jun 27 17:54:23 2023
+Wed Jun 28 22:11:51 2023
