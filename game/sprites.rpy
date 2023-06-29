@@ -158,7 +158,7 @@ label define_sprites:
         "sprites/marcos/ma_shocked.png"
         zoom 0.75
 
-    image ma shocked:
+    image ma smug:
         "sprites/marcos/ma_smug.png"
         zoom 0.75
 

@@ -67,7 +67,6 @@ label intro:
     centered "A month later"
 
     #sfx - bathroom
-    #transition into bg_workbathroom
     scene bg_workbathroom with fade
 
     al "...Hello?"
@@ -147,7 +146,7 @@ label intro:
 
         "Besides…"
 
-        #transition into hallway 1
+        #Hallway
         hide all
         scene bg_office_hallway1 with fade
 
@@ -160,7 +159,6 @@ label intro:
 
         "Alex's voice is pretty soothing…like one of those rain noises videos for sleep…" 
 
-        #transition hallway 2
         hide all
         scene bg_office_hallway2 with fade
         show al shocked at top with dissolve
@@ -172,8 +170,6 @@ label intro:
 
         "Though, honestly, now that she's on a roll, I don't really need to engage beyond the occasional nod anyway so…."
 
-
-        #transition bg hallway 3
         hide all
         scene bg_office_hallway3 with fade
         show al laughing at top with dissolve
@@ -185,7 +181,7 @@ label intro:
 
         "Did that sound interested enough?"
 
-        show al embarrassed at top with fade
+        show al embarrassed at top
         al "--so then I said– Oh, there's still some open seats."
 
         jo "Huh. Really."
@@ -196,13 +192,13 @@ label intro:
 
         "I follow Alex inside, trying to refocus my thoughts as I enter."
 
-        #sfx door (optional)
-        #sfx chatter
+        #sfx door & shatter (optional)
         hide all
         scene bg_office_conferenceroom with fade
-
+        
         show son neutral at top with dissolve 
         son "...Let's see. {w}One, two, three, four, five and now, Alex and… [playerName!q]."
+        play music "audio/SONAL 1 - Medicine by TimTaj.mp3" fadein 3
         show son annoyed at top
         son "Thank you for being on time."
 
@@ -210,19 +206,18 @@ label intro:
 
         "I wilt a little under Sonal's intense gaze and quietly move to sit down. I don't want to give her more reasons to judge me."
 
+        show son neutral at top
         "Alex has settled into the middle of three open seats, which means the only available spots to me are either at the head of the table, closest to Sonal, or on Alex's other side next to some person I've never seen before."
 
         "I weigh both options equally in the split second I have to make a decision."
 
-        #Choice
-
-        #choice 1
-        #"Sit in the first spot, in front of Sonal."
-
-        #choice 2
-        #"Sit in the third spot, on the other side of Alex."
-
-        #both choices lead to:
+    menu:
+        "Sit in the first spot, in front of Sonal.":
+            jump marcosIntro
+        "Sit in the third spot, on the other side of Alex.":
+            jump marcosIntro
+    
+    label marcosIntro:
 
         "My hesitation doesn't go unnoticed and the knowledge of this fact amps up my social anxiety." 
 
@@ -230,41 +225,42 @@ label intro:
 
         "...she's going to take it personally, isn't she."
 
+        show son neutral at top
         son "Are we missing someone? There's still an open chair here at the front…"
 
         #sonal question mark
         "Sonal's eyes sweep around the room again as she does another mental headcount."
 
+        stop music fadeout 0.5
+        show son annoyed at top
         son "Oh."
 
-        #music stops.
+        #music stops. #rushed
+        show son happy at top
+        son "Let's go ahead and start, shall we? {w}First, I'd like to–"
 
-        #SonalAnnoyed, then #SonalSmile
+        hide son happy with dissolve
 
-        #rushed
-        son "Let's go ahead and start, shall we? First, I'd like to–"
-
-        #music: marcos' fanfare
-
+        #sfx_marcosentrance
         "The click of heeled shoes walking at a brisk pace down the hallway somehow permeates the glass walls."
-        #sfx_marcosentrance (choose between heels and no heels)
-        #music: marcos' fanfare
+
+        play music "audio/SFX - Marcos Entrance Fanfare.mp3" fadein 3
         "The door swings open, the force of which sends papers flying."
 
         "As people scramble to grab their loose papers and pens, Marcos, the last attendee of this meeting, strides in with the full confidence of someone who's dad is a major stakeholder in the company."
 
-        ma "Sorry, sorry, everyone! You know what they say, can't rush perfection!"
+        show ma smug at top with fade #ADD SPARKLES AS WELL
+        ma "Sorry, sorry, everyone!{w} You know what they say, can't rush perfection!"
 
-        #Sonal forced smile 
-
+        hide ma smug with dissolve
+        show son annoyed at topleft with dissolve #This was supposedly a forced smile but there isn't actually one unless we add a mark? (Angermark with 'laughing'?) 
         son "...Marcos."
-
+        show ma obnoxious at topright with dissolve
         ma "Sonal."
-
+        stop music fadeout 3
         #music begins again
 
         "Marcos sits down in the empty chair next to Alex and immediately raises the height of the seat."
-
 
         #sfx chair raise
 
@@ -277,31 +273,38 @@ label intro:
         ma "Of course, of course. I know how disappointed you would be if I didn't make an appearance."
 
         son "..."
-
+        hide all with dissolve
+        scene bg_office_conferenceroom
         son "As I was saying."
 
+        hide ma obnoxious with dissolve       
+
         "Sonal pulls up the first slide in her presentation."
+        show son neutral at top with dissolve
 
         son "First, I'd like to clarify that the project we are discussing was originally–"
 
-        "...originally Marcos' responsibility, right?"
+        "... Originally Marcos' responsibility, right?"
 
         "Sure enough, Marcos' name is listed on the title slide, albeit underneath Sonal's name."
 
         "Didn't he make a big deal out of being assigned this case? Not that it's surprising that Sonal had to pick up the slack."
 
+        hide son neutral with dissolve
+        show son neutral at topright with dissolve
+        show ma smug at topleft with dissolve
         ma "Question– how long is this meeting going to be?"
 
         "Sonal pauses as if she wasn't just interrupted."
-
+        show son annoyed at topright with dissolve
         son "Good question, Marcos."
 
         son "I sent an email out in advance with the agenda. Maybe you didn't receive it. I'm sure it's my fault."
-
+        show ma obnoxious at topleft with dissolve
         ma "Oh, right, I did see a notification in my inbox."
 
         "There's a silence as we all take in the implication that he obviously didn't read said email."
-
+        show son angry at topright with dissolve
         son "...Great. Glad to hear it."
 
         ma "Still, is there an estimate?"
@@ -326,82 +329,97 @@ label intro:
 
         "Sonal gives everyone a look warning us not to add unnecessarily to the meeting length."
 
+        show son neutral at topright with dissolve
+
         son "--onto the first order of business, shall we?"
 
         "I can hear the smile in Marcos' voice as he pipes up almost immediately."
 
+        show ma laughing at topleft with dissolve
         ma "Question–"
 
         #transition
+        scene bg_office_conferenceroom with fade
 
+        show son neutral at top with dissolve
         son "I'll send the rest of the briefing in an email, since we're running short on time. Feel free to email me any questions or concerns otherwise."
 
         #sfx_endofmeeting general bustle of people getting up
 
+        hide son neutral with dissolve
+
         "I stretch my arms out before collecting my papers. It felt like a much longer meeting than it actually was."
 
+        show ma neutral at top with dissolve
         ma "Just gonna make a call, don't mind me."
 
         "Marcos stands, looming over all of us. I always forget how tall he is on top of all the space he takes up naturally by being a nuisance."
-
+        hide ma neutral with dissolve
+        show ma neutral at topright with dissolve
+        show son neutral at top with dissolve
         son "Alex, do you mind popping by my desk before you head to lunch for a quick chat about the Turner case?"
 
+        show al neutral at topleft with dissolve
         al "Oh, of course–"
 
+        show ma laughing at topright with dissolve
         ma "Heya James, might be a few minutes late to tennis–"
 
         ma "No I didn't want to be rude, you know how it is."
 
+        show son angry at top with dissolve
         son "..."
 
         "Alex, eager to diffuse the tension, moves around Marcos to join Sonal at the head of the table."
-
+        show al sad at topleft with dissolve
         al "...th-the Turner case. Sorry, you were saying?"
 
+        show ma smug at topright with dissolve
         ma "Yeah, I'll grab something for their assistant too. We can just write it off."
 
+        show son exasperated at top with dissolve #with sigh?
         "Sonal takes a deep breath."
-
-        son "...Yes, sorry, Alex, I was just asking if you had–"
+        
+        son "...Yes, sorry, Alex. {w} I was just asking if you had–"
 
         "Maybe it's time to leave."
-
+        scene bg_office_conferenceroom with dissolve
         "Just as I'm getting up, Marcos grabs his coat off the back of his chair. As he heads towards the door, we make sudden intense eye contact, causing Marcos to stop in his tracks."
 
+        show ma shocked at top with dissolve
         ma "My god, [playerName!q], you scared me!"
 
         jo "Sorry–"
 
         ma "No, just a coworker."
-
+        show ma annoyed at top with dissolve
         "Marcos pauses, never breaking eye contact."
 
         "Why is he staring so intently? I-is there something on my face?" 
-
+        
         ma "Ah, not mascara."
 
+        show ma neutral at top with dissolve
         ma "...get some rest, love."
-
 
         "As he moves past me, he continues his conversation on the phone."
 
+        show ma smug at top with dissolve
         ma "No, she just looks haggard– like a panda with those eye bags–"
+        
+    menu:
+        "Laugh it off":
+            jump prologueLunch
+        "Curse him out":
+            jump prologueLunch
 
-        "Marcos leaves the room, but I swear I can hear the echoes of what he said bouncing around the near empty conference room."
-
-        #Choice
-        #choice1
-        # "Laugh it off."
-
-        #choice2
-        # "Curse him out."
-
-        #Either way:
-
+    label prologueLunch:        
         jo "..."
-
+        hide ma smug with dissolve
+        "Marcos leaves the room, but I swear I can hear the echoes of what he said bouncing around the near empty conference room."
         jo "So, I'll just be at my desk then."
 
+        #STOPPED HERE WITH SPRITES
         "Sonal acts like she didn't hear me while Alex gives me a supportive smile that just makes her look pained."
 
         #transition
@@ -2702,7 +2720,5 @@ label intro:
         "And wrapped yourself around every blood vessel "
         "Until my cells stopped needing oxygen and started wanting"
         "You."
-
-
+        
         return
-
