@@ -1,14 +1,14 @@
 ﻿# The script of the game goes in this file.
 
 # Characters
-define narrator = Character(None, what_italic=True)
-define al = Character("Alex", color="#ffffff")
-define be = Character("Bernard", color="#ffffff")
+define narrator = Character(None, what_italic=True, callback = name_callback, cb_name = None)
+define al = Character("Alex", color="#ffffff", callback = name_callback, cb_name = "alex")
+define be = Character("Bernard", color="#ffffff", callback = name_callback, cb_name = "bernard")
 define ex = Character(". . .", color="#ffffff")
-define ma = Character("Marcos", color="#ffffff")
-define sa = Character("Sam", color="#ffffff")
-define son = Character("Sonal", color="#ffffff")
-define jo = Character("Josephine", color="#c3acce")
+define ma = Character("Marcos", color="#ffffff", callback = name_callback, cb_name = "marcos")
+define sa = Character("Sam", color="#ffffff", callback = name_callback, cb_name = "sam")
+define son = Character("Sonal", color="#ffffff", callback = name_callback, cb_name = "sonal")
+define jo = Character("Josephine", color="#c3acce", callback = name_callback, cb_name = None)
 
 #Choices
 default goodChoiceBernard = 0
@@ -18,7 +18,10 @@ default goodChoiceSonal = 0
 default goodChoiceJosephine = 0 #General Ending that will have an impact with how she deals with her breakup.
         
 # The game starts here.
-call define_sprites
+init:
+    call define_sprites
+    $ flash = Fade(0.5, 0, 0.5, color="#FFFFFF") 
+
 
 label start:
     scene login
@@ -85,7 +88,7 @@ label intro:
 
     #music begins
 
-    show al neutral at top
+    show al  at top
 
     al "Want me to wait for you?"
 
@@ -196,7 +199,7 @@ label intro:
         hide all
         scene bg_office_conferenceroom with fade
         
-        show son neutral at top with dissolve 
+        show son at top with dissolve 
         son "...Let's see. {w}One, two, three, four, five and now, Alex and… [playerName!q]."
         play music "audio/SONAL 1 - Medicine by TimTaj.mp3" fadein 3
         show son annoyed at top
@@ -206,7 +209,7 @@ label intro:
 
         "I wilt a little under Sonal's intense gaze and quietly move to sit down. I don't want to give her more reasons to judge me."
 
-        show son neutral at top
+        show son at top with dissolve
         "Alex has settled into the middle of three open seats, which means the only available spots to me are either at the head of the table, closest to Sonal, or on Alex's other side next to some person I've never seen before."
 
         "I weigh both options equally in the split second I have to make a decision."
@@ -225,7 +228,7 @@ label intro:
 
         "...she's going to take it personally, isn't she."
 
-        show son neutral at top
+        show son at top
         son "Are we missing someone? There's still an open chair here at the front…"
 
         #sonal question mark
@@ -249,11 +252,11 @@ label intro:
 
         "As people scramble to grab their loose papers and pens, Marcos, the last attendee of this meeting, strides in with the full confidence of someone who's dad is a major stakeholder in the company."
 
-        show ma smug at top with fade #ADD SPARKLES AS WELL
+        show ma smug maxcharm at top with fade 
         ma "Sorry, sorry, everyone!{w} You know what they say, can't rush perfection!"
 
         hide ma smug with dissolve
-        show son annoyed at topleft with dissolve #This was supposedly a forced smile but there isn't actually one unless we add a mark? (Angermark with 'laughing'?) 
+        show son laughing angermark at topleft with dissolve #This was supposedly a forced smile but there isn't actually one unless we add a mark? (Angermark with 'laughing'?) 
         son "...Marcos."
         show ma obnoxious at topright with dissolve
         ma "Sonal."
@@ -280,7 +283,7 @@ label intro:
         hide ma obnoxious with dissolve       
 
         "Sonal pulls up the first slide in her presentation."
-        show son neutral at top with dissolve
+        show son at top with dissolve
 
         son "First, I'd like to clarify that the project we are discussing was originally–"
 
@@ -290,8 +293,8 @@ label intro:
 
         "Didn't he make a big deal out of being assigned this case? Not that it's surprising that Sonal had to pick up the slack."
 
-        hide son neutral with dissolve
-        show son neutral at topright with dissolve
+        hide son with dissolve
+        show son at topright with dissolve
         show ma smug at topleft with dissolve
         ma "Question– how long is this meeting going to be?"
 
@@ -329,7 +332,7 @@ label intro:
 
         "Sonal gives everyone a look warning us not to add unnecessarily to the meeting length."
 
-        show son neutral at topright with dissolve
+        show son at topright with dissolve
 
         son "--onto the first order of business, shall we?"
 
@@ -341,25 +344,25 @@ label intro:
         #transition
         scene bg_office_conferenceroom with fade
 
-        show son neutral at top with dissolve
+        show son at top with dissolve
         son "I'll send the rest of the briefing in an email, since we're running short on time. Feel free to email me any questions or concerns otherwise."
 
         #sfx_endofmeeting general bustle of people getting up
 
-        hide son neutral with dissolve
+        hide son  with dissolve
 
         "I stretch my arms out before collecting my papers. It felt like a much longer meeting than it actually was."
 
-        show ma neutral at top with dissolve
+        show ma  at top with dissolve
         ma "Just gonna make a call, don't mind me."
 
         "Marcos stands, looming over all of us. I always forget how tall he is on top of all the space he takes up naturally by being a nuisance."
-        hide ma neutral with dissolve
-        show ma neutral at topright with dissolve
-        show son neutral at top with dissolve
+        hide ma  with dissolve
+        show ma  at topright with dissolve
+        show son  at top with dissolve
         son "Alex, do you mind popping by my desk before you head to lunch for a quick chat about the Turner case?"
 
-        show al neutral at topleft with dissolve
+        show al  at topleft with dissolve
         al "Oh, of course–"
 
         show ma laughing at topright with dissolve
@@ -377,7 +380,7 @@ label intro:
         show ma smug at topright with dissolve
         ma "Yeah, I'll grab something for their assistant too. We can just write it off."
 
-        show son exasperated at top with dissolve #with sigh?
+        show son exasperated sigh at top with dissolve 
         "Sonal takes a deep breath."
         
         son "...Yes, sorry, Alex. {w} I was just asking if you had–"
@@ -399,7 +402,7 @@ label intro:
         
         ma "Ah, not mascara."
 
-        show ma neutral at top with dissolve
+        show ma  at top with dissolve
         ma "...get some rest, love."
 
         "As he moves past me, he continues his conversation on the phone."
@@ -409,21 +412,22 @@ label intro:
         
     menu:
         "Laugh it off":
-            jump prologueLunch
+            jump prologuePhone
         "Curse him out":
-            jump prologueLunch
+            jump prologuePhone
 
-    label prologueLunch:        
+    label prologuePhone:        
         jo "..."
         hide ma smug with dissolve
         "Marcos leaves the room, but I swear I can hear the echoes of what he said bouncing around the near empty conference room."
         jo "So, I'll just be at my desk then."
 
-        #STOPPED HERE WITH SPRITES
+        show son embarrassed at topright with dissolve
+        show al at topleft with dissolve
+
         "Sonal acts like she didn't hear me while Alex gives me a supportive smile that just makes her look pained."
 
-        #transition
-        #bg_workdesks
+        scene bg_office_desks with fade
 
         "Unfortunately, I can't just leave work out of shame as much as I would like to curl up in a pit and never be seen again."
 
@@ -437,6 +441,8 @@ label intro:
 
         #flash to image of couples photo on black (lmk if we need just the photo alone)
 
+        scene black with flash
+        show expost1_beach with dissolve
         "..."
 
         "Ugh, I don't even want to think about Them."
@@ -449,7 +455,7 @@ label intro:
 
         "..."
 
-        "Bet She'd never be caught looking so… haggard."
+        "Bet she'd never be caught looking so… haggard."
 
         "..."
 
@@ -457,9 +463,10 @@ label intro:
 
         #real phone screen
         #edited couples photo longer
-
+        scene bg_office_desks with flash
         "Nope. Nope. Why? Why did I do that?"
 
+        show al at top with dissolve
         al "Ready for lunch? I'm famished."
 
         "I drop my phone in shock."
@@ -489,34 +496,33 @@ label intro:
 
         al "Were you playing a game? I've been looking for a more challenging one to pass the time. You looked pretty frustrated so I just wanted to ask if you had a recommendation."
 
-        #choice
-        #choice 1
-        #"Be honest with Alex."
+        menu:
+            "Be honest with Alex.":
+                jump prologueLunch
+            "Lie through my teeth.":
+                jump prologueLunch
 
-        #choice 2
-        #"Lie through my teeth."
-
-        #both choices lead to:
-
+    label prologueLunch:
         jo "J-just saw something um… distressing on the uh… news."
 
         al "Oh, right, the news is always so depressing, yeah?"
 
         jo "Yeah, like I wish I had a game to recommend to you instead, honestly."
 
+        show al laughing at top 
+
         al "If I find something good, I'll let you know!"
 
+        show al at top 
         al "Although speaking of games and depressing news–"
 
         "Alex starts up a new source of office gossip, something about a senior executive…someone being bullied…mind games…"
 
         "I relax again, tuning in and out as we begin to walk."
         
-        #—
-        #transition
+        scene bg_office_lunchspot with fade
 
-        #bg_worklunch
-
+        show al at top with dissolve
         al "What about you?"
 
         "I realise Alex is looking at me expectantly."
@@ -525,18 +531,21 @@ label intro:
 
         "I am completely lost as to what Alex is asking me."
 
+        show al exclamation at top 
         "Luckily, Alex spots something of interest and completely pivots her attention away."
 
-        #music? Sonal 1?
-
+        #sfx music? Sonal 1?
+        hide al exlamation
+        show al happy at top
         al "Oh, Sonal!"
 
         "Sonal looks up from her phone, mid bite of food."
 
         "Alex walks over faster than I expected her to."
-
+        show al happy at topleft with dissolve
         al "You're not eating at your desk today?"
 
+        show son at topright with dissolve
         son "...No. I thought I would take a proper break."
 
         al "You certainly deserve it."
@@ -547,20 +556,28 @@ label intro:
 
         al "Mind if we join you then?"
 
+        show son annoyed at topright
         son "..."
 
-        son "*sigh* No, not at all."
+        show son exasperated sigh at topright
+        son "No, not at all."
 
+        scene bg_office_lunchspot with dissolve
         "Sonal gestures at the empty seats at the table."
 
         "Alex begins to unpack her homemade lunch."
 
+        show al laughing tinyflowers at topleft with dissolve
+        show son at topright with dissolve
         al "I see you have a lovely little salad! Certainly feels like a salad day, doesn't it [playerName!q]?"
 
         "Neither Alex nor I are having salad for lunch. I nod anyway as I procure a sad, soggy sandwich."
-
+        hide al
+        show al exclamation at topleft
         al "Oh sorry Sonal, you're vegan right? I suppose you didn't have too many choices around here."
-
+        hide al
+        show al at topleft
+        
         son "Vegetarian. Only for the last few years though. Though, there were a few other options–I just thought a salad was faster."
 
         jo "I actually had no idea."

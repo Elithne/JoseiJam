@@ -2,17 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 266: end of line expected.
-    show son annoyed at top left with dissolve
-                            ^
-
-File "game/script.rpy", line 267: end of line expected.
-    show ma smug at top right with dissolve
+File "game/script.rpy", line 252: end of line expected.
+    show ma smug at top maxsparkles with fade 
                         ^
 
-File "game/script.rpy", line 269: end of line expected.
-    show ma obnoxous at top right with dissolve
-                            ^
-
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed Jun 28 22:45:14 2023
+Thu Jun 29 09:54:02 2023
