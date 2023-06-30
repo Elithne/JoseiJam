@@ -2172,6 +2172,8 @@ label firstWeekGoBar:
             jo "Oh."
             "That sounds difficult indeed. {w}But I guess I meant…"
             jo "What about in your personal life?"
+
+            show be annoyed at top
             "Bernard visibly hesitates."
             be "My personal life?"
             "Bernard spends so long staring at the glass he's polishing that I wonder if I've made a blunder and asked something too personal after all."
@@ -2185,12 +2187,19 @@ label firstWeekGoBar:
             "I do indeed feel like garbage."
             "I down the rest of my drink."
             jo "What did you do to not feel gross?"
+            
+            hide be annoyed
+            show be at top
             be "Well, first, giving myself room to feel that way was important. {w}I had to recognize what I was feeling and why I felt that way."
             be "And then, afterwards, I made sure that any improvements I made upon myself were actually worth something. {w}That I was doing things to be happy or to grow as a person in a positive direction. {w}That's the best way to keep moving forward."
             jo "I guess that makes sense."
+
+            show be happy at top
             "Bernard smiles."
             be "Of course, taking my advice is also something you should think about in your own terms. {w}If it makes you happy or helps you improve, by all means…"
 
+    hide be happy
+    show be at top
     "I realise this might be the most I've ever heard Bernard speak without interruption."
     "He has a nice voice, well suited for an actor."
     "He smiles suddenly. He has a nice smile too."
@@ -2198,15 +2207,24 @@ label firstWeekGoBar:
     jo "Oh god, was I staring?"
     jo "Sorry, was just thinking you have the kind of voice people would go wild over in the youtube comments."
     be "Oh."
+
+    show be laughing laughter at top
     "Bernard laughs."
     be "That's quite the compliment."
+
+    hide be laughing laughter
+    show be at top
     jo "I guess I never listened closely before, what with all the usual noises in the bar."
     "From behind, the stag do group lets out a loud cheer, even louder than before."
     jo "I thought they would have left by now."
+
+    hide be with dissolve
     "One of the party approaches the bar and Bernard steps away to fulfil their order." 
+
+    show be at top with dissolve
     "When Bernard returns, he gestures towards the man who's waiting at the counter."
-    be "Would you like another drink? The \"gentlemen\" down there is buying."
-    "I turn and accidentally make eye contact with said \"gentlemen\"."
+    be "Would you like another drink? The \"gentleman\" down there is buying."
+    "I turn and accidentally make eye contact with said \"gentleman\"."
     "He grins and waves."
     "Am I feeling another drink?"
     "Tomorrow is another work day. {w}I probably shouldn't but…it might make me feel better?"
@@ -2238,18 +2256,24 @@ label firstWeekGoBar:
     be "Most likely, yes. I've seen a few where one of them gets sent to ask someone out as punishment."
     be "Usually doesn't end well but sometimes you get a couple… couples."
     jo "Felt like a cop out then."
+
+    show be laughing laughter at top
     "Bernard laughs."
     be "Were you looking to be asked out?"
+
+    hide be laughing laughter
+    show be at top
     jo "...No."
     be "Well, I say good on him, not getting swayed by his friends. Keeping his distance was a respectful move."
 
     
     if acceptBernardDrink:
+        show be amused at top
         jo "You know, I think I've had enough for today after all."
         "Seeing a random stranger have more conviction to be themself in the face of social pressure makes me want to go to bed."
         "Or maybe it's just bedtime regardless."
         jo "Gonna head out now, Bernard. Cheers."
-        be "See you around. Get home safe."
+        be "See you around. {w}Get home safe."
 
 #---------------
 label weekOneEnding:
@@ -2278,7 +2302,7 @@ label weekOneEnding:
         "I thought it did make me happy at the time…so why do I have so much lingering regret?"
         hide sa happy with dissolve
 
-    "Regret about… {w}ust the shoes right?"
+    "Regret about… {w}Just the shoes right?"
     
     scene bg_flat_mc_bed with dissolve
     play sound "audio/sfx/27-sfx_gettingintobed.ogg"
