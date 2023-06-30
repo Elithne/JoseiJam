@@ -2153,18 +2153,23 @@ label firstWeekGoBar:
             be "That's true in all of life isn't it?"
         
         "Ask Bernard for advice.":
+            show be at top with dissolve
             jo "Bernard…have you ever tried to change who you were to match someone else's ideal?"
+            show be annoyed at top
             be "Hmm…"
             be "I suppose I run into that problem a good bit as an actor."
-            be "As much as anyone can technically play any role in theatre–and we certainly have seen it happen throughout history–there are…preferred conventions that people tend to fall back on."
+            be "As much as anyone can technically play any role in theatre. {w}And we certainly have seen it happen throughout history. {w}There are… preferred conventions that people tend to fall back on."
+            
+            hide be annoyed
+            show be at top
             be "I'm lucky to be working at a smaller scale where there's less pressure to conform, but it still looms overhead."
             jo "Oh."
-            "That sounds difficult indeed. But I guess I meant…"
+            "That sounds difficult indeed. {w}But I guess I meant…"
             jo "What about in your personal life?"
             "Bernard visibly hesitates."
             be "My personal life?"
             "Bernard spends so long staring at the glass he's polishing that I wonder if I've made a blunder and asked something too personal after all."
-            be "Thinking back, there were a few instances, but… it was a long time ago."
+            be "Thinking back, there were a few instances, but… {w}It was a long time ago."
             be "I eventually learned that I shouldn't pretend to be someone that I'm not for other people's approval."
             be "Funny to say that considering my line of work."
             "It takes me a second to remember he's referring to acting not bartending."
@@ -2174,11 +2179,11 @@ label firstWeekGoBar:
             "I do indeed feel like garbage."
             "I down the rest of my drink."
             jo "What did you do to not feel gross?"
-            be "Well, first, giving myself room to feel that way was important. I had to recognize what I was feeling and why I felt that way."
-            be "And then, afterwards, I made sure that any improvements I made upon myself were actually worth something. That I was doing things to be happy or to grow as a person in a positive direction. That's the best way to keep moving forward."
+            be "Well, first, giving myself room to feel that way was important. {w}I had to recognize what I was feeling and why I felt that way."
+            be "And then, afterwards, I made sure that any improvements I made upon myself were actually worth something. {w}That I was doing things to be happy or to grow as a person in a positive direction. {w}That's the best way to keep moving forward."
             jo "I guess that makes sense."
             "Bernard smiles."
-            be "Of course, taking my advice is also something you should think about in your own terms. If it makes you happy or helps you improve, by all means…"
+            be "Of course, taking my advice is also something you should think about in your own terms. {w}If it makes you happy or helps you improve, by all means…"
 
     "I realise this might be the most I've ever heard Bernard speak without interruption."
     "He has a nice voice, well suited for an actor."
@@ -2198,7 +2203,7 @@ label firstWeekGoBar:
     "I turn and accidentally make eye contact with said \"gentlemen\"."
     "He grins and waves."
     "Am I feeling another drink?"
-    "Tomorrow is another work day. I probably shouldn't but…it might make me feel better?"
+    "Tomorrow is another work day. {w}I probably shouldn't but…it might make me feel better?"
     "A more rational part of me recognises that the \"feel better\" part is going to be temporary."
     "Bernard waits patiently for my answer."
 

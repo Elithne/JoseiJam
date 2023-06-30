@@ -49,11 +49,3 @@ sfx_drinkpass
 sfx_barcheer2
 sfx_barcheer3
 sfx_booing
-
-play sound "audio/sfx/28-sfx_poetrytyping.ogg"
-
-
-
- scene bg_flat_mc_dark with fade
-
-    scene bg_flat_mc with dissolve
