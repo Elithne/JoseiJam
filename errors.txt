@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1433: choice menuitem expects a non-empty block.
-    "Yes, this is a terrible idea.":
-                                    ^
+File "game/script.rpy", line 21: expected '=' not found.
+    default changedPassword
+                           ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Thu Jun 29 22:27:55 2023
+Thu Jun 29 23:40:27 2023

@@ -12,10 +12,14 @@ define jo = Character("Josephine", color="#c3acce", callback = name_callback, cb
 
 #Choices
 default goodChoiceBernard = 0
+default goodChoiceAlex = 0
 default goodChoiceMarcos = 0
 default goodChoiceSam = 0
 default goodChoiceSonal = 0
 default goodChoiceJosephine = 0 #General Ending that will have an impact with how she deals with her breakup.
+
+#ExtraChoices
+default changedPassword = False
         
 # The game starts here.
 init:
@@ -1437,162 +1441,140 @@ label intro:
         "...I'm sure it'll be fine this time."
         "After all, I'd have to break them in anyway. Might as well be today."
         
+
         scene bg_transition_subwaytrain with fade
         play sound "audio/sfx/11-sfx_subwaytransition.ogg"
 
-        scene bg_transition_subwaysign with fade
         "Since I woke up so early, I'm able to head to work at a leisurely pace."
         "Which is good, because the heels pinch a bit, but at least they look great!"
+        scene bg_transition_subwaysign with fade
+        pause(2.0)   
+
+        scene black with fade
+        play sound "audio/sfx/32-sfx_elevatording.ogg"
+        pause(3.0)
 
         scene bg_office_elevator with fade
-        play sound "audio/sfx/32-sfx_elevatording.ogg" 
-
-        #sfx elevatording
+        show al at top with dissolve
 
         al "Morning [playerName!q]!"
-
         jo "Morning!"
-
         al "You're here earlier than usual."
-
         jo "Oh, only by a little."
-
+        show al questionmark at top
         al "You seem different today–is that a new outfit?"
-
         jo "I might have gone shopping over the weekend."
 
+        hide al
+        show al happy at top
         al "Oh what's the occasion? You look very fresh."
-
         jo "...No occasion, just wanted to try something new."
-
         al "Oh, yes, I suppose sometimes a change is nice!"
-
-        al "Though, I wouldn't have been surprised if you had a reason to dress up today– it's very different from your usual look!"
-
+        al "Though, I wouldn't have been surprised if you had a reason to dress up today. {w}It's very different from your usual look!"
         jo "Um, thanks."
 
         "Why do I feel so annoyed by this conversation?"
-
         "I glance at Alex who is pointedly not looking at me, like she's waiting for me to fess up about who it is I'm looking to impress."
 
-        #sfx elevatorarrival ding
+        play sound "audio/sfx/33-sfx_elevatorarrival.ogg" 
 
         jo "Well here we are."
-
         al "See you around!"
 
-        #Alex leaves
-
-        #transition to bg desk
-
+        hide al with dissolve
+        
+        scene bg_office_desks with fade
         jo "Let's see, what's on the old agenda today?"
 
+        show son exclamation at top with dissolve
         son "Oh [playerName!q], hello."
 
-        "Sonal's stopped at my desk, a look of mild surprise on her face. It's quickly replaced by her standard expression of professional politeness."
+        hide son exclamation
+        show son at top
 
+        "Sonal's stopped at my desk, a look of mild surprise on her face.{w} It's quickly replaced by her standard expression of professional politeness."
         "I guess clothes are on my mind, because I mentally note how Sonal looks like she has her life together even without a brand new outfit. I aspire to reach her level of effortless but striking fashion."
-
         "We start speaking at the same time."
 
         son "Did you get around to changing your password?"
-
         jo "You look nice today, Sonal."
 
+        show son annoyed questionmark at top
         son "....huh?"
-
-        #sonal confused
-        #sonal annoyed
-
+            
+        hide son annoyed questionmark
+        show son annoyed at top
         jo "M-my password?"
 
-        son "Was that–I mean, not sure if you remember from last week, but IT sent an email telling everyone to change their work passwords. Your name is on the list of people who I've been told to specifically speak to in person. Again, I mean."
-
+        son "Was that– I mean, not sure if you remember from last week, but IT sent an email telling everyone to change their work passwords. {w}Your name is on the list of people who I've been told to specifically speak to in person. {w}Again, I mean."
+        
         "That's actually very embarrassing."
-
+        
         jo "Sorry, I'll get to it today."
-
         son "As soon as possible, please."
-
+        hide son with dissolve
         "Sonal leaves without addressing my orphaned compliment."
-
         "I'm not sure if I'm relieved or horrified."
 
-        #choice
+        menu: 
+            "Change password now.":
+                $ goodChoiceSonal+= 1
+                $ changedPassword = True
 
-        #choice 1
-        #"Change password now."
-        #Sonal + 1
-        # variable: changedpw
-        "As for my password… I'm definitely going to forget to change it later."
-
-        "And I don't want to have Sonal coming around again on the very high chance that I'll say something even more embarrassing out loud."
-
-        jo "Let's get that fixed up right now. Where is the link to the account settings…ah here…"
-
-        #sfx keyboard
-
-        "Fueled by the social pressure, I get the task done in no time."
-
-        "Not going to lie, I feel slightly closer to the efficiency of Sonal's work ethic just by completing this one little thing."
-
-        #choice 2
-        #"Change password later."
-        #Alex +1, Marcos +1
-        "About my password… well it's not exactly watertight but it's not getting hacked in one morning if it hasn't failed already."
-
-        "I'll get to it after the rest of my work is done."
-
-        "I put the IT department's emails in the back of my mind, filed away for a better time."
-
-        #end choices
+                "As for my password… I'm definitely going to forget to change it later."
+                "And I don't want to have Sonal coming around again on the very high chance that I'll say something even more embarrassing out loud."      
+                jo "Let's get that fixed up right now. Where is the link to the account settings…ah here…"
+                
+                play sound "audio/sfx/34-sfx_changepassword.ogg"
+                
+                "Fueled by the social pressure, I get the task done in no time."
+                "Not going to lie, I feel slightly closer to the efficiency of Sonal's work ethic just by completing this one little thing."
+            "Change password later.":
+                $ goodChoiceMarcos+=1
+                $ goodChoiceAlex+=1
+                $ changedPassword = False
+                "About my password… well it's not exactly watertight but it's not getting hacked in one morning if it hasn't failed already."
+                "I'll get to it after the rest of my work is done."
+                "I put the IT department's emails in the back of my mind, filed away for a better time."
 
         "The morning work is pretty standard and before long, I reach a good place to take a break."
-
         jo "Let's get up and stretch our legs…"
-
         "Time for a cuppa, I think."
-
         "I head to the office kitchen."
 
-        #bg_workkitchen
-
+        scene bg_office_kitchen with dissolve
+        
+        show son at top with dissolve
         "Surprisingly, or perhaps not surprisingly, Sonal is in the kitchen, already boiling water in the kettle."
 
         son "Oh, [playerName!q], I was just about to come ask if anyone else wanted a cup."
-
         jo "Well, I saved you a trip!"
-
         son "I guess, you did. Though, I'll still have to ask the others–"
-
         jo "Oh, right."
-
         "Sonal doesn't make a move to leave just yet though."
+
+        if changedPassword:
+            jo "...Before I forget, I just wanted to let you know I changed my password."
+            show son happy sparkle at top
+            son "That's great! Thanks for getting to that so fast."
+            jo "One less thing to worry about."
+            son "Yes, exactly."
+            
+            show son embarrassed blush at top
+            son "Also, um, I didn't do anything special but– thanks for the compliment. {w}Earlier, I mean."
+            son "And you look nice too."
+            "I'm genuinely pleased to hear that from Sonal. {w}Perhaps we could get along better if all of our interactions were like this?"
+            jo "Thanks."
+            son "..."
+            jo "..."
+            "Maybe that was too much wishful thinking."
 
         #if changedpw true
 
         jo "...Before I forget, I just wanted to let you know I changed my password."
 
         #sonal smile
-        son "That's great! Thanks for getting to that so fast."
-
-        jo "One less thing to worry about."
-
-        son "Yes, exactly."
-
-        son "Also, um, I didn't do anything special but– thanks for the compliment. Earlier, I mean."
-
-        son "And you look nice too."
-
-        "I'm genuinely pleased to hear that from Sonal. Perhaps we could get along better if all of our interactions were like this?"
-
-        jo "Thanks."
-
-        son "..."
-
-        jo "..."
-
-        "Maybe that was too much wishful thinking."
+        
 
         #if changedpw false
 
