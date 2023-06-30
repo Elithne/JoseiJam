@@ -717,12 +717,14 @@ label intro:
 
 
         #transition
-        #bg_workplace
+        scene bg_office_desks with fade
 
         #sfx of typing
         #cue marcos music
 
         ma "Still hard at work, sweetheart?"
+
+        show ma at top
 
         "I look up to see Marcos standing at my side."
 
@@ -741,6 +743,8 @@ label intro:
         "Don't panic, [playerName!q], he's likely just finding people for an after work pub visit… although I didn't realise we had interacted enough for him to want to hang out like that."
 
         jo "N-nothing special, I think. Go down to the local, probably, but–"
+
+        show ma smug at top
 
         ma "Great, great, see, I have a bit of work left to do–"
 
@@ -768,15 +772,16 @@ label intro:
 
         "Well… I mean, it's good to help people out right? And… he's basically saying he'll owe me one right?"
 
-        #choice
+        menu:
+            "Tell Marcos I can't do it.":
+                jump marcosSonalScene
 
-        #choice 1
-        #"Tell Marcos I can't do it."
+            "Agree to take on the work.":
+                jump marcosSonalScene
 
-        #choice 2
-        #"Agree to take on the work."
+            
 
-        #both lead to:
+    label marcosSonalScene:
 
         jo "Actually…"
 
@@ -787,6 +792,7 @@ label intro:
         ma "Sonal! Great timing– just who I wanted to see."
 
         "Sonal hesitates, though her body is still turned away as if she's poised to leave as soon as possible."
+
 
         #son shocked/disgusted face but mild
 
