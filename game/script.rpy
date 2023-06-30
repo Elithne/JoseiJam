@@ -1677,7 +1677,12 @@ label firstWeekGoHome:
     "Even standing up is a chore. I can feel my heels cutting into my feet in a way I must not have felt all day through sheer willpower."
     jo "Best to get home as soon as possible."
 
+<<<<<<< Updated upstream
     scene bg_transition_subwaysign with fade
+=======
+    play sound "11-sfx_subwaytransition"
+
+>>>>>>> Stashed changes
     jo "Ow."
     scene bg_street_night with fade
     jo "Ow."

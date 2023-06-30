@@ -1,12 +1,21 @@
+<<<<<<< Updated upstream
 Fri Jun 30 09:05:50 2023
+=======
+Fri Jun 30 07:52:51 2023
+>>>>>>> Stashed changes
 Windows-10-10.0.19045
 Ren'Py 8.0.3.22090809
  
 
 Bootstrap to the start of init.init took 0.04s
 Early init took 0.00s
+<<<<<<< Updated upstream
 Loader init took 0.03s
 Loading error handling took 0.02s
+=======
+Loader init took 0.04s
+Loading error handling took 0.03s
+>>>>>>> Stashed changes
 Loading script took 0.33s
 Loading save slot metadata. took 0.03s
 Loading persistent took 0.00s
