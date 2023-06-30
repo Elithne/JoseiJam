@@ -935,6 +935,8 @@ label intro:
 
         jo "W-wait–!" 
 
+        hide ma with dissolve
+
         "Aaaaaand he's gone."
 
         "...This won't take too long, will it?"
@@ -953,10 +955,15 @@ label intro:
 
         jo "I need to get a drink."
 
+<<<<<<< Updated upstream
         scene bg_transition_subwaysign
+=======
+        scene bg_transition_subwaysign with fade
+        scene bg_transition_subwaytrain with fade
+>>>>>>> Stashed changes
         #sfx subway noise
 
-        #bg_bar
+        scene bg_bar with fade
         #sfx bar crowd
 
         be "Hey. Good to see you. The usual?"
