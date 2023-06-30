@@ -47,6 +47,7 @@ label start:
         $ playerName = "Josephine"
     $ jo = Character("[playerName]", color="#c3acce")
 
+    play sound "audio/sfx/28-sfx_poetrytyping.ogg"
     show filledsignuppage
     show screen login with dissolve         
     pause(3)
@@ -2015,98 +2016,140 @@ label firstWeekGoBar:
     "No, no one says that."
     "I still find myself heading to the Better Days Bar anyway."
     
-    #bg bar
-    #sfx bar noises
+    scene bg_bar with fade
+    play sound "audio/sfx/46-sfx_barambience2.ogg"
 
+    show be at top with dissolve
     be "[playerName!q]."
     jo "Hi Bernard. Busy in here today, huh?"
-    be "Stag do pub crawl. They've been here for a while so they should be on their way out soon." 
+    be "Stag do pub crawl. {w}They've been here for a while so they should be on their way out soon." 
     "We both watch as one of the men in the stag party attempts to drunkenly toss a ping pong ball into a haphazard formation of red cups."
 
-    #sfx cheer
+    play sound "audio/sfx/47-sfx_barcheer1.ogg"
 
     "He misses and everyone cheers."
+
+    show be at top 
     be "Anyway, what can I get you today?"
     jo "Uh… what do you have that's good for numbing pain?"
+
+    show be amused at top
     be "That bad of a day?"
-    jo "Well yes and no. But really my feet are just killing me. Though I wouldn't say that I couldn't be in a better mental state too."
+    jo "Well yes and no. {w}But really my feet are just killing me. {w}Though I wouldn't say that I couldn't be in a better mental state too."
+
+    show be annoyed at top
     "Bernard says something to himself, not quietly, but not particularly directed at me either."
     be "Give me a bowl of wine. I have not that alacrity of spirit, nor cheer of mind that I was wont to have."
     "I do a double take, not sure if I just suddenly stopped understanding English or if Bernard has stopped speaking it."
     jo "..."
     jo "Is that… a reference to something?"
+    
+    show be shockmark at top 
     "Bernard looks surprised and then smiles."
+
+    hide be shockmark
+    show be happy at top 
     be "Richard III."
     be "The play, not the king."
+    
+    hide be happy
+    show be at top
     jo "Shakespeare, right? We only did Macbeth and Romeo and Juliet in school. I think Hamlet too, but if I'm being honest, I got by without fully reading that one."
     be "It's pretty interesting rereading them as adults outside of an academic setting."
-    jo "I'll take your word for it. In my opinion, Shakespeare is best left to historians and other boring people."
+    jo "I'll take your word for it. {w}In my opinion, Shakespeare is best left to historians and other boring people."
+
+    show be questionmark at top
+    
     "Bernard gives me a strange look."
     "Some tidbit of forgotten information passes through my mind, too fast to really let sink in."
-    "Ah wait. Wait, wait, wait."
-    "Bernard…Bernard is an actor."
-    jo "And the interesting people! Like theatre people!"
+    "Ah wait. {w}Wait, wait, wait."
+    "Bernard… {w}Bernard is an actor."
+    jo "And the interesting people! {w}Like theatre people!"
     jo "D-do you have other quotes about drinks that you just have to know while working in a bar?"
     "Bernard laughs."
+
+    hide be questionmark
+    show be amused at top
     be "It's a personal choice, not a mandatory curriculum, no."
     "Bernard passes my drink over the counter."
     
-    #sfx_drinkpass
+    play sound "audio/sfx/48-sfx_drinkpass.ogg"
+
     be "Good wine is a good familiar creature, if it be well used."
     jo "Let me guess… A Midsummer's Night's Dream?"
     be "Othello."
     be "Although, that line is uttered by the villain trying to guilt someone they already got drunk once into unknowingly participating in a malicious plot against his boss."
-    be "So…perhaps not the thing for your bartender to say as they offer you a drink."
+    be "So… {w}Perhaps not the thing for your bartender to say as they offer you a drink."
 
-    #bernard smile
+    show be happy at top
     jo "You're not going to convince me to plot against my boss?"
     be "Not this time."
     "A loud cheer goes up behind me as the members of the stag do celebrate another miss."
     
-    #sfx_barcheer2
-    be "A lesson in picking your friends and not letting other people control the narrative. And, I suppose, drinking in moderation."
+    play sound "audio/sfx/49-sfx_barcheer2.ogg"
+
+    hide be happy 
+    show be at top
+    be "A lesson in picking your friends and not letting other people control the narrative. {w}And, I suppose, drinking in moderation."
     jo "What, beer pong?"
     be "The point of Othello."
+
+    hide be with dissolve
     "Bernard leaves me alone with my thoughts as he goes to pour someone else a drink."
     "I remember that I was lamenting about that exact thing earlier: not having control over my narrative."
     "How did Bernard know? Special bartender senses?"
-    "Although… I guess Bernard doesn't have much control over how his work day goes either, what with the rowdy bachelors and all."
+    "Although… {w}I guess Bernard doesn't have much control over how his work day goes either, what with the rowdy bachelors and all."
     "When Bernard returns, I decide to cut him some slack by actively not talking about myself. What's an interesting conversation topic?"
 
     menu: 
         "Ask Bernard about his life.":
             $ goodChoiceBernard+=1
 
+            show be at top with dissolve
             jo "How are things recently, Bernard?"
             be "In the bar? Not too bad."
             jo "And in life?"
             be "Not too bad."
             jo "Right."
             jo "Nothing you want to get off your chest?"
-            jo "I feel like I complain to you quite a bit, is all. I'm here to reverse the roles and listen for a bit if you'd like?"
+            jo "I feel like I complain to you quite a bit, is all. {w}I'm here to reverse the roles and listen for a bit if you'd like?"
+
+            show be amused at top
             "Bernard smiles."
             be "That's very nice of you."
             "Bernard picks up a wine glass and starts polishing it."
             be "Well, if I'm being honest, I've been kind of stressed lately."
             jo "Lot of disorderly drunks recently?"
+
+            show be happy tinyflowers at top
             be "I'm in a play right now, in the leading role."
             jo "Oh wow, congratulations!"
             "I never would have guessed. Bernard's here all the time as far as I know."
             jo "When do you find time to practise?"
+            
+            hide be happy tinyflowers
+            show be at top
             be "Most of our rehearsals are during the day. Just upstairs actually."
-            "I glance at the ceiling. I knew a lot of pubs had small-scale theatres above them, but I didn't realise this bar was one of those places."
+            "I glance at the ceiling. {w}I knew a lot of pubs had small-scale theatres above them, but I didn't realise this bar was one of those places."
             "I guess I wasn't paying enough attention to the people around me."
             be "I also do a smidge of practice at home after work."
             be "It's no West End production, obviously, but I still need to bring my best."
             "Bernard sets the glass down and picks up another."
             be "I know the words by heart but I still get nervous."
-            be "We have about a month left of rehearsals so… just enough time to start panicking, if I'm not careful."
+            be "We have about a month left of rehearsals so… {w}Just enough time to start panicking, if I'm not careful."
+
+            show be amused at top
             "Bernard gives me a wan smile."
             be "The closer we get to the opening, the more dreams I have that I'm going to walk on stage and just freeze."
-            be "I know it's irrational. You'd think I'd never acted in my life. I've never been in a leading role, though, so that's probably contributing to my nerves. And nightmares."
+
+            show be annoyed at top
+            be "I know it's irrational. {w}You'd think I'd never acted in my life. {w}I've never been in a leading role, though, so that's probably contributing to my nerves. {w}And nightmares."
             "Bernard moves onto a third glass."
             be "It's just that if I get this right, I know I can dazzle the crowd and maybe impress some important people."
-            be "But you know, you can't control what the audience thinks of you. What they bring with them into the theatre and what they take out of it. All I can do is give my best performance. Something I'm satisfied with."
+
+            hide be annoyed
+            show be at top
+            be "But you know, you can't control what the audience thinks of you. {w}What they bring with them into the theatre and what they take out of it. {w}All I can do is give my best performance. Something I'm satisfied with."
             be "That's true in all of life isn't it?"
         
         "Ask Bernard for advice.":
@@ -2167,7 +2210,7 @@ label firstWeekGoBar:
             "Benard nods and pours another drink for me."
             "I raise the glass to the stranger who raises his own."
 
-            #sfx boo
+            play sound "audio/sfx/51-sfx_booing.ogg"
             "We each take a big sip of our respective drinks before he returns to his friends. They let out a chorus of boos."
             "The combination of the sound and the additional drink make my head spin a little."
 
@@ -2176,7 +2219,7 @@ label firstWeekGoBar:
             jo "I think I'm good for the night."
             "Bernard shakes his head at the man."
 
-            #sfx boo
+            play sound "audio/sfx/51-sfx_booing.ogg"
             "The stranger raises a glass to me and heads back to his loudly booing friends."
 
     be "That was the tamer version of that dare that I've seen."
@@ -2199,49 +2242,55 @@ label firstWeekGoBar:
 
 #---------------
 label weekOneEnding:
-
-    #transition to bg_joflat_entrance
+    scene bg_flat_mc_dark with fade
 
     if weekOneGoOut:
-        "I stagger into my flat. My feet are screaming from the trip home and the alcohol in my system and god, am I eager to be rid of these heels."
+        "I stagger into my flat. {w}My feet are screaming from the trip home and the alcohol in my system and god, am I eager to be rid of these heels."
         "With some difficulty, I peel them off and discard them amongst my other shoes."
     else: 
         "I get back to my flat, full but tired, with my feet still in subpar condition."
         "My heels, which I decided to leave off for the rest of the night, are dumped haphazardly onto my shoe rack."
 
-    "For some reason, I'm saddened by the sight of the new shoes, creased with one day's wear and the clear signs of something shoved into a container that was an ill fit."
+    "For some reason, {w}I'm saddened by the sight of the new shoes, creased with one day's wear and the clear signs of something shoved into a container that was an ill fit."
     jo "Do shoes count as a container?"
     "That silly line of thought doesn't really hide the sudden melancholia I feel."
-    "I made the choice to wear those heels after all, even if I could have predicted the aftermath. Was it really worth the damage to both my feet and the shoes though?"
+    "I made the choice to wear those heels after all, even if I could have predicted the aftermath. {w}Was it really worth the damage to both my feet and the shoes though?"
 
     if weekOneGoOut:
+        show be happy at top with dissolve
         "Bernard's words about being authentic to myself rather than pretending to meet someone else's standards come to mind."
         "I thought I was meeting my own standards, honestly…so why do I feel so much regret?"
-    else: 
+        hide be happy with dissolve
+    else:
+        show sa happy at top with dissolve
         "Sam's words about not doing anything that doesn't make me personally happy come to mind."
         "I thought it did make me happy at the time…so why do I have so much lingering regret?"
+        hide sa happy with dissolve
 
-    "Regret about…just the shoes right?"
+    "Regret about… {w}ust the shoes right?"
     
-    #bg_joflat_room
-    #sfx bed noises
+    scene bg_flat_mc_bed with dissolve
+    play sound "audio/sfx/27-sfx_gettingintobed.ogg"
 
     "As I sink into bed, the Tangram photo I was purposefully not thinking about flashes in my mind."
-    "They looked happy and perfect together. Well matched."
+    "They looked happy and perfect together. {w}Well matched."
     "Unlike the damage that was wrought by two people desperately trying to fit each others' incompatible moulds."
-    jo "What if I had kept at it though? Would it have worked out?"
+    jo "What if I had kept at it though? {w}Would it have worked out?"
     "Like heels that are eventually broken in?"
-    "Or would that have just led to more hurt in the end? More than what a few bandages could repair?"
+    "Or would that have just led to more hurt in the end? {w}More than what a few bandages could repair?"
     "Did I do the right thing by removing myself when I did?"
     jo "No use dwelling on 'what-ifs.'"
     "But even as I close my eyes, that's all that fills my mind: a nightmarish spectacle of parallel worlds where we made it work one way or another."
 
-    #sfx typing poems
-    #insert poem here
+    play sound "audio/sfx/28-sfx_poetrytyping.ogg"
+    scene black with fade
+    show cringepoetry2 with dissolve
 
     "It’s like you’ve made a home in the marrow of my bones"
     "And wrapped yourself around every blood vessel "
     "Until my cells stopped needing oxygen and started wanting"
     "You."
+
+    hide cringepoetry2 with dissolve
     
     return

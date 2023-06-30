@@ -2,17 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1680: expected statement.
-    <<<<<<< Updated upstream
-                            ^
-
-File "game/script.rpy", line 1682: expected statement.
-    =======
-          ^
-
-File "game/script.rpy", line 1685: expected statement.
-    >>>>>>> Stashed changes
-                           ^
+File "game/script.rpy", line 2022: end of line expected.
+    show be at top counter with dissolve
+                   ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Fri Jun 30 09:33:22 2023
+Fri Jun 30 10:03:22 2023

@@ -1,15 +1,15 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading <renpy.display.im.Image object ('sprites/marcos/ma_tinyflowers.png') at 0x0000000005b66be0>:
-  File "game/script.rpy", line 1612, in script
-    ma "Of course! And even as our interns, you can call me Marcos. After all, I've known most of you since you were in nappies."
-OSError: Couldn't find file 'sprites/marcos/ma_tinyflowers.png'.
+While loading <renpy.display.im.Image object ('backgrounds/show bg_bar_counter.png') at 0x0000000005a3a610>:
+  File "game/script.rpy", line 2034, in script
+    be "Anyway, what can I get you today?"
+OSError: Couldn't find file 'backgrounds/show bg_bar_counter.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 1612, in script
-    ma "Of course! And even as our interns, you can call me Marcos. After all, I've known most of you since you were in nappies."
+  File "game/script.rpy", line 2034, in script
+    be "Anyway, what can I get you today?"
   File "C:\Users\Usuario\Documents\Renpy\renpy\ast.py", line 921, in execute
     renpy.exports.say(who, what, *args, **kwargs)
   File "C:\Users\Usuario\Documents\Renpy\renpy\exports.py", line 1373, in say
@@ -74,9 +74,9 @@ Full traceback:
     filelike = renpy.loader.load(self.filename)
   File "C:\Users\Usuario\Documents\Renpy\renpy\loader.py", line 820, in load
     raise IOError("Couldn't find file '%s'." % name)
-OSError: Couldn't find file 'sprites/marcos/ma_tinyflowers.png'.
+OSError: Couldn't find file 'backgrounds/show bg_bar_counter.png'.
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.0.3.22090809
 The Working Woman's Guide to Burning Bridges 1.0
-Fri Jun 30 00:24:22 2023
+Fri Jun 30 10:02:48 2023

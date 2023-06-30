@@ -111,6 +111,9 @@ label define_sprites:
                 "sprites/bernard/be_sweat.png"
             attribute tinyflowers:
                 "sprites/bernard/be_tinyflowers.png"
+        group extras:
+            attribute counter:
+                "backgrounds/bg_bar_counter.png"
 
     #Marcos
     layeredimage ma:
