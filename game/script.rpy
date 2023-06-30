@@ -822,7 +822,7 @@ label intro:
 
         ma "Ah, still on my to-do list, I'm afraid. I have a bit of a conundrum that I was wondering if you could help me with Sonal."
 
-        show son nervous at topright with dissolve
+        show son nervous at topleft with dissolve
 
         "Sonal glances at me."
 
@@ -834,7 +834,7 @@ label intro:
 
         "Maybe she wants to have Marcos in her debt?"
 
-        show ma smug at topleft with dissolve
+        show ma smug at topright with dissolve
 
         ma "Oh, glad we're already on the same page!"
 
@@ -864,7 +864,7 @@ label intro:
 
         ma "We wouldn't want to push her past her limits." 
 
-        show son annoyed at topright with dissolve
+        show son annoyed at topleft with dissolve
 
         son "..."
 
@@ -893,17 +893,17 @@ label intro:
 
         jo "I think Sonal deserves a day off."
 
-        show ma shocked at topleft with dissolve
+        show ma shocked at topright with dissolve
 
         pause 2.0
 
-        show ma obnoxious at topleft with dissolve
+        show ma obnoxious at topright with dissolve
 
         ma "You're probably right. Sonal's looking a little tired."
 
         ma "We don't want to push her past her limits. Make sure to take breaks, Sonal!"
 
-        show son annoyed at topright with dissolve
+        show son annoyed at topleft with dissolve
 
         son "..."
 
