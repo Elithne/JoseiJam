@@ -787,6 +787,12 @@ label intro:
 
         "Sonal walks by and actively turns back around to stop and talk to the both of us."
 
+        hide ma with dissolve
+
+        show son neutral at topright with dissolve
+
+        show ma neutral at topleft with dissolve
+
         son "Hey, before either of you leave for the evening, make sure to change your passwords. IT sent out an email but I was specifically instructed to remind everyone verbally."
 
         ma "Sonal! Great timing– just who I wanted to see."
@@ -794,11 +800,17 @@ label intro:
         "Sonal hesitates, though her body is still turned away as if she's poised to leave as soon as possible."
 
 
-        #son shocked/disgusted face but mild
+        show son shocked at topright with dissolve
+
+        pause 2.0
+
+        show son neutral at topright with dissolve
 
         son "...Did you already change your password? Great. I applaud your industriousness, Marcos."
 
         ma "Ah, still on my to-do list, I'm afraid. I have a bit of a conundrum that I was wondering if you could help me with Sonal."
+
+        show son nervous at topright with dissolve
 
         "Sonal glances at me."
 
@@ -809,6 +821,8 @@ label intro:
         "Or is she trying to figure out if I'm a threat to her interest in Marcos?"
 
         "Maybe she wants to have Marcos in her debt?"
+
+        show ma smug at topleft with dissolve
 
         ma "Oh, glad we're already on the same page!"
 
@@ -826,6 +840,13 @@ label intro:
 
         #choice
         #"Agree with Marcos."
+        menu:
+            "Agree with Marcos.":
+                jump agreeMarcos
+            "Backup Sonal.":
+                jump backupSonal
+
+    label agreeMarcos:
 
         jo "Yes, that's too bad." 
 
@@ -833,7 +854,7 @@ label intro:
 
         ma "We wouldn't want to push her past her limits." 
 
-        #sonal unamused
+        show son annoyed at topright with dissolve
 
         son "..."
 
@@ -843,7 +864,9 @@ label intro:
 
         ma "Remember to take breaks, Sonal!"
 
-        #sonal leaves
+        hide all with dissolve
+
+        show ma at top with fade
 
         ma "Well, sweetheart, I wanted to spare you but you're my only hope."
 
@@ -851,24 +874,33 @@ label intro:
 
         ma "Oh good, I didn't want to have to get on my knees and beg."
 
+        jump marcosWork
 
-        #end choice 1
 
-        #"Backup Sonal."
+
+    label backupSonal:
 
         jo "I think Sonal deserves a day off."
 
-        #ma shocked
+        show ma shocked at topleft with dissolve
+
+        pause 2.0
+
+        show ma obnoxious at topleft with dissolve
 
         ma "You're probably right. Sonal's looking a little tired."
 
         ma "We don't want to push her past her limits. Make sure to take breaks, Sonal!"
 
+        show son annoyed at topright with dissolve
+
         son "..."
 
         son "I'll be sure to head home as soon as possible to get more rest. Thank you for your concern."
 
-        #sonal leaves
+        hide all with dissolve
+
+        show ma at top with fade
 
         ma "Always classy, that one."
 
@@ -878,8 +910,9 @@ label intro:
 
         ma "You and Sonal! Look at you, taking on extra work for her."
 
-        #end choice 2
+        jump marcosWork
 
+    label marcosWork:
 
         "What–?"
 
