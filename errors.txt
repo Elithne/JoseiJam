@@ -2,7 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1406: Indentation mismatch.
+File "game/script.rpy", line 39: expected statement.
+    centered loginpage with dissolve
+                       ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Fri Jun 30 00:01:51 2023
+Fri Jun 30 02:13:18 2023

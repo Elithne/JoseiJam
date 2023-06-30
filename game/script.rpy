@@ -5,9 +5,13 @@ define narrator = Character(None, what_italic=True, callback = name_callback, cb
 define al = Character("Alex", color="#ffffff", callback = name_callback, cb_name = "alex")
 define be = Character("Bernard", color="#ffffff", callback = name_callback, cb_name = "bernard")
 define ex = Character(". . .", color="#ffffff")
+define gar = Character("Garlic Johansonn", color="#c3acce", callback = name_callback, cb_name = "garlic")
+define gin = Character("Ginger Snap", color="#c3acce", callback = name_callback, cb_name = "ginger")
 define ma = Character("Marcos", color="#ffffff", callback = name_callback, cb_name = "marcos")
+define rap = Character("Rapscallion", color="#c3acce", callback = name_callback, cb_name = "rapscallion")
 define sa = Character("Sam", color="#ffffff", callback = name_callback, cb_name = "sam")
 define son = Character("Sonal", color="#ffffff", callback = name_callback, cb_name = "sonal")
+define stu = Character("Student", color="#ffffff", callback = name_callback, cb_name = None)
 define jo = Character("Josephine", color="#c3acce", callback = name_callback, cb_name = None)
 
 #Choices
@@ -20,6 +24,9 @@ default goodChoiceJosephine = 0 #General Ending that will have an impact with ho
 
 #ExtraChoices
 default changedPassword = False
+default checkedSamPhone = False
+default acceptBernardDrink = False
+default weekOneGoOut = False
         
 # The game starts here.
 init:
@@ -28,41 +35,37 @@ init:
 
 
 label start:
-    scene login
     #Prologue 
-
-    #[intro]
-    #real phone screen
-
-    #create new account
-    #input name, saving it into Jo's character
-    #put player name
+    scene black
+    show loginpage with dissolve
+    pause(1.5)
+    show emptysignuppage with dissolve
     $ playerName = renpy.input(_("My name is..."), default = "Josephine", length=12)
     $ playerName = playerName.strip()
 
     if playerName == "" or playerName == " ":
         $ playerName = "Josephine"
-
     $ jo = Character("[playerName]", color="#c3acce")
 
-    show screen login          
-    "Login Successful!"
-    hide screen login
+    show filledsignuppage
+    show screen login with dissolve         
+    pause(3)
     jump intro
     
-
 label intro:
-    #go to ex's profile
+    scene black with fade
+    show mcprofile with dissolve 
+    "Successful!"
     play music "audio/SAD - A Cool Electric Rainy Night by Mike Durek.mp3" fadein 0.5
     scene black with fade
-    "Love is a wonderful thing."
 
+    show ex_profile with dissolve
+    "Love is a wonderful thing."
+    show prebreakup_post with dissolve
     "You meet someone, you laugh at their jokes, you fall in love with them."
-    show expost1_beach with dissolve
     "And when they're the one, you're just waiting to spend the rest of your life with them."
 
-    #photo of ex
-    
+    scene bg_breakup with dissolve
     show ex at top with dissolve
     ex "Hey, I don't think this is working out.{w} Us, I mean."
 
@@ -73,11 +76,11 @@ label intro:
 
     centered "A month later"
 
-    #sfx - bathroom
+    play sound "audio/sfx/01-sfx_bathroom.ogg"
+    pause(1)
     scene bg_workbathroom with fade
 
     al "...Hello?"
-
     al "[playerName!q]?"
 
     show al silhouette at top with dissolve
@@ -87,37 +90,23 @@ label intro:
     show al sad at top with dissolve
 
     jo "O-oh! Yes! Thank you, everything is fine."
-
     "How long was Alex speaking to me?? I didn't even realise anyone was here."
 
     #music begins
 
     show al  at top
-
     al "Want me to wait for you?"
-
     jo "No, I'm alright, thanks."
-
     al "You sure? I don't mind waiting. We can head over together."
-
     "Together? Where?"
-
     jo "Sorry, head over to…?"
-
     al "To the meeting…? {w}It starts in a few minutes."
-
     "Oof, get it together, [playerName!q]."
-
     jo "Right! Yes, of course, the meeting."
-
     "Alex gives me an inquisitive look that borders on concern."
-
     al "Yes…? So…we'll walk over together? Or…?"
-
     jo "Yeah, sorry, if you don't mind."
-
     al "I'll just wait outside then."
-
     jo "No!"
 
     show al shocked at top
@@ -138,69 +127,55 @@ label alexIntro:
     jo "I'm fine, thanks."
     "Or at least, I will be. {w}Probably."
     jo "Shall we?"
-
     "Alex hesitates to accept my answer at face value. I chant \"I'm fine\" on a loop in my mind and put on a smile to be extra convincing."
-
     al "..."
 
-    #sped up text here:
 
     show al happy at top
 
     al "...{w}So don't know if you've heard but the word from George in accounting is that Ivy from HR is in a relationship with someone in our department, which, mysteries aside has to be a nightmare for–"
-
     "Nice. Smooth. {w} Don't think she suspected anything was amiss."
-
     "Besides…"
 
-    #Hallway
     hide all
     scene bg_office_hallway1 with fade
 
     "Alex is friendly enough but I'd rather have her gossip about somebody else's problems. {w}I never know if what I tell her is going to end up as next week's office buzz."
-
     "As we walk to the conference room on the other side of the building, I find my mind drifting in and out of the conversation." 
 
     show al happy at top with dissolve
     al "--so then they said there's this other rumour–"
-
     "Alex's voice is pretty soothing…like one of those rain noises videos for sleep…" 
 
     hide all
-    scene bg_office_hallway2 with fade
+    scene bg_office_hallway2 with dissolve
     show al shocked at top with dissolve
+
     al "--can't believe this was happening under all of our noses–"
-
     "...Who is she even talking about now? I've already lost the thread of this convo."
-
     al "--to think that they didn't think anyone would notice–"
-
     "Though, honestly, now that she's on a roll, I don't really need to engage beyond the occasional nod anyway so…."
 
     hide all
-    scene bg_office_hallway3 with fade
+    scene bg_office_hallway3 with dissolve
     show al laughing at top with dissolve
     al "--not my cup of tea, if I'm honest, but then again–"
 
     "Oops, how long has it been since I made a noise to show I'm still listening?"
-
     jo "Hmm."
-
     "Did that sound interested enough?"
 
     show al embarrassed at top
     al "--so then I said– Oh, there's still some open seats."
 
     jo "Huh. Really."
-
     "I almost walk right into Alex, not realising that we've arrived at our destination. {w}Luckily, she hasn't noticed, intent on peering through the conference room door instead." 
-
     al "They're at the front, but we can sneak in. We're right on time– {w}ah, I mean only a little late. No one will even notice, probably."
-
     "I follow Alex inside, trying to refocus my thoughts as I enter."
 
-    #sfx door & shatter (optional)
+    
     hide all
+    play sound "audio/sfx/02-sfx_conferenceroom.ogg"
     scene bg_office_conferenceroom with fade
     
     show son at top with dissolve 
@@ -227,28 +202,25 @@ label alexIntro:
 label marcosIntro:
 
     "My hesitation doesn't go unnoticed and the knowledge of this fact amps up my social anxiety." 
-
     "Any considerations I was making go out the window and I just sit in the chair closest to me, which is not the one by Sonal."
-
     "...she's going to take it personally, isn't she."
 
-    show son at top
+    show son questionmark at top
     son "Are we missing someone? There's still an open chair here at the front…"
-
-    #sonal question mark
     "Sonal's eyes sweep around the room again as she does another mental headcount."
 
     stop music fadeout 0.5
     show son annoyed at top
     son "Oh."
 
-    #music stops. #rushed
+    #music stops.
+    hide son questionmark
     show son happy at top
     son "Let's go ahead and start, shall we? {w}First, I'd like to–"
 
     hide son happy with dissolve
+    play sound "audio/sfx/03-sfx_marcosentrance_heels.ogg"
 
-    #sfx_marcosentrance
     "The click of heeled shoes walking at a brisk pace down the hallway somehow permeates the glass walls."
 
     play music "audio/SFX - Marcos Entrance Fanfare.mp3" fadein 3
@@ -260,7 +232,7 @@ label marcosIntro:
     ma "Sorry, sorry, everyone!{w} You know what they say, can't rush perfection!"
 
     hide ma smug with dissolve
-    show son laughing angermark at topleft with dissolve #This was supposedly a forced smile but there isn't actually one unless we add a mark? (Angermark with 'laughing'?) 
+    show son laughing angermark at topleft with dissolve 
     son "...Marcos."
     show ma obnoxious at topright with dissolve
     ma "Sonal."
@@ -269,14 +241,12 @@ label marcosIntro:
 
     "Marcos sits down in the empty chair next to Alex and immediately raises the height of the seat."
 
-    #sfx chair raise
+    play sound "audio/sfx/05-sfx_chairraise.ogg"
 
     "I know he's got long legs, but the unintentional (or intentional?) effect is that he's managed to be close to Sonal not only in seating arrangement, but also height."
-
     "Sonal seems to be pointedly ignoring this, like she always attempts to do whenever Marcos is involved."
 
     son "Thank you for joining us. Now, as I was–"
-
     ma "Of course, of course. I know how disappointed you would be if I didn't make an appearance."
 
     son "..."
@@ -287,14 +257,11 @@ label marcosIntro:
     hide ma obnoxious with dissolve       
 
     "Sonal pulls up the first slide in her presentation."
+    
     show son at top with dissolve
-
     son "First, I'd like to clarify that the project we are discussing was originally–"
-
     "... Originally Marcos' responsibility, right?"
-
     "Sure enough, Marcos' name is listed on the title slide, albeit underneath Sonal's name."
-
     "Didn't he make a big deal out of being assigned this case? Not that it's surprising that Sonal had to pick up the slack."
 
     hide son with dissolve
@@ -317,31 +284,19 @@ label marcosIntro:
     ma "Still, is there an estimate?"
 
     son "Well, luckily I had the foresight to print copies of the agenda which you'll see before you. It's also here on this next slide which I was about to get to."
-
     ma "Only asking because I have to make a meeting with some investors so…"
-
     son "You're very welcome to leave early if you need to."
-
     ma "No, no, I don't want to steal your thunder."
-
     ma "Besides, it would be so boring without me."
-
     ma "Gotta give the people something to live for."
-
     ma "But if you want to wrap this up early, by all means…"
-
     son "...I'll do my best."
-
     son "If there are no further questions–"
-
     "Sonal gives everyone a look warning us not to add unnecessarily to the meeting length."
-
+    
     show son at topright with dissolve
-
     son "--onto the first order of business, shall we?"
-
     "I can hear the smile in Marcos' voice as he pipes up almost immediately."
-
     show ma laughing at topleft with dissolve
     ma "Question–"
 
@@ -350,9 +305,9 @@ label marcosIntro:
     show son at top with dissolve
     son "I'll send the rest of the briefing in an email, since we're running short on time. Feel free to email me any questions or concerns otherwise."
 
-    #sfx_endofmeeting general bustle of people getting up
+    play sound "audio/sfx/06-sfx_endofmeeting.ogg"
 
-    hide son  with dissolve
+    hide son with dissolve
 
     "I stretch my arms out before collecting my papers. It felt like a much longer meeting than it actually was."
 
@@ -370,7 +325,6 @@ label marcosIntro:
 
     show ma laughing at topright with dissolve
     ma "Heya James, might be a few minutes late to tennis–"
-
     ma "No I didn't want to be rude, you know how it is."
 
     show son angry at top with dissolve
@@ -389,6 +343,7 @@ label marcosIntro:
     son "...Yes, sorry, Alex. {w} I was just asking if you had–"
 
     "Maybe it's time to leave."
+    
     scene bg_office_conferenceroom with dissolve
     "Just as I'm getting up, Marcos grabs his coat off the back of his chair. As he heads towards the door, we make sudden intense eye contact, causing Marcos to stop in his tracks."
 
@@ -399,15 +354,13 @@ label marcosIntro:
 
     ma "No, just a coworker."
     show ma annoyed at top with dissolve
-    "Marcos pauses, never breaking eye contact."
 
-    "Why is he staring so intently? I-is there something on my face?" 
-    
+    "Marcos pauses, never breaking eye contact."
+    "Why is he staring so intently? I-is there something on my face?"     
     ma "Ah, not mascara."
 
     show ma  at top with dissolve
     ma "...get some rest, love."
-
     "As he moves past me, he continues his conversation on the phone."
 
     show ma smug at top with dissolve
@@ -433,13 +386,9 @@ label prologuePhone:
     scene bg_office_desks with fade
 
     "Unfortunately, I can't just leave work out of shame as much as I would like to curl up in a pit and never be seen again."
-
     "I mean he probably wasn't wrong. I do look a mess."
-    
     "At least, I feel like a mess."
-
     "..."
-
     "And whose fault is that?"
 
     #flash to image of couples photo on black (lmk if we need just the photo alone)
@@ -449,19 +398,12 @@ label prologuePhone:
     "..."
 
     "Ugh, I don't even want to think about Them."
-
     "Whatever, it makes me human to be going through it, right?"
-
     "That's normal. And appropriate."
-
     "Not rebounding so fast that you start to wonder if He ever even–"
-
     "..."
-
     "Bet she'd never be caught looking so… haggard."
-
     "..."
-
     "Just a peek."
 
     #real phone screen
@@ -474,29 +416,21 @@ label prologuePhone:
 
     "I drop my phone in shock."
 
-    #sfx_phonedropclatter drop on table clatter
+    play sound "audio/sfx/07-sfx_phonedropclatter.ogg" 
 
     jo "Hello! Yes!"
-
     "I'm so glad my phone fell on the desk face down."
-
     jo "H-how was the talk with Sonal?"
-
     al "Pretty normal."
-
     jo "Right. Lunch. Let me just–"
-
     "Let me just make a big show of double checking my work related tabs."
-
     "I slowly close an empty excel sheet."
-    #sfx closingclick
+    
+    play sound "audio/sfx/08-sfx_closingclick.ogg" 
 
     jo "...Good to go."
-
     al "You know, I think it's okay for a bit of pre-lunch phone time."
-
     jo "...haha, what do you mean?"
-
     al "Were you playing a game? I've been looking for a more challenging one to pass the time. You looked pretty frustrated so I just wanted to ask if you had a recommendation."
 
     menu:
@@ -507,20 +441,15 @@ label prologuePhone:
 
 label prologueLunch:
     jo "J-just saw something um… distressing on the uh… news."
-
     al "Oh, right, the news is always so depressing, yeah?"
-
     jo "Yeah, like I wish I had a game to recommend to you instead, honestly."
 
     show al laughing at top 
-
     al "If I find something good, I'll let you know!"
 
     show al at top 
     al "Although speaking of games and depressing news–"
-
     "Alex starts up a new source of office gossip, something about a senior executive…someone being bullied…mind games…"
-
     "I relax again, tuning in and out as we begin to walk."
     
     scene bg_office_lunchspot with fade
@@ -529,9 +458,7 @@ label prologueLunch:
     al "What about you?"
 
     "I realise Alex is looking at me expectantly."
-
     jo "Uh… I–"
-
     "I am completely lost as to what Alex is asking me."
 
     show al exclamation at top 
@@ -550,13 +477,9 @@ label prologueLunch:
 
     show son at topright with dissolve
     son "...No. I thought I would take a proper break."
-
     al "You certainly deserve it."
-
     "I feel like we're intruding on Sonal's truly rare break time. In fact, I have half a mind to walk away now and leave her be."
-
     "Alex is faster than me though, and twice as invested in socialising."
-
     al "Mind if we join you then?"
 
     show son annoyed at topright
@@ -568,7 +491,6 @@ label prologueLunch:
 
     scene bg_office_lunchspot with dissolve
     "Sonal gestures at the empty seats at the table."
-
     "Alex begins to unpack her homemade lunch."
 
     show al laughing tinyflowers at topleft with dissolve
@@ -583,41 +505,27 @@ label prologueLunch:
     show al at topleft
     
     son "Vegetarian. Only for the last few years though.{w} Though, there were a few other options–I just thought a salad was faster."
-
     jo "I actually had no idea."
-
     jo "That you were vegetarian. {w}Not about the speed of grabbing a salad. {w}Though I understand of course. {w}You certainly don't have to heat it up and all."
-
     "Sonal nods, not quite sure how to follow up that blurb of information."
-
     al "Well, you're technically newer to the company than Sonal, right [playerName!q]? {w}You haven't had a chance to get to know each other for very long."
-
     son "We hired in at the same time, I think."
-
     al "Oh forgive me, you just seem like a more seasoned worker, Sonal."
 
     show son laughing at topright
     son "Thanks. I'm trying my best to keep up."
-
     "I mean, I do try too. Not all of us can be a Sonal."
-
     jo "...So you just personally decided to be vegetarian one day?"
 
     show son annoyed at topright
     son "Er…yes. That's how it works for a lot of people, I thought."
-
     "Why do I feel like I've offended her somehow?"
-
-
     al "Mm, did you know Marcos is a vegan too?"
 
     show son annoyed disgust at topright
     son "I'm not– "
-
     "Sonal pauses and then seems to let whatever she wanted to say go."
-
     son "No, I wasn't aware. I don't usually have the chance to ask him about his diet."
-
     jo "With how often you're put on projects with him, I would've thought that the topic had arisen by now."
 
     hide son annoyed disgust at topright
@@ -625,13 +533,9 @@ label prologueLunch:
     son "Unfortunately, Marcos rarely stays around long enough to have a meal with me."
 
     "What, has Sonal tried to ask Marcos to dinner?"
-
     "I mean, Marcos is fanciable if we're talking visuals alone. {w}And he comes from money. He has connections. And his hair is always so soft-looking– I could see where she's coming from."
-
     "And like Alex said, Sonal is so good at her job. Plus her hair is just as nice as his and she always looks so pretty. They'd make a perfect couple. "
-
     "God, I must seem even more of a mess next to her."
-    
     al "H-have you asked him to?"
 
     show son shocked at topright
@@ -640,25 +544,20 @@ label prologueLunch:
 
     show son exasperated at topright
     son "I mean, sorry, no, I– it never occurred to me."
-
     son "I get things done faster without him there anyway, you see."
     show son at topright
     hide al
+
     show al at topleft
     son "I'm sure he wouldn't enjoy my power… dinners."
-
     "Oh wow. Is this how Alex feels when she sniffs out a new workplace romance?"
-
-
     "I glance at Alex but I can't read her expression for once."
 
     menu:
-
-        #choice
-            "Try to subtly find out if Sonal likes Marcos.": 
-                jump prologueLunchContinue
-            "Ask Sonal outright if she likes Marcos.":
-                jump prologueLunchContinue
+        "Try to subtly find out if Sonal likes Marcos.": 
+            jump prologueLunchContinue
+        "Ask Sonal outright if she likes Marcos.":
+            jump prologueLunchContinue
 
 label prologueLunchContinue:
     jo "I'm sure you want him to."
@@ -666,20 +565,14 @@ label prologueLunchContinue:
     show son annoyed questionmark at topright
     show al angry flyingsweat at topleft
     jo "I mean, I'm sure he'd love you."
-
     jo "Dinner with you."
-
     jo "I think you would um, have a good time together."
-
     "Oh god, why did I open my mouth?"
-
     "For that matter, why does talking to Sonal intimidate me so much?"
     
     show al laughing sweat at topleft
     al "Yes, I'm sure any of us would love to have dinner with you, that's what you meant, right [playerName!q]?"
-
     "Yes. No. I don't know."
-
     "I nod anyway."
 
     show son fork at topright
@@ -689,10 +582,9 @@ label prologueLunchContinue:
     "Sonal punctuates her point by stabbing the last bit of her salad with her fork."
 
     son "But thank you."
-
     son "I think I'll head back early."
 
-    #sfx chair scrape noise
+    play sound "audio/sfx/08-sfx_closingclick.ogg" 
 
     "She stands, efficiently grabbing all her trash and belongings, before pushing her chair in with her leg."
 
@@ -710,41 +602,24 @@ label prologueLunchContinue:
     show al at top with dissolve
 
     jo "...Alex, hear me out okay?"
-
     al "Of course, love."
-
     jo "Do you ever get the sense that Sonal hates me?"
-
     al "Oh you mean from just now? I think that was just a slip of the tongue, I'm sure she understands–"
-
     jo "I guess I just get the sense that she's not happy to be around me. Is it just me?"
-
     al "I haven't experienced that, if I'm being honest."
-
     jo "It's probably just me then."
 
     show al happy tinyflowers at top
     al "Don't get in your head too much! Take it from someone who's been here a bit longer than you–we have a good set of coworkers here."
-
     al "Trust me when I say it could have been much worse."
-
     jo "Right."
-
     al "It'll only get better with time!"
-
     "While I'm not convinced yet by Alex's placating statements, I don't see why Sonal would have reason to hate me."
-
     "It's not like I'm a terrible person." 
-
     "After all, I don't make trouble for Sonal on a regular basis like some people."
-
     "At least… I don't think I do?"
 
     scene bg_office_desks with fade
-
-    #transition
-    scene bg_office_desks with fade
-
     #sfx of typing
     #cue marcos music
 
@@ -1443,7 +1318,6 @@ label introWeekOne:
 label firstSonalDecision:
     "...I'm sure it'll be fine this time."
     "After all, I'd have to break them in anyway. Might as well be today."
-    
 
     scene bg_transition_subwaytrain with fade
     play sound "audio/sfx/11-sfx_subwaytransition.ogg"
@@ -1571,308 +1445,236 @@ label firstSonalDecision:
         son "..."
         jo "..."
         "Maybe that was too much wishful thinking."
+        jump firstMarcosDecision
 
-    #if changedpw true
+    else:     
+        "A hush falls over the kitchen."
+        "I realise I have nothing to say to Sonal."
+        "I mean does she care to hear about what I did over the weekend? We don't really talk about things like that."
+        "In fact, since we both got hired, most of our conversations have been strictly about work."
+        "And speaking of work, I can't very well tell her I didn't change my password yet, right?"
+        "What would that conversation even look like?"
+        "Sonal, I didn't change my password." 
+        
+        show son annoyed at top
+        "Okay."
+        "...And then that would be it. Exceptionally inane and Sonal would judge me even more than she already does."
+        jump firstMarcosDecision
 
-    jo "...Before I forget, I just wanted to let you know I changed my password."
 
-    #sonal smile
-    
-
-    #if changedpw false
-
-    "A hush falls over the kitchen."
-
-    "I realise I have nothing to say to Sonal."
-
-    "I mean does she care to hear about what I did over the weekend? We don't really talk about things like that."
-
-    "In fact, since we both got hired, most of our conversations have been strictly about work."
-
-    "And speaking of work, I can't very well tell her I didn't change my password yet, right?"
-
-    "What would that conversation even look like?"
-
-    "Sonal, I didn't change my password." 
-
-    "Okay."
-
-    "...And then that would be it. Exceptionally inane and Sonal would judge me even more than she already does."
-
-    #all paths lead here
-
+label firstMarcosDecision:
     "Just as it starts getting to extremely awkward levels of silence...."
 
-    #sfx kettle beep
+    play sound "audio/sfx/35-sfx_kettlebeep.ogg" 
 
     "As if summoned by the sound of the kettle, Marcos sweeps into the kitchen trailed by not one but at least ten, posh-looking uni students."
-
+    
+    show son angry at top
     "I exchange looks with Sonal, temporarily stunned into an alliance against the absurdity of the scene before us."
 
+    show son annoyed at topright with dissolve
+    show ma at topleft with dissolve
     ma "Oh, perfect timing."
 
     "We both watch as Marcos makes himself a cup of tea."
-
     "And then another, and another, until it's clear he's going to use all of the water in the kettle to offer tea to all the students."
-
     "Sonal opens and closes her mouth, unable to speak."
 
-    student "Thanks, Mr. Roble."
+    stu "Thanks, Mr. Roble!"
 
+    show ma laughing tinyflowers at topleft
     ma "Of course! And even as our interns, you can call me Marcos. After all, I've known most of you since you were in nappies."
 
     "Ah… nepotism interns."
-
-    "Wait, interns? Shouldn't they be the ones making tea?"
-
+    "Wait, interns? {w}Shouldn't they be the ones making tea?"
     "Faintly, I can hear Sonal muttering something under her breath." 
 
+    show son angry angermark at topright
     son "How can anyone be so– so—"
 
     "She partially turned away from Marcos so he can't see her mouth moving and I get the sense that the unfinished statement is directed at him."
 
-    #Choice
+    menu:
+        "Offer to boil more water.":
+            $ goodChoiceSonal+=1
 
-    #"Offer to boil more water."
-    #+1 alex, +1 sonal
+            jo "Lucky that we have more kettles, right?"
+            jo "I'll just put another on right now."
+            hide son angermark
+            show son annoyed at topright
+            "Sonal nods somberly."
+            jo "Do you want to go and ask if anyone wants a cup now?"
+            show son at topright
+            son "I just… {w}I'll um… yes. {w}I'll be back later."
 
-    jo "Lucky that we have more kettles, right?"
+        "Rationalise what just happened.":
+            $ goodChoiceMarcos+=1
 
-    jo "I'll just put another on right now."
+            jo "Well… I suppose we should treat our interns nicely on their first day here, especially if they have ties to important people to the company…"
+            hide son angermark
+            show son annoyed at topright
+            son "You honestly think that?"
+            jo "It… it makes sense logically…?"
+            jo "We can always boil more water."
+            son "I guess."
+            son "I'm going to-{w} I'll be back.{w} Later."
 
-    "Sonal nods somberly."
-
-    jo "Do you want to go and ask if anyone wants a cup now?"
-
-    son "I just… I'll um… yes. I'll be back later."
-
-    #"Rationalise what just happened."
-    #+1 marcos
-    jo "Well… I suppose we should treat our interns nicely on their first day here, especially if they have ties to important people to the company…"
-
-    son "You honestly think that?"
-
-    jo "It… it makes sense logically…?"
-
-    jo "We can always boil more water."
-
-    son "I guess."
-
-    son "I'm going to– I'll be back. Later."
-
-    #end choice
-
-    "Sonal leaves the kitchen. The motion makes all the interns turn towards where she was standing. Where I'm still standing."
-
+    hide son with dissolve
+    hide ma laughing tinyflowers with dissolve
+    show ma at top with dissolve
+    "Sonal leaves the kitchen. The motion makes all the interns turn towards where she was standing. {w}Where I'm still standing."
     "As if they only just noticed me for the first time, the interns give me a very obvious once over."
-
     "I am distinctly anxious under the scrutiny of the youths and mutter a silent thank you to whatever possessed me to dress up a little more today."
 
-    student "What do you do here, miss?"
-
-    "Miss. I feel inexplicably ancient."
-
+    stu "What do you do here, miss?"
+    "Miss. {w}I feel inexplicably ancient."
     "Before I can even speak, Marcos grins."
 
     ma "[playerName!q], here is an invaluable part of the office."
-
     "I'm a little shocked at Marcos' positive assessment."
 
+    show ma laughing at top
     ma "Even now, she keeps us all running by selflessly keeping watch over the kettle."
-
-    "The students chuckle amongst themselves. I feel any positive vibes drain out of my body, replaced by a deep upset."
-
+    "The students chuckle amongst themselves. {w}I feel any positive vibes drain out of my body, replaced by a deep upset."
     ma "Let me tell you, on any other day, there would be a distinct line of mugs on the counter and three kettles full of water boiling for the morning rush for tea."
 
+    show ma at top
     ma "Someone's got to keep it all operating smoothly."
-
     "He makes it sound like this is my entire job."
-
     "Marcos raises his eyebrows at me, smiling like he's letting me in on the joke."
 
+    show ma laughing laughter at top
     "When I don't smile back at him, he laughs."
-
     ma "Alright, talk amongst yourself for a second. Take a few selfies if you want."
-
     "Surprisingly, the students comply, many of them taking photos with the various appliances in the kitchen."
-
     "Marcos approaches in several large strides and leans over to speak at a volume that the interns can't hear."
 
+    hide ma laughing laughter
+    show ma at top
     ma "Thank you for humouring me. We wouldn't have had time to stop for tea otherwise."
-
     ma "You look very nice today, by the way."
-
     "In spite of my annoyance, I can't help feeling a little pleased to be told this by Marcos who, as rumour has it, frequently hangs out with super models."
-
-    ma "Thank you for putting in the effort on an important day. We can't have the kids of major investors thinking we're not worth interning with."
-
+    ma "Thank you for putting in the effort on an important day.{w} We can't have the kids of major investors thinking we're not worth interning with."
     "..."
-
     "It's not like I knew there were rich students coming to work today! It's not like I dressed up to impress anyone here!"
-
     "Don't I make enough of an effort every day?"
-
     "Is it really such a drastic change?"
-
+    show ma obnoxious sparkle at top
     ma "Oh would you look at the time! Time to move onto the next leg of our tour."
-
     ma "Feel free to leave your mugs on the table. [playerName!q] will get to them, no problem."
-
+    
+    hide ma with dissolve
     jo "...."
-
     "The students file out of the kitchen after Marcos, leaving a summoning circle of mugs in their wake."
-
     "Perhaps, I should have been smart like Sonal and gotten out of here while I still could."
-
     "I sigh and startput another kettle on, before turning to gather the mugs and put them in the sink."
 
-    #—-
+    scene bg_office_desks with fade
 
     "Luckily it's a slow day and Alex and I are able to head out a little early for lunch."
 
-    #bg restaurant?
+    scene bg_lunchspot with fade
 
+    show al at top with dissolve
     al "I called ahead so it shouldn't take too long."
-
     "Of course, Alex being Alex, we are suddenly responsible for grabbing food for a bunch of people in the office."
-
     jo "Feels an awful lot like intern work."
 
-    #alex smiling
+    show al happy at top
     al "Doesn't it?"
 
+    show al annoyed at top
     al "Speaking of…"
-
     "Alex gets uncommonly serious all of a sudden."
-
     jo "...speaking of? What's wrong?"
-
     al "Don't take this the wrong way, [playerName!q], only I wanted to be sure… you're not dressed up today to attract someone specifically at the office, right?"
-
     jo "What?"
-
     jo "No, of course not. Is that what you think?"
 
+    show al nervous at top
     al "No, sorry, I just…"
 
-    al "I overheard one of the interns in the bathroom say that you um… you seemed very close with Marcos. That it seemed like you were um… fr- friendly."
-
+    show al nervous flyingsweat at top
+    al "I overheard one of the interns in the bathroom say that you um… {w}You seemed very close with Marcos.{w} That it seemed like you were um… fr- friendly."
     jo "And you wanted to check?"
+    al "Well no. Yes. {w}I'm concerned about you, you know? {w}Workplace romances can get really ugly."
 
-    al "Well no. Yes. I'm concerned about you, you know? Workplace romances can get really ugly."
-
-    al "And Marcos is… well… trust me when I say he's not someone you want to get involved with."
-
+    hide al nervous flyingsweat
+    show al sad at top
+    al "And Marcos is… {w}Well… {w}Trust me when I say he's not someone you want to get involved with."
     al "Just… be careful, alright?"
-
     jo "Thanks."
-
     al "Oh [playerName!q], you know I'm not saying this to be petty or–"
-
     jo "Well, I can tell you emphatically that the reason I wore these clothes in the first place was not related to work at all."
-
     jo "In fact…"
-
     "In fact…"
-
     jo "My ex posted a new photo of their new partner over the weekend, so I just wanted to look better than them, okay?"
-
     "..."
-
     "Oh no, I really didn't mean to say any of that out loud."
-
     al "[playerName!q]..."
-
     jo "Let's not talk about this. Please."
-
     al "Alright."
 
+    show al at top
     "It's awkward heading back together after that but I just focus on picking up the orders. And Alex always has things to share to fill the silence."
-
     "She's probably babbling a bit out of fear she offended me, but I find that I'm fine letting her keep talking out of guilt."
 
-    #bg_workdesks
+    scene bg_office_desks with fade
 
     "We end up eating lunch at our respective desks but not even my queued up cat videos are enough distraction from my increasingly distressed thoughts."
-
-    "Does everyone think I dressed up to impress someone? Why do I have no control over the narrative when I'm at the centre of it?"
-
+    "Does everyone think I dressed up to impress someone? {w}Why do I have no control over the narrative when I'm at the centre of it?"
     "I find myself closing my cat videos and opening Tangram and pulling up that photo."
-
-    "Even unconsciously, I know the outfit I chose references Her look. The cut, the styling, everything down to the makeup is a little bit of an homage to this image."
-
+    "Even unconsciously, I know the outfit I chose references Her look. {w}The cut, the styling, everything down to the makeup is a little bit of an homage to this image."
     jo "This is crazy ex behaviour."
-
     "Well… the heels are different. I have that to hold over Her."
-
     "After all…"
 
-    #insert flashback at bg some random place 
-
+    scene bg_flashback_park with flash
     jo "Mum always told me that green wasn't a good colour for me."
-
+    show ex at top with dissolve
     ex "What? It looks great on you!"
-
-    ex "I might be biassed though. Green is my favourite colour."
-
-    ex "It's just so energetic and full of life. Calm and collected, you know?"
-
+    ex "I might be biassed though. {w}Green is my favourite colour."
+    ex "It's just so energetic and full of life. {w}Calm and collected, you know?"
     jo "Energetic and calm?"
-
     ex "You know what I mean."
-
     jo "Some things hold multitudes?"
-
     ex "Always the big words with you."
 
-    # bg_workdesks
-
+    scene bg_office_desks with flash
     "Maybe the sight of me scowling at my desk is enough to put anyone else off approaching me, but at the end of the day, Alex still drops by."
 
+    show al at top with dissolve
     al "Hey, just wanted to let you know we got approval for the next stage of the Bittenmore case."
-
     jo "Oh, that's good news."
 
-    al "...And… well… sorry, I just wanted to apologise if I made you upset today. Sorry."
-
+    show al sad at top
+    al "...And… Well…{w} Sorry, I just wanted to apologise if I made you upset today. Sorry."
     al "But I also understand if you're still upset though and don't want to talk about it."
-
     "I feel a little annoyed already that she's making assumptions about how upset I am, but I appreciate her giving me an out."
-
     jo "I think I just need to sleep on it."
-
     "I offer her a tentative smile."
 
-    #alex smile
+    show al happy at top
 
     al "Alright, well, I'll see you tomorrow then!"
-
     jo "See you."
 
+    hide al with dissolve
     "I glance at the clock. I've somehow managed to go an hour over my preferred time off."
-
     "Instinctively, I look around to make sure no one is coming my way with a last minute request."
-
     "I'm so mentally worn out, I don't think I can take much more." 
-
     jo "Well, the best remedy for too many thoughts is a way to have no thoughts."
-
     "Where should I go to get that fix?"
+    menu:
+        "Head home and sleep all the bad vibes off.":
+            jump firstWeekGoHome
 
-    #Choice
-    # choice 1
-    #"Head home and sleep all the bad vibes off."
-    #jump to home
-
-    #choice 2
-    #"Go to the bar and drink all the bad vibes away."
-    #jump to bar
-
-
-    #—---------
-    #HOME
+        "Go to the bar and drink all the bad vibes away.":
+            $ weekOneGoOut = True
+            jump firstWeekGoBar
+    #—--------- HOME
+label firstWeekBackHome:
     "Even standing up is a chore. I can feel my heels cutting into my feet in a way I must not have felt all day through sheer willpower."
-
     jo "Best to get home as soon as possible."
 
     #bg_subwaytransition
@@ -1886,186 +1688,102 @@ label firstSonalDecision:
     jo "Owwww."
 
     "Let's just… let's just sit on the stairs."
-
     "Maybe forever."
-
     jo "Why did I think this was a good idea…"
-
     jo "I can't even take them off, they're actually stuck to my skin."
-
     jo "I would kill to have a massage right now."
 
     #sfx walking down the steps
 
     sa "I thought I heard you whining."
-
     jo "How? Don't you usually have headphones on?"
-
     sa "Was coming down to get my mail. And besides, your voice is one of those unblockable frequencies even with noise cancelling, like a baby crying. Whaa, whaaa."
-
     jo "You try wearing brand new heels for a full work day. See if you don't 'whaa whaa' yourself."
-
     sa "And why did you decide that was a good idea?"
-
     jo "I… I guess I just wanted to… look you know… like I can dress up too. Clean up well."
-
     sa "You already do that every day for work."
-
     jo "Yeah well… maybe I wanted to impress someone."
-
     "I wince."
-
     jo "Not at work, of course. Just… in general."
-
     sa "You know, your ex can't see what you look like at work."
-
     jo "I was so vague about it. How did you know?"
-
     sa "You're more predictable than you think." 
-
     sa "And prone to not knowing what's healthy and what's not."
-
     "Well. Sam speaks from experience  considering our mutual history. I wince again."
-
     sa "Also, I'm friends with him on Tangram."
-
     sa "Anyway, I know you're not looking for advice, but maybe consider only doing things that make you happy, you know?"
-
     sa "At least, that's how I get around doing too much for other people. How I keep myself safe from bad, foot breaking decisions."
-
     "I stick my tongue out at him. Sam continues unfazed."
-
     sa "Then, if the decision you made goes sideways, you don't really regret it because you stuck to your guns or it made you genuinely happy."
-
     sa "Of course, some part of this relies on knowing the difference between confidence and hubris and I think you have a special brand of shamelessness that stops you from thinking before you leap."
-
     jo "I'm not shameless. I have plenty of shame."
-
     sa "Mmm… not enough that you've learned your lesson. I think I should leave you here to let you think on it some more."
-
     jo "No please. Help me up the stairs."
-
     jo "I can think about things in the comfort of my own bed."
-
     sa "....."
-
     jo "Okay, I might go right to sleep but please, you can't leave me here."
-
     sa "Fine, but you owe me three cans of cat food."
-
     jo "For your dinner?"
-
     "Sam rolls his eyes as he leans in to help me up."
-
     jo "Speaking of, what are you having for dinner?"
-
     sa "Why do you want to know?"
-
     jo "Don't worry, I'm not asking you out."
-
     sa "You would be getting a resounding 'no' if you were."
-
     jo "Yes, I'm aware."
-
     jo "...Doesn't hurt to try though every once in a while, right?"
-
     sa "A no is a no."
-
     jo "Alright, alright. I'm just asking– about dinner, not dinner with you–I just remembered that I spent all weekend shopping for clothes but I never picked up more groceries."
-
     sa "So…"
-
     "So…I could ask Sam if he wants to go with me to get groceries…"
-
     "No, that feels like asking too much."
-
     "But if I got take-away…"
-
     "Well, there's a chance he might still say no so…how can I phrase this in a way that will convince him to come with?"
 
-    #choice
+    menu:
+        "\"Do you want anything if I'm getting kebabs?\"":
+            $ goodChoiceSam+=1
 
-    #choice 1
+            "Sam stops to think about my offer."
+            sa "To be honest, I haven't had a proper meal today–very unhealthy, I know."
+            "Sam's stomach grumbles as if to support the point and he laughs."
+            sa "Alright, yes, kebabs sound pretty damn delicious right now. I'll take you up on your offer."
+            jo "Great! Let me just change shoes and I'll be on my way. As soon as I can. Which is, you know, whenever I can walk with a little less pain."
 
-    #"\"Do you want anything if I'm getting kebabs?\""
-    #+1 Sam
+        "\"I'm getting a kebab and I'm ordering something for you too.\"":
 
-    "Sam stops to think about my offer."
-
-    sa "To be honest, I haven't had a proper meal today–very unhealthy, I know."
-
-    "Sam's stomach grumbles as if to support the point and he laughs."
-
-    sa "Alright, yes, kebabs sound pretty damn delicious right now. I'll take you up on your offer."
-
-    jo "Great! Let me just change shoes and I'll be on my way. As soon as I can. Which is, you know, whenever I can walk with a little less pain."
-
-    #choice 2
-
-    #"\"I'm getting a kebab and I'm ordering something for you too.\""
-
-    "Sam stops walking."
-
-    sa "Huh. And if I said I wasn't hungry, what then?"
-
-    jo "Uh… well… it's good that you said that."
-
-    jo "Now I know. Happy to eat alone."
-
-    jo "But I knew you were going to turn me down anyway so…"
-
-    "Sam sighs and gives me a tired smile."
-
-    sa "Since you know me so well, I would've thought you'd know to ask. I'm not a big fan of having decisions made for me."
-
-    "Oh right. I did know that. Sam's pet peeve is when people assume they know the best for him."
-
-    jo "Sorry. You don't have to go with me–"
-
-    sa "But, the good news, is I actually am hungry. And luckily, I've got nothing against getting kebabs with you."
-
-    sa "I can order something for myself though, no worries about having to bribe me with free food."
-
-    jo "Really? I mean, alright, give me a moment to change my shoes and then we can be on our way."
-
-    #end choices
+            "Sam stops walking."
+            sa "Huh. And if I said I wasn't hungry, what then?"
+            jo "Uh… well… it's good that you said that."
+            jo "Now I know. Happy to eat alone."
+            jo "But I knew you were going to turn me down anyway so…"
+            "Sam sighs and gives me a tired smile."
+            sa "Since you know me so well, I would've thought you'd know to ask. I'm not a big fan of having decisions made for me."
+            "Oh right. I did know that. Sam's pet peeve is when people assume they know the best for him."
+            jo "Sorry. You don't have to go with me–"
+            sa "But, the good news, is I actually am hungry. And luckily, I've got nothing against getting kebabs with you."
+            sa "I can order something for myself though, no worries about having to bribe me with free food."
+            jo "Really? I mean, alright, give me a moment to change my shoes and then we can be on our way."
 
     sa "What, you're going to walk there?"
-
     jo "Yeah, why not?"
-
     "Sam gestures at my feet."
-
     sa "Confidence or hubris?"
-
     jo "Yeah but it makes me happy to get kebabs for us."
 
     #transition to hallway
 
     "As we reach the top step and enter the upper level of the building, I grimace in pain."
-
     sa "..."
-
     sa "I'm not doubting your ability to get your own kebab but how about this: you call in the order and I pick it up?"
-
     jo "No, I couldn't do that. I offered."
-
     sa "Alright but here's my counter offer. You order, I pick up, and you catsit while I'm gone."
-
     "I waver at the word 'sit', feeling like I'm on the verge of irreparable damage to my feet already."
-
     jo "You drive a hard bargain."
-
     sa "Final answer?"
-
     jo "Fine, fine, yes, you can pick up the kebabs since you're willing and I'll sit. I mean catsit."
-
     "Sam smirks at my obvious Freudian slip."
-
     sa "You can still stop by your place to change first, if you want. Otherwise, you're going to get cat hair on your clothes."
-
     jo "Eh, I can take a little fur."
-
     sa "Alright but don't say I didn't warn you–they're all shedding like crazy."
 
     #transition to sam's flat
@@ -2073,94 +1791,61 @@ label firstSonalDecision:
     #bg_samflat
 
     jo "Feels like I haven't been in here in forever."
-
     "Sam raises an eyebrow."
-
     sa "You were here early last month."
-
     jo "Oh."
-
     "Right. Probably right after the breakup."
-
     jo "Sorry about that."
-
     sa "About your last visit? No, don't worry about it. You weren't exactly at your peak state to be the perfect house guest."
-
     jo "Mmm."
 
     #sfx_mrp
     cat "Mrrp."
 
     "I feel something rub against my leg."
-
     "Staring up at me with glistening, blue eyes is a very fluffy white cat."
-
     jo "How are you GarJo?"
 
     #sfx_cat_mrao
-    #ADD THE CATS Garlic Johannson "Mrao."
+    gar "Mrao."
 
     "She leans into my palm as I run my hand down her back."
-
     "Within seconds, I feel another warm, furry body pressing into my other leg."
-
     "This time, it's a lithe tuxedo cat, winding around my heels."
-
     jo "Miss Scallion."
 
     #sfx_cat_purr
     "Rapscallion purrs."
-
     sa "If you keep petting them, they'll never let you sit down."
-
     sa "Do you need help getting your shoes off?"
-
     jo "Um… yes, thanks. Seems like we're doing this every week."
-
     sa "Your fault for being shoe challenged."
-
     "Sam tries to remove my heels as gently as possible but it still hurts. I feel blood flooding into my numb toes as well as the telltale sign of blisters having formed."
-
     jo "Owwww."
-
     sa "You're free now, Cinderella."
-
     sa "C'mon ladies, let her pass."
-
     "Sam leads my hobbling self to the couch where an orange cat is already loafing with a wary expression on its face."
-
     sa "Ginger's a bit bitey today so watch yourself."
-
     jo "Mr. Gingersnap is always bitey. A big spicy boy."
-
     "Gingersnap blinks ever so slowly at me and then looks away."
-
     sa "You're ordering by phone, right?"
-
     jo "Oh, right."
-
     "Sam gives me his order and I make the call"
-
     jo "They said they'll be ready in 20 minutes."
-
     sa "Cool, I'll be on my way then. You good here?"
-
     jo "Yeah."
-
     sa "Alright. Back in a minute."
 
     #Sam leaves
     #sfx_doorclosing
 
     "The flat is unnaturally silent once Sam is gone–if only for a moment."
-
     "Almost as soon as the thought passes my mind, the room is filled with a plaintive meow that gets progressively agitated."
 
     #sfx_cat_meow_loud
-    Garlic Johansson "MEOW"
+    gar "MEOW"
 
     "Garlic screams into the void at being abandoned."
-
     jo "GarJo, I'm right here."
 
     "She dismisses my presence in a single glance and continues to meow demandingly."
@@ -2170,554 +1855,317 @@ label firstSonalDecision:
     #sfx_multiple_meows
 
     jo "Not you too, Scallion."
-
     "Ginger bristles a bit and yawns. He hops off the couch and smoothly segues into a full body stretch."
-
     "I watch him warily as he pauses to swipe halfheartedly at my phone on the coffee table…then my keys…then my purse."
-
     "I can just imagine the fallout of Sam returning to find his cats committing their devious kitty crimes under my watch." 
-
     jo "Maybe I can placate them with treats?"
-
     "As far as I know, Sam isn't one to over-pamper his cats with extra snacks but, like most cat owners, he does have emergency treats tucked away."
-
     "I get up, wincing as I put pressure on my feet."
-
     jo "Treats, treats, treats…"
-
     "As I look through the cabinets, Garlic, Scallion, and even Ginger start winding themselves around my ankles."
-
     jo "I see you already know what's up."
-
     jo "I guess it's faster just to text Sam and ask where they are. Even if it gets me a lecture about cat nutrition."
-
     "I grab my phone and send Sam a message, only to hear a soft pinging noise from inside the same room."
+    
     #sfx text notif
-
-
     "The sound came from a mobile on the dining table that I didn't see before."
-
     jo "No way, did he leave his phone here?"
-
     "A rare occurrence. Sam usually has a tight grip on his belongings."
-
     jo "He shouldn't need it to pick up the order but…"
-
     "Another ping."
-
     "I glance at the notifications lighting up the screen."
-
     "It's a text with many heart and heart related emojis."
-
     jo "Is Sam dating someone new?"
-
     "As far as I knew, he wasn't even looking to be in a relationship."
 
     #sfx_textnotif
     "Another text message notification sound goes off."
 
-    #choice
-    #choice 1:
-    #"Read the messages as they come in."
+    menu: 
+        "Read the messages as they come in.":
+            "Even driven by pure curiosity, I feel a little guilty as I quickly peruse the preview of the incoming text."
+            jo "Well, it's not like I'm unlocking his phone to read the messages. I just happened to glance at them as the notifications came in."
+            "The next message reads \"So cute!!\""
+            jo "Message from…whoever B \"theatre masks emoji\" is."
+            "I can't help but start to wonder who this mystery person is as well as what Sam is sending them to warrant a \"So cute\" with two exclamation marks."
+            jo "Not that I have any say over Sam's social life."
+            "But I feel a little possessive, if only because I don't fully understand the context of the relationship here."
+            #sfx_meow
+            gar "Meow."
 
-    "Even driven by pure curiosity, I feel a little guilty as I quickly peruse the preview of the incoming text."
+            "I'm jolted out of my racing thoughts."
+            jo "R-right. Kitties."
 
-    jo "Well, it's not like I'm unlocking his phone to read the messages. I just happened to glance at them as the notifications came in."
+        "Don't read any more messages.":
+            $ goodChoiceSam+=1
 
-    "The next message reads \"So cute!!\""
+            "As much as I am dying to know who…\"B theatre masks emoji\" is and why they're sending hearts to Sam, the warning bells go off in my head."
 
-    jo "Message from…whoever B \"theatre masks emoji\" is."
+            "It just feels wrong to pry."
+            "It's not like I'm his jealous girlfriend anyway. And well…I have enough of that happening in my life already, even if it's from the position of an ex-girlfriend."
+            jo "You didn't see anything, [playerName!q]."
+            "I step away from Sam's phone and actively try to think about other things."
 
-    "I can't help but start to wonder who this mystery person is as well as what Sam is sending them to warrant a \"So cute\" with two exclamation marks."
-
-    jo "Not that I have any say over Sam's social life."
-
-    "But I feel a little possessive, if only because I don't fully understand the context of the relationship here."
-
-    #sfx_meow
-    #Garlic Johansson "Meow.'
-
-    "I'm jolted out of my racing thoughts."
-
-    jo "R-right. Kitties."
-
-    #choice 2:
-    #"Don't read any more messages."
-    #+1 Sam
-
-    "As much as I am dying to know who…\"B theatre masks emoji\" is and why they're sending hearts to Sam, the warning bells go off in my head."
-
-    "It just feels wrong to pry."
-
-    "It's not like I'm his jealous girlfriend anyway. And well…I have enough of that happening in my life already, even if it's from the position of an ex-girlfriend."
-
-    jo "You didn't see anything, [playerName!q]."
-
-    "I step away from Sam's phone and actively try to think about other things."
-
-    #sfx_meow
-    #Garlic Johansson "Meowrao."
-
-    jo "Oh right, treats."
-
-    #end choice
+            #sfx_meow
+            gar "Meowrao."
+            jo "Oh right, treats."
 
     "Suddenly, Garlic runs for the door. Scallion hops down from where she was standing on the counter, having snuck up in my moment of weakness." 
 
     "Ginger walks by as if to also approach the door but instead tackles my foot and nips a few toes."
-
     jo "Ow, ow, please, Ginger, no biting."
 
     #sfx_door open
     "A second later, Sam opens the door."
-
     sa "Ginger, no."
-
     "Surprisingly obedient, Ginger stops kicking my heels and, after a moment, gets up to greet Sam like the others."
-
     sa "Everything okay here?"
-
     jo "Just great!"
-
     "My words come out a little too enthusiastic to be convincing, though it's not like I actually did anything wrong."
-
     sa "Cool. There was a little mixup but they gave us some extra food because it's the end of the night. I was going to call you to let you know I was delayed a bit but I think I left my phone here."
-
     jo "You did."
-
     "I wince. Now he knows that I know his phone was here."
-
     "Except on second thought, I did have a valid reason…"
-
     jo "I tried to text you to ask if you had any cat treats."
-
     sa "Oh were they giving you a hard time?"
-
     jo "Nothing too bad."
-
     "Instead of launching into his thoughts on cat parenting and rewards, like I expected, Sam picks up his phone and peruses it momentarily before putting it away in his pocket."
-
     sa "Shall we eat?"
-
     "I feel a weird sort of pride in being placed higher up in priority than the mysterious texter."
-
     sa "[playerName!q]? Why are you smiling to yourself?"
-
     jo "Just so excited to eat!"
-
     "Sam laughs and hands me my food as a chorus of meows rise up from the cats who insist they deserve a share."
 
-    #jump to week 1 ending
+    jump weekOneEnding
 
-    # —---------
-    #BAR
+    # —--------- BAR
+label firstWeekGoBar:
     "They say alcohol is the best medicine for tired feet."
-
     "No, no one says that."
-
     "I still find myself heading to the Better Days Bar anyway."
-
+    
     #bg bar
-
     #sfx bar noises
 
     be "[playerName!q]."
-
     jo "Hi Bernard. Busy in here today, huh?"
-
     be "Stag do pub crawl. They've been here for a while so they should be on their way out soon." 
-
     "We both watch as one of the men in the stag party attempts to drunkenly toss a ping pong ball into a haphazard formation of red cups."
 
     #sfx cheer
 
     "He misses and everyone cheers."
-
     be "Anyway, what can I get you today?"
-
     jo "Uh… what do you have that's good for numbing pain?"
-
     be "That bad of a day?"
-
     jo "Well yes and no. But really my feet are just killing me. Though I wouldn't say that I couldn't be in a better mental state too."
-
     "Bernard says something to himself, not quietly, but not particularly directed at me either."
-
     be "Give me a bowl of wine. I have not that alacrity of spirit, nor cheer of mind that I was wont to have."
-
     "I do a double take, not sure if I just suddenly stopped understanding English or if Bernard has stopped speaking it."
-
     jo "..."
-
     jo "Is that… a reference to something?"
-
     "Bernard looks surprised and then smiles."
-
     be "Richard III."
-
     be "The play, not the king."
-
     jo "Shakespeare, right? We only did Macbeth and Romeo and Juliet in school. I think Hamlet too, but if I'm being honest, I got by without fully reading that one."
-
     be "It's pretty interesting rereading them as adults outside of an academic setting."
-
     jo "I'll take your word for it. In my opinion, Shakespeare is best left to historians and other boring people."
-
     "Bernard gives me a strange look."
-
     "Some tidbit of forgotten information passes through my mind, too fast to really let sink in."
-
     "Ah wait. Wait, wait, wait."
-
     "Bernard…Bernard is an actor."
-
     jo "And the interesting people! Like theatre people!"
-
     jo "D-do you have other quotes about drinks that you just have to know while working in a bar?"
-
     "Bernard laughs."
-
     be "It's a personal choice, not a mandatory curriculum, no."
-
     "Bernard passes my drink over the counter."
+    
     #sfx_drinkpass
-
     be "Good wine is a good familiar creature, if it be well used."
-
     jo "Let me guess… A Midsummer's Night's Dream?"
-
     be "Othello."
-
     be "Although, that line is uttered by the villain trying to guilt someone they already got drunk once into unknowingly participating in a malicious plot against his boss."
-
     be "So…perhaps not the thing for your bartender to say as they offer you a drink."
 
     #bernard smile
-
     jo "You're not going to convince me to plot against my boss?"
-
     be "Not this time."
-
     "A loud cheer goes up behind me as the members of the stag do celebrate another miss."
+    
     #sfx_barcheer2
-
     be "A lesson in picking your friends and not letting other people control the narrative. And, I suppose, drinking in moderation."
-
     jo "What, beer pong?"
-
     be "The point of Othello."
-
     "Bernard leaves me alone with my thoughts as he goes to pour someone else a drink."
-
     "I remember that I was lamenting about that exact thing earlier: not having control over my narrative."
-
     "How did Bernard know? Special bartender senses?"
-
     "Although… I guess Bernard doesn't have much control over how his work day goes either, what with the rowdy bachelors and all."
-
     "When Bernard returns, I decide to cut him some slack by actively not talking about myself. What's an interesting conversation topic?"
 
-    #choice
-    #choice 1:
-    #"Ask Bernard about his life."
-    #+1 Bernard
+    menu: 
+        "Ask Bernard about his life.":
+            $ goodChoiceBernard+=1
 
-    jo "How are things recently, Bernard?"
-
-    be "In the bar? Not too bad."
-
-    jo "And in life?"
-
-    be "Not too bad."
-
-    jo "Right."
-
-    jo "Nothing you want to get off your chest?"
-
-    jo "I feel like I complain to you quite a bit, is all. I'm here to reverse the roles and listen for a bit if you'd like?"
-
-    "Bernard smiles."
-
-    be "That's very nice of you."
-
-    "Bernard picks up a wine glass and starts polishing it."
-
-    be "Well, if I'm being honest, I've been kind of stressed lately."
-
-    jo "Lot of disorderly drunks recently?"
-
-    be "I'm in a play right now, in the leading role."
-
-    jo "Oh wow, congratulations!"
-
-    "I never would have guessed. Bernard's here all the time as far as I know."
-
-    jo "When do you find time to practise?"
-
-    be "Most of our rehearsals are during the day. Just upstairs actually."
-
-
-    "I glance at the ceiling. I knew a lot of pubs had small-scale theatres above them, but I didn't realise this bar was one of those places."
-
-    "I guess I wasn't paying enough attention to the people around me."
-
-    be "I also do a smidge of practice at home after work."
-
-    be "It's no West End production, obviously, but I still need to bring my best."
-
-    "Bernard sets the glass down and picks up another."
-
-    be "I know the words by heart but I still get nervous."
-
-    be "We have about a month left of rehearsals so… just enough time to start panicking, if I'm not careful."
-
-    "Bernard gives me a wan smile."
-
-    be "The closer we get to the opening, the more dreams I have that I'm going to walk on stage and just freeze."
-
-    be "I know it's irrational. You'd think I'd never acted in my life. I've never been in a leading role, though, so that's probably contributing to my nerves. And nightmares."
-
-    "Bernard moves onto a third glass."
-
-    be "It's just that if I get this right, I know I can dazzle the crowd and maybe impress some important people."
-
-    be "But you know, you can't control what the audience thinks of you. What they bring with them into the theatre and what they take out of it. All I can do is give my best performance. Something I'm satisfied with."
-
-    be "That's true in all of life isn't it?"
-
-
-    #end choice 1
-
-    #choice 2:
-    #"Ask Bernard for advice."
-
-    jo "Bernard…have you ever tried to change who you were to match someone else's ideal?"
-
-    be "Hmm…"
-
-    be "I suppose I run into that problem a good bit as an actor."
-
-    be "As much as anyone can technically play any role in theatre–and we certainly have seen it happen throughout history–there are…preferred conventions that people tend to fall back on."
-
-    be "I'm lucky to be working at a smaller scale where there's less pressure to conform, but it still looms overhead."
-
-    jo "Oh."
-
-    "That sounds difficult indeed. But I guess I meant…"
-
-    jo "What about in your personal life?"
-
-    "Bernard visibly hesitates."
-
-    be "My personal life?"
-
-    "Bernard spends so long staring at the glass he's polishing that I wonder if I've made a blunder and asked something too personal after all."
-
-    be "Thinking back, there were a few instances, but… it was a long time ago."
-
-    be "I eventually learned that I shouldn't pretend to be someone that I'm not for other people's approval."
-
-    be "Funny to say that considering my line of work."
-
-    "It takes me a second to remember he's referring to acting not bartending."
-
-    be "Especially when it comes to relationships that are based in communication, it's best to just be yourself."
-
-    "Did Bernard get out of a relationship that broke down from miscommunication too?"
-
-    be "Compromising yourself for someone else is a surefire way to feel like garbage all the time."
-
-    "I do indeed feel like garbage."
-
-    "I down the rest of my drink."
-
-    jo "What did you do to not feel gross?"
-
-    be "Well, first, giving myself room to feel that way was important. I had to recognize what I was feeling and why I felt that way."
-
-    be "And then, afterwards, I made sure that any improvements I made upon myself were actually worth something. That I was doing things to be happy or to grow as a person in a positive direction. That's the best way to keep moving forward."
-
-    jo "I guess that makes sense."
-
-    "Bernard smiles."
-
-    be "Of course, taking my advice is also something you should think about in your own terms. If it makes you happy or helps you improve, by all means…"
-
-    #end choice 2
+            jo "How are things recently, Bernard?"
+            be "In the bar? Not too bad."
+            jo "And in life?"
+            be "Not too bad."
+            jo "Right."
+            jo "Nothing you want to get off your chest?"
+            jo "I feel like I complain to you quite a bit, is all. I'm here to reverse the roles and listen for a bit if you'd like?"
+            "Bernard smiles."
+            be "That's very nice of you."
+            "Bernard picks up a wine glass and starts polishing it."
+            be "Well, if I'm being honest, I've been kind of stressed lately."
+            jo "Lot of disorderly drunks recently?"
+            be "I'm in a play right now, in the leading role."
+            jo "Oh wow, congratulations!"
+            "I never would have guessed. Bernard's here all the time as far as I know."
+            jo "When do you find time to practise?"
+            be "Most of our rehearsals are during the day. Just upstairs actually."
+            "I glance at the ceiling. I knew a lot of pubs had small-scale theatres above them, but I didn't realise this bar was one of those places."
+            "I guess I wasn't paying enough attention to the people around me."
+            be "I also do a smidge of practice at home after work."
+            be "It's no West End production, obviously, but I still need to bring my best."
+            "Bernard sets the glass down and picks up another."
+            be "I know the words by heart but I still get nervous."
+            be "We have about a month left of rehearsals so… just enough time to start panicking, if I'm not careful."
+            "Bernard gives me a wan smile."
+            be "The closer we get to the opening, the more dreams I have that I'm going to walk on stage and just freeze."
+            be "I know it's irrational. You'd think I'd never acted in my life. I've never been in a leading role, though, so that's probably contributing to my nerves. And nightmares."
+            "Bernard moves onto a third glass."
+            be "It's just that if I get this right, I know I can dazzle the crowd and maybe impress some important people."
+            be "But you know, you can't control what the audience thinks of you. What they bring with them into the theatre and what they take out of it. All I can do is give my best performance. Something I'm satisfied with."
+            be "That's true in all of life isn't it?"
+        
+        "Ask Bernard for advice.":
+            jo "Bernard…have you ever tried to change who you were to match someone else's ideal?"
+            be "Hmm…"
+            be "I suppose I run into that problem a good bit as an actor."
+            be "As much as anyone can technically play any role in theatre–and we certainly have seen it happen throughout history–there are…preferred conventions that people tend to fall back on."
+            be "I'm lucky to be working at a smaller scale where there's less pressure to conform, but it still looms overhead."
+            jo "Oh."
+            "That sounds difficult indeed. But I guess I meant…"
+            jo "What about in your personal life?"
+            "Bernard visibly hesitates."
+            be "My personal life?"
+            "Bernard spends so long staring at the glass he's polishing that I wonder if I've made a blunder and asked something too personal after all."
+            be "Thinking back, there were a few instances, but… it was a long time ago."
+            be "I eventually learned that I shouldn't pretend to be someone that I'm not for other people's approval."
+            be "Funny to say that considering my line of work."
+            "It takes me a second to remember he's referring to acting not bartending."
+            be "Especially when it comes to relationships that are based in communication, it's best to just be yourself."
+            "Did Bernard get out of a relationship that broke down from miscommunication too?"
+            be "Compromising yourself for someone else is a surefire way to feel like garbage all the time."
+            "I do indeed feel like garbage."
+            "I down the rest of my drink."
+            jo "What did you do to not feel gross?"
+            be "Well, first, giving myself room to feel that way was important. I had to recognize what I was feeling and why I felt that way."
+            be "And then, afterwards, I made sure that any improvements I made upon myself were actually worth something. That I was doing things to be happy or to grow as a person in a positive direction. That's the best way to keep moving forward."
+            jo "I guess that makes sense."
+            "Bernard smiles."
+            be "Of course, taking my advice is also something you should think about in your own terms. If it makes you happy or helps you improve, by all means…"
 
     "I realise this might be the most I've ever heard Bernard speak without interruption."
-
     "He has a nice voice, well suited for an actor."
-
     "He smiles suddenly. He has a nice smile too."
-
     be "What is it?"
-
     jo "Oh god, was I staring?"
-
     jo "Sorry, was just thinking you have the kind of voice people would go wild over in the youtube comments."
-
     be "Oh."
-
     "Bernard laughs."
-
     be "That's quite the compliment."
-
     jo "I guess I never listened closely before, what with all the usual noises in the bar."
-
     "From behind, the stag do group lets out a loud cheer, even louder than before."
-
     jo "I thought they would have left by now."
-
     "One of the party approaches the bar and Bernard steps away to fulfil their order." 
-
     "When Bernard returns, he gestures towards the man who's waiting at the counter."
-
     be "Would you like another drink? The \"gentlemen\" down there is buying."
-
     "I turn and accidentally make eye contact with said \"gentlemen\"."
-
     "He grins and waves."
-
     "Am I feeling another drink?"
-
     "Tomorrow is another work day. I probably shouldn't but…it might make me feel better?"
-
     "A more rational part of me recognises that the \"feel better\" part is going to be temporary."
-
     "Bernard waits patiently for my answer."
 
-    #choice
-    #choice 1
-    # "Accept."
-    #variable: acceptdrink
+    menu: 
+        "Accept.":
+            $ acceptBernardDrink = True
+            "Why not."
+            jo "Let's have another then."
+            "Benard nods and pours another drink for me."
+            "I raise the glass to the stranger who raises his own."
 
-    "Why not."
+            #sfx boo
+            "We each take a big sip of our respective drinks before he returns to his friends. They let out a chorus of boos."
+            "The combination of the sound and the additional drink make my head spin a little."
 
-    jo "Let's have another then."
+        "Decline.":
+            "Better not."
+            jo "I think I'm good for the night."
+            "Bernard shakes his head at the man."
 
-    "Benard nods and pours another drink for me."
-
-    "I raise the glass to the stranger who raises his own."
-
-
-    #sfx boo
-
-    "We each take a big sip of our respective drinks before he returns to his friends. They let out a chorus of boos."
-
-    "The combination of the sound and the additional drink make my head spin a little."
-
-    #end choice 1
-
-
-    #choice 2
-    #"Decline."
-
-    "Better not."
-
-    jo "I think I'm good for the night."
-
-    "Bernard shakes his head at the man."
-
-    #sfx boo
-    "The stranger raises a glass to me and heads back to his loudly booing friends."
-
-    #end choice 2
+            #sfx boo
+            "The stranger raises a glass to me and heads back to his loudly booing friends."
 
     be "That was the tamer version of that dare that I've seen."
-
     jo "That was a dare?"
-
     be "Most likely, yes. I've seen a few where one of them gets sent to ask someone out as punishment."
-
     be "Usually doesn't end well but sometimes you get a couple… couples."
-
     jo "Felt like a cop out then."
-
     "Bernard laughs."
-
     be "Were you looking to be asked out?"
-
     jo "...No."
-
     be "Well, I say good on him, not getting swayed by his friends. Keeping his distance was a respectful move."
 
-    #if acceptdrink = true
+    
+    if acceptBernardDrink:
+        jo "You know, I think I've had enough for today after all."
+        "Seeing a random stranger have more conviction to be themself in the face of social pressure makes me want to go to bed."
+        "Or maybe it's just bedtime regardless."
+        jo "Gonna head out now, Bernard. Cheers."
+        be "See you around. Get home safe."
 
-    jo "You know, I think I've had enough for today after all."
-
-    "Seeing a random stranger have more conviction to be themself in the face of social pressure makes me want to go to bed."
-
-    "Or maybe it's just bedtime regardless."
-
-    jo "Gonna head out now, Bernard. Cheers."
-
-    be "See you around. Get home safe."
-
-    #jump to week 1 ending
-
-    #—
-    #week 1 ending
+#---------------
+label weekOneEnding:
 
     #transition to bg_joflat_entrance
 
-    #if home:
-    "I get back to my flat, full but tired, with my feet still in subpar condition."
-
-    "My heels, which I decided to leave off for the rest of the night, are dumped haphazardly onto my shoe rack."
-
-    #if bar:
-    "I stagger into my flat. My feet are screaming from the trip home and the alcohol in my system and god, am I eager to be rid of these heels."
-
-    "With some difficulty, I peel them off and discard them amongst my other shoes."
-
-    #end split
+    if weekOneGoOut:
+        "I stagger into my flat. My feet are screaming from the trip home and the alcohol in my system and god, am I eager to be rid of these heels."
+        "With some difficulty, I peel them off and discard them amongst my other shoes."
+    else: 
+        "I get back to my flat, full but tired, with my feet still in subpar condition."
+        "My heels, which I decided to leave off for the rest of the night, are dumped haphazardly onto my shoe rack."
 
     "For some reason, I'm saddened by the sight of the new shoes, creased with one day's wear and the clear signs of something shoved into a container that was an ill fit."
-
     jo "Do shoes count as a container?"
-
     "That silly line of thought doesn't really hide the sudden melancholia I feel."
-
     "I made the choice to wear those heels after all, even if I could have predicted the aftermath. Was it really worth the damage to both my feet and the shoes though?"
 
-    #if home:
-    "Sam's words about not doing anything that doesn't make me personally happy come to mind."
-
-    "I thought it did make me happy at the time…so why do I have so much lingering regret?"
-
-    #if bar:
-    "Bernard's words about being authentic to myself rather than pretending to meet someone else's standards come to mind."
-
-    "I thought I was meeting my own standards, honestly…so why do I feel so much regret?"
-    #end split
+    if weekOneGoOut:
+        "Bernard's words about being authentic to myself rather than pretending to meet someone else's standards come to mind."
+        "I thought I was meeting my own standards, honestly…so why do I feel so much regret?"
+    else: 
+        "Sam's words about not doing anything that doesn't make me personally happy come to mind."
+        "I thought it did make me happy at the time…so why do I have so much lingering regret?"
 
     "Regret about…just the shoes right?"
-
+    
     #bg_joflat_room
-
     #sfx bed noises
 
     "As I sink into bed, the Tangram photo I was purposefully not thinking about flashes in my mind."
-
     "They looked happy and perfect together. Well matched."
-
     "Unlike the damage that was wrought by two people desperately trying to fit each others' incompatible moulds."
-
     jo "What if I had kept at it though? Would it have worked out?"
-
     "Like heels that are eventually broken in?"
-
     "Or would that have just led to more hurt in the end? More than what a few bandages could repair?"
-
     "Did I do the right thing by removing myself when I did?"
-
     jo "No use dwelling on 'what-ifs.'"
-
     "But even as I close my eyes, that's all that fills my mind: a nightmarish spectacle of parallel worlds where we made it work one way or another."
 
     #sfx typing poems
-
     #insert poem here
 
     "It’s like you’ve made a home in the marrow of my bones"
