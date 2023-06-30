@@ -962,7 +962,7 @@ label intro:
         scene bg_bar with fade
         #sfx bar crowd
 
-        show be happy at top with dissolve
+        show be neutral at top with dissolve
 
         be "Hey. Good to see you. The usual?"
 
@@ -1020,7 +1020,11 @@ label intro:
 
         "Bernard raises his eyebrows but doesn't say anything."
 
+        scene black with fade
+
         "*One drink later*"
+
+        scene bg_bar with fade
 
         hide be with dissolve
 
@@ -1051,11 +1055,13 @@ label intro:
 
         jo "Can I get another drink?"
 
-        #transition
+        scene bg_bar with fade
+
+        hide be with dissolve
 
         "*Several drinks later.*"
 
-        show be tired at top with dissolve
+        show be sad at top with dissolve
 
         jo "...And this morning! My ex posted another picture with that– that– the one– the one with the hair–  from the other photo! Like why do I need to see their slow progression into a–"
 
@@ -1087,7 +1093,7 @@ label intro:
 
         be "My pleasure. Be safe."
 
-        #bg_barstreet
+        scene bg_street_bar with fade
         #sfx door close
         #sfx street
 
