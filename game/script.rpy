@@ -953,7 +953,7 @@ label intro:
 
         jo "I need to get a drink."
 
-        #bg_subway transition
+        scene bg_transition_subwaysign
         #sfx subway noise
 
         #bg_bar
