@@ -230,6 +230,8 @@ label define_sprites:
                 "sprites/sam/sa_home_idealized.png"    
             attribute home_laughing:
                 "sprites/sam/sa_home_laughing.png"
+            attribute home_neutral:
+                "sprites/sam/sa_home_neutral.png"
             attribute home_nervous:
                 "sprites/sam/sa_home_nervous.png"    
             attribute home_proud:
@@ -342,10 +344,7 @@ label define_sprites:
         zoom 0.75
     image garlic:
         "sprites/cats/GarlicJohansson.png"
-        zoom 0.75
     image ginger:
         "sprites/cats/GingerSnap.png"
-        zoom 0.75
     image rap:
         "sprites/cats/Rapscallion.png"
-        zoom 0.75

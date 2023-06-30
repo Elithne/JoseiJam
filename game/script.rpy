@@ -47,13 +47,14 @@ label start:
         $ playerName = "Josephine"
     $ jo = Character("[playerName]", color="#c3acce")
 
-    play sound "audio/sfx/28-sfx_poetrytyping.ogg"
+    play sound "audio/sfx/28-sfx_poetrytyping.ogg" volume 0.3
     show filledsignuppage
     show screen login with dissolve         
     pause(3)
     jump intro
     
 label intro:
+    hide screen login with dissolve 
     scene black with fade
     show mcprofile with dissolve 
     "Successful!"
@@ -77,7 +78,7 @@ label intro:
 
     centered "A month later"
 
-    play sound "audio/sfx/01-sfx_bathroom.ogg"
+    play sound "audio/sfx/01-sfx_bathroom.ogg" volume 0.3
     pause(1)
     scene bg_workbathroom with fade
 
@@ -93,7 +94,7 @@ label intro:
     jo "O-oh! Yes! Thank you, everything is fine."
     "How long was Alex speaking to me?? I didn't even realise anyone was here."
 
-    #music begins
+    play music "audio/GENERAL 1 - Decent Person by HoliznaCC0.mp3" fadein 3 volume 0.6
 
     show al  at top
     al "Want me to wait for you?"
@@ -176,7 +177,7 @@ label alexIntro:
 
     
     hide all
-    play sound "audio/sfx/02-sfx_conferenceroom.ogg"
+    play sound "audio/sfx/02-sfx_conferenceroom.ogg" volume 0.3
     scene bg_office_conferenceroom with fade
     
     show son at top with dissolve 
@@ -220,7 +221,7 @@ label marcosIntro:
     son "Let's go ahead and start, shall we? {w}First, I'd like to–"
 
     hide son happy with dissolve
-    play sound "audio/sfx/03-sfx_marcosentrance_heels.ogg"
+    play sound "audio/sfx/03-sfx_marcosentrance_heels.ogg" volume 0.3
 
     "The click of heeled shoes walking at a brisk pace down the hallway somehow permeates the glass walls."
 
@@ -242,7 +243,7 @@ label marcosIntro:
 
     "Marcos sits down in the empty chair next to Alex and immediately raises the height of the seat."
 
-    play sound "audio/sfx/05-sfx_chairraise.ogg"
+    play sound "audio/sfx/05-sfx_chairraise.ogg" volume 0.3
 
     "I know he's got long legs, but the unintentional (or intentional?) effect is that he's managed to be close to Sonal not only in seating arrangement, but also height."
     "Sonal seems to be pointedly ignoring this, like she always attempts to do whenever Marcos is involved."
@@ -253,13 +254,12 @@ label marcosIntro:
     son "..."
     hide all with dissolve
     scene bg_office_conferenceroom
+    hide ma obnoxious with dissolve   
+    show son at top with dissolve
     son "As I was saying."
-
-    hide ma obnoxious with dissolve       
 
     "Sonal pulls up the first slide in her presentation."
     
-    show son at top with dissolve
     son "First, I'd like to clarify that the project we are discussing was originally–"
     "... Originally Marcos' responsibility, right?"
     "Sure enough, Marcos' name is listed on the title slide, albeit underneath Sonal's name."
@@ -306,7 +306,7 @@ label marcosIntro:
     show son at top with dissolve
     son "I'll send the rest of the briefing in an email, since we're running short on time. Feel free to email me any questions or concerns otherwise."
 
-    play sound "audio/sfx/06-sfx_endofmeeting.ogg"
+    play sound "audio/sfx/06-sfx_endofmeeting.ogg" volume 0.3
 
     hide son with dissolve
 
@@ -417,7 +417,7 @@ label prologuePhone:
 
     "I drop my phone in shock."
 
-    play sound "audio/sfx/07-sfx_phonedropclatter.ogg" 
+    play sound "audio/sfx/07-sfx_phonedropclatter.ogg"  volume 0.3
 
     jo "Hello! Yes!"
     "I'm so glad my phone fell on the desk face down."
@@ -427,7 +427,7 @@ label prologuePhone:
     "Let me just make a big show of double checking my work related tabs."
     "I slowly close an empty excel sheet."
     
-    play sound "audio/sfx/08-sfx_closingclick.ogg" 
+    play sound "audio/sfx/08-sfx_closingclick.ogg" volume 0.3 
 
     jo "...Good to go."
     al "You know, I think it's okay for a bit of pre-lunch phone time."
@@ -585,7 +585,7 @@ label prologueLunchContinue:
     son "But thank you."
     son "I think I'll head back early."
 
-    play sound "audio/sfx/08-sfx_closingclick.ogg" 
+    play sound "audio/sfx/08-sfx_closingclick.ogg"  volume 0.3
 
     "She stands, efficiently grabbing all her trash and belongings, before pushing her chair in with her leg."
 
@@ -775,7 +775,8 @@ label prologueAgreeSonal:
     son "..."
     son "I'll be sure to head home as soon as possible to get more rest. Thank you for your concern."
 
-    hide all with dissolve
+    hide son with dissolve
+    hide ma with dissolve
 
     show ma at top with fade
 
@@ -805,12 +806,11 @@ label bernardIntro:
     "Flashbacks of other days spent working overtime cross my vision."
 
     jo "..."
-
     jo "I'll just get it done as soon as possible."
-
     jo "He said it's really not that much!"
-
     "Right? Right???"
+
+    scene black with fade
 
     centered "One hour later…" 
 
@@ -1261,7 +1261,7 @@ label bernardIntro:
     "Learning experience"
     jump introWeekOne
         
-        #Week 1
+#Week 1
 label introWeekOne:
     scene bg_flat_mc_bed with fade
 
@@ -1284,11 +1284,12 @@ label introWeekOne:
     jo "I deserve to treat myself. {w}I deserve to look amazing."
     jo "This is a definite yes. {w}Oh and this too!"
 
-    play sound "audio/sfx/29-sfx_chaching.ogg" 
+    play sound "audio/sfx/29-sfx_chaching.ogg"  volume 0.3
 
     jo "Ah I feel so much better! So much lighter!"
 
     scene bg_flat_mc_bed_morning with fade
+    play music "audio/GENERAL 2 - Day Trips by HoliznaCC0.mp3" fadein 3 volume 0.6
 
     jo "Oh god."
     jo "My poor bank account."
@@ -1299,13 +1300,13 @@ label introWeekOne:
     jo "Tea first and then we can face my sins."
 
     scene bg_flat_mc with fade
-    play sound "audio/sfx/30-sfx_makingtea.ogg"
+    play sound "audio/sfx/30-sfx_makingtea.ogg" volume 0.3
 
     "What was it that even triggered all of this?"
     "Something is bothering me but I can't quite remember what it is, like my brain is trying to protect itself from a source of danger."
     jo "I suppose I can figure it out later. {w}Let's look through these bags first."
 
-    play sound "audio/sfx/31-sfx_rustlebags.ogg" 
+    play sound "audio/sfx/31-sfx_rustlebags.ogg" volume 0.3 
 
     jo "Well, these aren't terrible outfits at least–but oof, that is expensive. As is this. And that." 
     "My poor, poor wallet. I can't even imagine how much worse it would be if I had done some online retail therapy instead."
@@ -1316,6 +1317,7 @@ label introWeekOne:
     "I'm sure no one will call me on it."
     "Hmm, but fashion aside, is it a physically bad idea to wear brand new heels to work?"
 
+    stop music fadeout 5
     menu: 
         "Yes, this is a terrible idea.":
             jump firstSonalDecision
@@ -1325,9 +1327,8 @@ label introWeekOne:
 label firstSonalDecision:
     "...I'm sure it'll be fine this time."
     "After all, I'd have to break them in anyway. Might as well be today."
-
     scene bg_transition_subwaytrain with fade
-    play sound "audio/sfx/11-sfx_subwaytransition.ogg"
+    play sound "audio/sfx/11-sfx_subwaytransition.ogg" volume 0.3
 
     "Since I woke up so early, I'm able to head to work at a leisurely pace."
     "Which is good, because the heels pinch a bit, but at least they look great!"
@@ -1335,12 +1336,13 @@ label firstSonalDecision:
     pause(2.0)   
 
     scene black with fade
-    play sound "audio/sfx/32-sfx_elevatording.ogg"
+    stop music fadeout 2
+    play sound "audio/sfx/32-sfx_elevatording.ogg" volume 0.3
     pause(3.0)
 
     scene bg_office_elevator with fade
     show al at top with dissolve
-
+    play music "audio/GENERAL 1 - Decent Person by HoliznaCC0.mp3" fadein 3 volume 0.6
     al "Morning [playerName!q]!"
     jo "Morning!"
     al "You're here earlier than usual."
@@ -1360,7 +1362,7 @@ label firstSonalDecision:
     "Why do I feel so annoyed by this conversation?"
     "I glance at Alex who is pointedly not looking at me, like she's waiting for me to fess up about who it is I'm looking to impress."
 
-    play sound "audio/sfx/33-sfx_elevatorarrival.ogg" 
+    play sound "audio/sfx/33-sfx_elevatorarrival.ogg"  volume 0.3
 
     jo "Well here we are."
     al "See you around!"
@@ -1371,6 +1373,7 @@ label firstSonalDecision:
     jo "Let's see, what's on the old agenda today?"
 
     show son exclamation at top with dissolve
+    play music "audio/SONAL 1 - Medicine by TimTaj.mp3" fadein 3 volume 0.6
     son "Oh [playerName!q], hello."
 
     hide son exclamation
@@ -1400,6 +1403,8 @@ label firstSonalDecision:
     "Sonal leaves without addressing my orphaned compliment."
     "I'm not sure if I'm relieved or horrified."
 
+    stop music fadeout 1
+
     menu: 
         "Change password now.":
             $ goodChoiceSonal+= 1
@@ -1409,7 +1414,7 @@ label firstSonalDecision:
             "And I don't want to have Sonal coming around again on the very high chance that I'll say something even more embarrassing out loud."      
             jo "Let's get that fixed up right now. Where is the link to the account settings…ah here…"
             
-            play sound "audio/sfx/34-sfx_changepassword.ogg"
+            play sound "audio/sfx/34-sfx_changepassword.ogg" volume 0.3
             
             "Fueled by the social pressure, I get the task done in no time."
             "Not going to lie, I feel slightly closer to the efficiency of Sonal's work ethic just by completing this one little thing."
@@ -1427,10 +1432,12 @@ label firstSonalDecision:
     "I head to the office kitchen."
 
     scene bg_office_kitchen with dissolve
-    
     show son at top with dissolve
-    "Surprisingly, or perhaps not surprisingly, Sonal is in the kitchen, already boiling water in the kettle."
 
+    play music "audio/SONAL 3 - Thoughtful by TimTaj.mp3" fadein 3 volume 0.6
+
+    "Surprisingly, or perhaps not surprisingly, Sonal is in the kitchen, already boiling water in the kettle."
+    
     son "Oh, [playerName!q], I was just about to come ask if anyone else wanted a cup."
     jo "Well, I saved you a trip!"
     son "I guess, you did. Though, I'll still have to ask the others–"
@@ -1468,11 +1475,11 @@ label firstSonalDecision:
         "...And then that would be it. Exceptionally inane and Sonal would judge me even more than she already does."
         jump firstMarcosDecision
 
-
+    stop music fadeout 1
 label firstMarcosDecision:
     "Just as it starts getting to extremely awkward levels of silence...."
 
-    play sound "audio/sfx/35-sfx_kettlebeep.ogg" 
+    play sound "audio/sfx/35-sfx_kettlebeep.ogg"  volume 0.3
 
     "As if summoned by the sound of the kettle, Marcos sweeps into the kitchen trailed by not one but at least ten, posh-looking uni students."
     
@@ -1482,7 +1489,8 @@ label firstMarcosDecision:
     show son annoyed at topright with dissolve
     show ma at topleft with dissolve
     ma "Oh, perfect timing."
-
+    
+    play music "audio/MARCOS 1 - Black Tears by Mr Smith.mp3" fadein 2 volume 0.6
     "We both watch as Marcos makes himself a cup of tea."
     "And then another, and another, until it's clear he's going to use all of the water in the kettle to offer tea to all the students."
     "Sonal opens and closes her mouth, unable to speak."
@@ -1570,6 +1578,8 @@ label firstMarcosDecision:
     ma "Oh would you look at the time! Time to move onto the next leg of our tour."
     ma "Feel free to leave your mugs on the table. [playerName!q] will get to them, no problem."
     
+    stop music fadeout 1
+
     hide ma with dissolve
     jo "...."
     "The students file out of the kitchen after Marcos, leaving a summoning circle of mugs in their wake."
@@ -1583,6 +1593,7 @@ label firstMarcosDecision:
     scene bg_lunchspot with fade
 
     show al at top with dissolve
+    play music "audio/GENERAL 2 - Day Trips by HoliznaCC0.mp3" fadein 2 volume 0.6
     al "I called ahead so it shouldn't take too long."
     "Of course, Alex being Alex, we are suddenly responsible for grabbing food for a bunch of people in the office."
     jo "Feels an awful lot like intern work."
@@ -1616,6 +1627,7 @@ label firstMarcosDecision:
     jo "In fact…"
     "In fact…"
     jo "My ex posted a new photo of their new partner over the weekend, so I just wanted to look better than them, okay?"
+    stop music fadeout 1
     "..."
     "Oh no, I really didn't mean to say any of that out loud."
     al "[playerName!q]..."
@@ -1637,6 +1649,7 @@ label firstMarcosDecision:
     "After all…"
 
     scene bg_flashback_park with flash
+    play music "audio/SAD - A Cool Electric Rainy Night by Mike Durek.mp3" fadein 2 volume 0.6
     jo "Mum always told me that green wasn't a good colour for me."
     show ex at top with dissolve
     ex "What? It looks great on you!"
@@ -1646,10 +1659,12 @@ label firstMarcosDecision:
     ex "You know what I mean."
     jo "Some things hold multitudes?"
     ex "Always the big words with you."
-
+    
+    stop music fadeout 2
     scene bg_office_desks with flash
     "Maybe the sight of me scowling at my desk is enough to put anyone else off approaching me, but at the end of the day, Alex still drops by."
-
+    
+    play music "audio/GENERAL 3 - Thursday Afternoon by saavane.mp3" fadein 1 volume 0.6
     show al at top with dissolve
     al "Hey, just wanted to let you know we got approval for the next stage of the Bittenmore case."
     jo "Oh, that's good news."
@@ -1666,6 +1681,7 @@ label firstMarcosDecision:
     al "Alright, well, I'll see you tomorrow then!"
     jo "See you."
 
+    stop music fadeout 0.6
     hide al with dissolve
     "I glance at the clock. I've somehow managed to go an hour over my preferred time off."
     "Instinctively, I look around to make sure no one is coming my way with a last minute request."
@@ -1697,9 +1713,10 @@ label firstWeekGoHome:
     jo "I can't even take them off, they're actually stuck to my skin."
     jo "I would kill to have a massage right now."
 
-    play sound "audio/sfx/36-sfx_samdescendingstairs.ogg"
+    play sound "audio/sfx/36-sfx_samdescendingstairs.ogg" volume 0.3
     pause(4)
 
+    play music "audio/SAM 2 - Windows Down by Holizna CC0.mp3" fadein 2 volume 0.6
     show sa home_neutral at top with dissolve
     sa "I thought I heard you whining."
     jo "How? Don't you usually have headphones on?"
@@ -1755,6 +1772,7 @@ label firstWeekGoHome:
     "But if I got take-away…"
     "Well, there's a chance he might still say no so…how can I phrase this in a way that will convince him to come with?"
 
+    stop music fadeout 1
     menu:
         "\"Do you want anything if I'm getting kebabs?\"":
             $ goodChoiceSam+=1
@@ -1788,6 +1806,7 @@ label firstWeekGoHome:
             sa "I can order something for myself though, no worries about having to bribe me with free food."
             jo "Really? I mean, alright, give me a moment to change my shoes and then we can be on our way."
 
+    play music "audio/SAM 2 - Windows Down by Holizna CC0.mp3" fadein 2 volume 0.6
     show sa home_neutral at top
     sa "What, you're going to walk there?"
     jo "Yeah, why not?"
@@ -1819,7 +1838,7 @@ label firstWeekGoHome:
     sa "Alright but don't say I didn't warn you–they're all shedding like crazy."
 
     scene black with fade
-    play sound "audio/sfx/45-sfx_samopendoor.ogg"
+    play sound "audio/sfx/45-sfx_samopendoor.ogg" volume 0.3
     pause(2)
     scene bg_flat_sam with fade
 
@@ -1833,7 +1852,7 @@ label firstWeekGoHome:
     sa "About your last visit? No, don't worry about it. {w}You weren't exactly at your peak state to be the perfect house guest."
     jo "Mmm."
 
-    play sound "audio/sfx/37-sfx_catmrp.ogg"
+    play sound "audio/sfx/37-sfx_catmrp.ogg" volume 0.3
     ex "Mrrp."
 
     "I feel something rub against my leg."
@@ -1843,13 +1862,13 @@ label firstWeekGoHome:
     hide sa home_neutral with dissolve
     show sa home_neutral at topright with dissolve
     show garlic at left with dissolve
-    play sound "audio/sfx/38-sfx_catmrao.ogg"
+    play sound "audio/sfx/38-sfx_catmrao.ogg" volume 0.3
     gar "Mrao."
 
     "She leans into my palm as I run my hand down her back."
     "Within seconds, I feel another warm, furry body pressing into my other leg."
     "This time, it's a lithe tuxedo cat, winding around my heels."
-    play sound "audio/sfx/39-sfx_catpurr.ogg"
+    play sound "audio/sfx/39-sfx_catpurr.ogg" volume 0.3
     jo "Miss Scallion."
     hide garlic with dissolve
     show garlic with dissolve
@@ -1893,13 +1912,14 @@ label firstWeekGoHome:
     sa "Alright. Back in a minute."
 
     hide sa with dissolve
-    play sound "audio/sfx/26-sfx_samleaves_doorclose.ogg"
+    play sound "audio/sfx/26-sfx_samleaves_doorclose.ogg" volume 0.3
+    stop music fadeout 0.2
 
     "The flat is unnaturally silent once Sam is gone–if only for a moment."
     "Almost as soon as the thought passes my mind, the room is filled with a plaintive meow that gets progressively agitated."
 
     show garlic with dissolve
-    play sound "audio/sfx/40-sfx_catmeowloud.ogg"
+    play sound "audio/sfx/40-sfx_catmeowloud.ogg" volume 0.3
 
     gar "MEOW"
 
@@ -1911,7 +1931,7 @@ label firstWeekGoHome:
     #sfx continued meowing
     show rapscallion at left with dissolve
     "Rapscallion joins in the fray shortly afterwards, meowing and eyeing the kitchen counter tops with clear premeditated intent."
-    play sound "audio/sfx/41-sfx_catmeowmultiple.ogg"
+    play sound "audio/sfx/41-sfx_catmeowmultiple.ogg" volume 0.3
 
     jo "Not you too, Scallion."
     "Ginger bristles a bit and yawns. {w}He hops off the couch and smoothly segues into a full body stretch."
@@ -1928,7 +1948,8 @@ label firstWeekGoHome:
     jo "I guess it's faster just to text Sam and ask where they are. {w}Even if it gets me a lecture about cat nutrition."
     "I grab my phone and send Sam a message, only to hear a soft pinging noise from inside the same room."
     
-    play sound "audio/sfx/43-sfx_textnotif.ogg"
+    play sound "audio/sfx/43-sfx_textnotif.ogg" volume 0.3
+
     "The sound came from a mobile on the dining table that I didn't see before."
     jo "No way, did he leave his phone here?"
     "A rare occurrence. Sam usually has a tight grip on his belongings."
@@ -1939,7 +1960,7 @@ label firstWeekGoHome:
     jo "Is Sam dating someone new?"
     "As far as I knew, he wasn't even looking to be in a relationship."
 
-    play sound "audio/sfx/43-sfx_textnotif.ogg"
+    play sound "audio/sfx/43-sfx_textnotif.ogg" volume 0.3
     "Another text message notification sound goes off."
 
     menu: 
@@ -1952,7 +1973,7 @@ label firstWeekGoHome:
             jo "Not that I have any say over Sam's social life."
             "But I feel a little possessive, if only because I don't fully understand the context of the relationship here."
             
-            play sound "audio/sfx/44-sfx_catmeow.ogg"
+            play sound "audio/sfx/44-sfx_catmeow.ogg" volume 0.3
             gar "Meow."
 
             "I'm jolted out of my racing thoughts."
@@ -1968,9 +1989,10 @@ label firstWeekGoHome:
             jo "You didn't see anything, [playerName!q]."
             "I step away from Sam's phone and actively try to think about other things."
 
-            play sound "audio/sfx/44-sfx_catmeow.ogg"
+            play sound "audio/sfx/44-sfx_catmeow.ogg" volume 0.3
             gar "Meowrao."
             jo "Oh right, treats."
+
 
     hide garlic with dissolve
     pause(1)
@@ -1981,7 +2003,7 @@ label firstWeekGoHome:
     "Ginger walks by as if to also approach the door but instead tackles my foot and nips a few toes."
     jo "Ow, ow, please, Ginger, no biting."
 
-    play sound "audio/sfx/45-sfx_samopendoor.ogg"
+    play sound "audio/sfx/45-sfx_samopendoor.ogg" volume 0.3
     "A second later, Sam opens the door."
     sa "Ginger, no."
 
@@ -2018,27 +2040,29 @@ label firstWeekGoHome:
 
     # —--------- BAR
 label firstWeekGoBar:
+    
     "They say alcohol is the best medicine for tired feet."
     "No, no one says that."
     "I still find myself heading to the Better Days Bar anyway."
     
     scene bg_bar with fade
-    play sound "audio/sfx/46-sfx_barambience2.ogg"
+    play sound "audio/sfx/46-sfx_barambience2.ogg" volume 0.3
 
     show be at top with dissolve
+    play music "audio/BAR 3 - Detailing by Blue Dot Sessions.mp3" fadein 1 volume 0.6
     be "[playerName!q]."
     jo "Hi Bernard. Busy in here today, huh?"
     be "Stag do pub crawl. {w}They've been here for a while so they should be on their way out soon." 
     "We both watch as one of the men in the stag party attempts to drunkenly toss a ping pong ball into a haphazard formation of red cups."
 
-    play sound "audio/sfx/47-sfx_barcheer1.ogg"
+    play sound "audio/sfx/47-sfx_barcheer1.ogg" volume 0.3
 
     "He misses and everyone cheers."
 
     show be at top 
     be "Anyway, what can I get you today?"
     jo "Uh… what do you have that's good for numbing pain?"
-
+    
     show be amused at top
     be "That bad of a day?"
     jo "Well yes and no. {w}But really my feet are just killing me. {w}Though I wouldn't say that I couldn't be in a better mental state too."
@@ -2079,7 +2103,7 @@ label firstWeekGoBar:
     be "It's a personal choice, not a mandatory curriculum, no."
     "Bernard passes my drink over the counter."
     
-    play sound "audio/sfx/48-sfx_drinkpass.ogg"
+    play sound "audio/sfx/48-sfx_drinkpass.ogg" volume 0.3
 
     be "Good wine is a good familiar creature, if it be well used."
     jo "Let me guess… A Midsummer's Night's Dream?"
@@ -2092,7 +2116,7 @@ label firstWeekGoBar:
     be "Not this time."
     "A loud cheer goes up behind me as the members of the stag do celebrate another miss."
     
-    play sound "audio/sfx/49-sfx_barcheer2.ogg"
+    play sound "audio/sfx/49-sfx_barcheer2.ogg" volume 0.3
 
     hide be happy 
     show be at top
@@ -2107,11 +2131,14 @@ label firstWeekGoBar:
     "Although… {w}I guess Bernard doesn't have much control over how his work day goes either, what with the rowdy bachelors and all."
     "When Bernard returns, I decide to cut him some slack by actively not talking about myself. What's an interesting conversation topic?"
 
+    stop music fadeout 1
     menu: 
         "Ask Bernard about his life.":
             $ goodChoiceBernard+=1
 
             show be at top with dissolve
+            play music "audio/BAR 3 - Detailing by Blue Dot Sessions.mp3" fadein 1 volume 0.6
+
             jo "How are things recently, Bernard?"
             be "In the bar? Not too bad."
             jo "And in life?"
@@ -2160,7 +2187,8 @@ label firstWeekGoBar:
         
         "Ask Bernard for advice.":
             show be at top with dissolve
-            jo "Bernard…have you ever tried to change who you were to match someone else's ideal?"
+            play music "audio/BAR 3 - Detailing by Blue Dot Sessions.mp3" fadein 1 volume 0.6
+            jo "Bernard… Have you ever tried to change who you were to match someone else's ideal?"
             show be annoyed at top
             be "Hmm…"
             be "I suppose I run into that problem a good bit as an actor."
@@ -2231,6 +2259,7 @@ label firstWeekGoBar:
     "A more rational part of me recognises that the \"feel better\" part is going to be temporary."
     "Bernard waits patiently for my answer."
 
+    stop music fadeout 1
     menu: 
         "Accept.":
             $ acceptBernardDrink = True
@@ -2239,7 +2268,7 @@ label firstWeekGoBar:
             "Benard nods and pours another drink for me."
             "I raise the glass to the stranger who raises his own."
 
-            play sound "audio/sfx/51-sfx_booing.ogg"
+            play sound "audio/sfx/51-sfx_booing.ogg" volume 0.3
             "We each take a big sip of our respective drinks before he returns to his friends. They let out a chorus of boos."
             "The combination of the sound and the additional drink make my head spin a little."
 
@@ -2248,8 +2277,10 @@ label firstWeekGoBar:
             jo "I think I'm good for the night."
             "Bernard shakes his head at the man."
 
-            play sound "audio/sfx/51-sfx_booing.ogg"
+            play sound "audio/sfx/51-sfx_booing.ogg" volume 0.3
             "The stranger raises a glass to me and heads back to his loudly booing friends."
+
+    play music "audio/BAR 3 - Detailing by Blue Dot Sessions.mp3" fadein 1 volume 0.6
 
     be "That was the tamer version of that dare that I've seen."
     jo "That was a dare?"
@@ -2275,6 +2306,7 @@ label firstWeekGoBar:
         jo "Gonna head out now, Bernard. Cheers."
         be "See you around. {w}Get home safe."
 
+    stop music fadeout 1
 #---------------
 label weekOneEnding:
     scene bg_flat_mc_dark with fade
@@ -2305,7 +2337,9 @@ label weekOneEnding:
     "Regret about… {w}Just the shoes right?"
     
     scene bg_flat_mc_bed with dissolve
-    play sound "audio/sfx/27-sfx_gettingintobed.ogg"
+    play sound "audio/sfx/27-sfx_gettingintobed.ogg" volume 0.3
+
+    play music "audio/SAD - A Cool Electric Rainy Night by Mike Durek.mp3" fadein 0.5
 
     "As I sink into bed, the Tangram photo I was purposefully not thinking about flashes in my mind."
     "They looked happy and perfect together. {w}Well matched."
@@ -2317,7 +2351,7 @@ label weekOneEnding:
     jo "No use dwelling on 'what-ifs.'"
     "But even as I close my eyes, that's all that fills my mind: a nightmarish spectacle of parallel worlds where we made it work one way or another."
 
-    play sound "audio/sfx/28-sfx_poetrytyping.ogg"
+    play sound "audio/sfx/28-sfx_poetrytyping.ogg" volume 0.3
     scene black with fade
     show cringepoetry2 with dissolve
 
@@ -2325,7 +2359,8 @@ label weekOneEnding:
     "And wrapped yourself around every blood vessel "
     "Until my cells stopped needing oxygen and started wanting"
     "You."
-
+    
+    stop music fadeout 1
     hide cringepoetry2 with dissolve
     
     return
