@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 39: expected statement.
-    centered loginpage with dissolve
-                       ^
+File "game/script.rpy", line 1686: expected 'image_name_component' not found.
+    scene  with dissolve
+           ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Fri Jun 30 02:13:18 2023
+Fri Jun 30 08:13:22 2023
