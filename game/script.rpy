@@ -1359,7 +1359,6 @@ label intro:
 
         #sfx typing poetry
 
-
         #Insta post:
         scene black with fade
         show cringepoetry1 with dissolve
@@ -1372,8 +1371,9 @@ label intro:
 
         "Now you are another"
         "Learning experience"
-
+        jump introWeekOne
         #Week 1
+    label introWeekOne:
         scene bg_flat_mc_bed with fade
 
         jo "Ugh my mouth is so dry…"
@@ -1392,10 +1392,8 @@ label intro:
 
         jo "...What did I do last night?"
 
-                scene black with fade
-        centered "One week later..."
-
-        #on screen: *last night*
+        scene black with fade
+        centered "Last night..."
 
         #bg_shoppingcentre (maybe grey scale lol for flashback)
 
