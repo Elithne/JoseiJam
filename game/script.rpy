@@ -35,7 +35,8 @@ init:
 
 
 label start:
-    #Prologue 
+    #Prologue
+    stop music
     scene black
     show loginpage with dissolve
     pause(1.5)
@@ -622,30 +623,20 @@ label prologueLunchContinue:
 
     scene bg_office_desks with fade
     #sfx of typing
-    #cue marcos music
+    play music "audio/MARCOS 1 - Black Tears by Mr Smith.mp3" fadein 2 volume 0.6
 
     ma "Still hard at work, sweetheart?"
     show ma at top with dissolve
     "I look up to see Marcos standing at my side."
-
     "...He's really quite tall. Like model level proportions."
-
     jo "Just finishing up here."
-
     ma "I see. Any plans for the evening?"
-
     jo "..."
-
     "Why am I flustered by such a normal question?"
-
     jo "...For the evening?"
-
     "Don't panic, [playerName!q], he's likely just finding people for an after work pub visit… Although I didn't realise we had interacted enough for him to want to hang out like that."
-
     jo "N-nothing special, I think. {w} Go down to the local, probably, but–"
-
     ma "Great, great, see, I have a bit of work left to do–"
-
     jo "Oh no!"
 
     show ma sad at top
@@ -697,35 +688,23 @@ label prologueSonvsMar:
     #son shocked/disgusted face but mild
 
     son "...Did you already change your password? Great. I applaud your industriousness, Marcos."
-
     ma "Ah, still on my to-do list, I'm afraid. I have a bit of a conundrum that I was wondering if you could help me with Sonal."
-
     show son nervous at topleft with dissolve
 
     "Sonal glances at me."
-
     "Is she asking for help?"
-
     son "...Did [playerName!q] turn you down already?"
-
     "Or is she trying to figure out if I'm a threat to her interest in Marcos?"
-
     "Maybe she wants to have Marcos in her debt?"
 
     show ma smug at topright with dissolve
 
     ma "Oh, glad we're already on the same page!"
-
     ma "You know, [playerName!q] is such a sweetheart."
-
     ma "But I'm always in need of someone with a sharp and critical eye to look over everything. So I thought, you know who would be perfect for this? Sonal!"
-
     son "...I'm flattered."
-
     ma "So you'll do it then?"
-
     son "I'm afraid I have a few other tasks to complete already."
-
     ma "Aw, what a shame. Isn't that such a shame [playerName!q]?"
 
     menu: 
@@ -818,134 +797,90 @@ label bernardIntro:
 
     scene bg_transition_subwaysign with fade
     scene bg_transition_subwaytrain with fade
-    #sfx subway noise
+    play sound "audio/sfx/11-sfx_subwaytransition.ogg" volume 0.3
 
     scene bg_bar with fade
-    #sfx bar crowd
+    play music"audio/BAR 1  - Club Moka by Blue Dot Sessions.mp3" fadein 2 volume 0.6
+    play sound "audio/sfx/12-sfx_barambience1.ogg" volume 0.3
+    
     show be at top with dissolve
     be "Hey. Good to see you. The usual?"
-
     jo "Actually, something stronger today, if you could, Bernard."
-
     be "Long day?"
-
     jo "That's everyday, isn't it?"
-
     be "Longer day than usual?"
-
     jo "For now. Bet it won't be long before \"usual\" is just a distant memory and this becomes the standard."
-
     be "Mhmm."
-
     "Bernard grabs a bottle off the shelf and pours a glass of amber liquid for me."
 
-    #sfx pour drink
+    play sound "audio/sfx/13-sfx_pourdrink.ogg" volume 0.3
 
     jo "Had to finish up someone else's work today."
-
     be "That Marcos guy?"
-
     jo "Wow, was it that obvious?"
-
     be "Seems to be a recurring antagonist."
-
     jo "Yeah well, I don't know why I fall for it every time."
-
     "I think about Sonal's reaction to his request."
-
-
     "She was so good at getting out of it. I'm such a pushover."
-    show be at top with dissolve
-
     "I take a sip of my drink, letting the burn in my throat mingle with the bitterness of my emotions."
-
     be "How many times has he done this already?"
-
     jo "...well,  I guess, if I really think about it, this is only the second time."
-
     jo "Fool me twice and all, I guess. Next time though. I'll say no."
-
     "I punctuate that thought with a longer sip."
-
     jo "I mean he's not terrible. He's not like a serial killer for example."
-
     jo "And his work is well done and easy to pick up and I don't know… maybe he has normal expectations for how long things will take and I'm just slow."
-
     jo "So I guess… I guess it's not exactly a crime for him to ask me for help but…."
-
     jo "Although, he was being a right arse during the meeting this morning."
-
     jo "But I guess that's what they call confidence."
-
     jo "I suppose I should respect that."
-
     "Bernard raises his eyebrows but doesn't say anything."
 
-    "*One drink later*"
+    stop music fadeout 2
 
-    jo "And I don't want Sonal to hate me! I think I'm a good person– I'm a good person right, Bernard?"
-
-    "I squint at the blurry bottles on the wall and take a few seconds to realise Bernard isn't even in front of me. He's filling a pint for another person at the bar."
-
-    "I have enough presence of mind to stage whisper at Bernard instead of yelling my head off."
-
-    jo "Bernard. Bernaaaard, listen."
-
-    "Bernard makes his way back at his own pace."
-
-    be "I'm listening."
-
-    jo "...What was I saying?"
-
-    jo "Oh right, Sonal has everything together and it's not like I'm causing her problems, y'know? Even when I try to show that I'm on her side though…she seems to think I'm not? God, I don't want her to hate me."
-
-    be "I'm sure she doesn't…or that there's an explanation if she does."
-
-    jo "Yeah well–"
-
-    jo "Issa vibe. A feeling. You wouldn't get it."
-
-    jo "Nobody gets it."
-
-    jo "Can I get another drink?"
-
-    #transition
-
-    "*Several drinks later.*"
-
-    #bernard looks a little tired
-
-    jo "...And this morning! My ex posted another picture with that– that– the one– the one with the hair–  from the other photo! Like why do I need to see their slow progression into a–"
-    
     scene black with fade
-    "*One drink later*"
+    centered "*One drink later*"
     scene bg_bar with fade
     hide be with dissolve
 
+    play music"audio/BAR 1  - Club Moka by Blue Dot Sessions.mp3" fadein 2 volume 0.6
+
+    jo "And I don't want Sonal to hate me! I think I'm a good person– I'm a good person right, Bernard?"
+    "I squint at the blurry bottles on the wall and take a few seconds to realise Bernard isn't even in front of me. He's filling a pint for another person at the bar."
+    "I have enough presence of mind to stage whisper at Bernard instead of yelling my head off."
+    jo "Bernard. Bernaaaard, listen."
+
     show be at top with dissolve
+    "Bernard makes his way back at his own pace."
+    be "I'm listening."
+    jo "...What was I saying?"
+    jo "Oh right, Sonal has everything together and it's not like I'm causing her problems, y'know? Even when I try to show that I'm on her side though…she seems to think I'm not? God, I don't want her to hate me."
+    be "I'm sure she doesn't…or that there's an explanation if she does."
+    jo "Yeah well–"
+    jo "Issa vibe. A feeling. You wouldn't get it."
+    jo "Nobody gets it."
+    jo "Can I get another drink?"
+
+    scene black with fade
+    centered "*Several drinks later.*"
+    scene bg_bar with fade
+    hide be with dissolve
+
+    show be sad at top with dissolve
+    jo "...And this morning! My ex posted another picture with that– that– the one– the one with the hair–  from the other photo! Like why do I need to see their slow progression into a–"
     jo "It hasn't even been that long! I can't b'lieve they'd do this to me! To me! Did I do something to deserve this?"
-
     jo "I just don't– I don't understaaaaaand. What do they have that I don't?!"
-
     be "I couldn't say…"
-
     jo "Can't say what?"
-
     be "...I think you've had enough, [playerName!q]."
-
     jo "Oh gosh, what time is it?"
-
     "Bernard glances at the register."
-
     be "Twenty five to eleven."
-
     jo "......"
-
     jo "I have work in the morning!"
-
     be "Yes."
-
     jo "Thanks Bern'd."
+
+    show be happy at top with dissolve
 
     be "My pleasure. Be safe."
 
@@ -953,297 +888,210 @@ label bernardIntro:
     scene bg_street_bar with fade
 
     "I'm a big girl. I can make it home."
-
     "Be safe…" 
-
     "M-maybe I shouldn't risk it."
 
     menu:
         "Call Alex":
-
-            "I do have Alex's number…Somewhere in the… Somewhere–"
-
-            #sfx: dial tone
-
-            sa "Hello?"
-
-            jo "Alex!"
-
-            sa "No, did you mean to call Alex?"
-
-            jo "Uh…no."
-
-            jo "Maybe. You're not Alex though."
-
-            sa "No."
-
-            jo "S'course, I knew that. You're Sam."
-
-            sa "Yes."
-
-            scene bg_street_bar with fade
-
+            jump callAlex
         "Call Sam":
+            jump callSam
 
-            "Sam! Sam."
+label callAlex:
 
-            #sfx: dial tone
+    "I do have Alex's number…Somewhere in the… Somewhere–"
 
-            sa "Hello?"
+    play sound "audio/sfx/16-sfx_dial.ogg" volume 0.3
+    pause(5)
 
-            jo "Sam!"
+    sa "Hello?"
+    jo "Alex!"
+    sa "No, did you mean to call Alex?"
+    jo "Uh…no."
+    jo "Maybe. You're not Alex though."
+    sa "No."
+    jo "S'course, I knew that. You're Sam."
+    sa "Yes."
+    jo "Hear me out, okay… I'm a little out of it. Had a cheeky spot of something at the bar. Not hammered or anything just– whoops tripped a bit in place there."
 
-            sa "Yes, hi. Is something up?"
+    jump samIntro
 
-            jo "No, why?"
+label callSam:
+    "Sam! Sam."
 
-            sa "You sound a bit too excited to speak to me."
+    play sound "audio/sfx/16-sfx_dial.ogg" volume 0.3
+    pause(5)
 
-            jo "Do I?"
+    sa "Hello?"
+    jo "Sam!"
+    sa "Yes, hi. Is something up?"
+    jo "No, why?"
+    sa "You sound a bit too excited to speak to me."
+    jo "Do I?"
+    jo "You're just such a great– a great–"
+    sa "Are you drunk?"
+    jo "No."
+    jo "Okay, maybe. Not plastered just you know… had a cheeky drink or three and now the street is a little worgly. Wuggy. Wiggly."
+    jump samIntro
 
-            jo "You're just such a great– a great–"
-
-            sa "Are you drunk?"
-
-            jo "No."
-
-            jo "Okay, maybe. Not plastered just you know… had a cheeky drink or three and now the street is a little worgly. Wuggy. Wiggly."
-
+label samIntro:
 
     sa "Right."
-
     jo "And since I've got you on the phone…"
-
     sa "*sigh* Mhmm."
-
     jo "Could you come pick me up, pretty pleaaasseee?"
-
     sa "Where are you right now?"
-
     jo "Outside the Better Days Bar… come quickly or I'll abscond with the next nice person I seeeeee." 
-
     sa "*sigh* I'll be right there."
-
     jo "Hurry, I'm this close to rebounding with a stranger."
-
     sa "Go sit inside till I'm there."
-
     jo "Alright, Mr. Bossy."
-
     sa "I'm hanging up. Remember, sit inside, please."
 
-    #sfx call ending
+    play sound "audio/sfx/17-sfx_callend.ogg" volume 0.3
 
     "I mean I could sit inside."
-
     "Bar won't close for another… soon."
-
     "I'm too tired to go back in though." 
-
     "I'll just… sit myself down here on the sidewalk. People can go around me if they're so bothered."
-
     "..."
-
     "...Where is Sam anyway?"
-
     "..."
-
     "How long has it been since I called him?"
-
     "Feels like it's been a while."
-
     "Should I call him again?"
-
     "What if he's not coming?"
 
-    #sfx dial numbers sound
-    #sfx dial tone
+    play sound "audio/sfx/16-sfx_dial.ogg" volume 0.3
+    pause(2)
+    play sound "audio/sfx/18-sfx_ringtone.ogg" volume 0.3
+    pause(2)
+    play sound "audio/sfx/17-sfx_callend.ogg" volume 0.3
+    pause(2)
 
-    #sfx phone ringtone
-
-    #sfx phone call ended
-
-    show sa at top with dissolve
+    show sa_street_annoyed at top with dissolve
+    play music "audio/SAM 1 - Good Vibes by Holizna CC0.mp3" fadein 2 volume 0.6
     sa "What did I say about sitting outside?"
-
     sa "Bernard would've been better company than the ground."
-
     jo "Did you just hang up on me without picking up?!"
-
     jo "Everyone's always hanging up on me. Leaving me behind."
-
     sa "I was literally a few feet away. I could already see you."
-
     jo "Well you took your time!"
-
     sa "I was actually going as fast as I could without triggering feelings of annoyance."
-
-    #shaky text?
-    jo "I am annoying, aren't I? You probably want to replace me too."
-
+    jo "I am annoying, aren't I? You probably want to replace me too." #with shaky text
     jo "If you wait at least a month, you won't– you won't even be the worst–"
-
     jo "We were together for *hic* so many years and I'm just tossed aside like rubbish at the sight of the next pretty face?!"
-
     jo "I'm pretty enough right?! Why didn't he and I ever go on trips to the sea? Post cringe photos on Tangram?"
-
     jo "We should take a selfie right now! Show that jerk what he's missing out on."
-
     sa "..."
-
     sa "No, thanks."
-
     jo "Yeah, thought you'd say that."
-
     sa "..."
-
     jo "*sniff*"
-
     sa "Done throwing a wobbly?"
-
     jo "You're throwing a wobbly."
-
     sa "Alright. Up you get."
-
     sa "You have all your stuff? Phone, wallet, keys? Purse?"
-
     jo "Yes, mum."
-
     sa "You're okay to walk?"
-
     jo "*sniff* Yes."
-
     sa "You can lean on me if you need to."
-
     jo "*sniff* 'Kay."
 
     scene bg_car_interior with fade
-    #sfx car stuff
-    #sfx car doors
-    #sfx car starting
-    #sfx driving noise
+    play sound "audio/sfx/21-sfx_cardoors_lock.ogg" volume 0.3
+    pause(0.5)
+    play sound "audio/sfx/19-sfx_cardriving.ogg" volume 0.3
+    
     sa "You know, you're lucky I was awake."
-
     jo "You don't even sleep at night."
-
     jo "Besides it doesn't take that long to get here."
-
     sa "Sure. Just so we're clear, I'm always happy to make sure you're safe, but like I did last time, I am gently reminding you that taxis exist."
-
     jo "*sniff* Isn't it nice to hang out?"
-
     sa "There are better ways to hang out. This is not one of them."
 
+    stop music fadeout 3
     #bg starts fading in and out until black.
 
-    #sfx ignition off
-
     scene black with fade
+    play sound "audio/sfx/20-sfx_ignitionoff.ogg" volume 0.3
 
     sa "[playerName!q]? [playerName!q], wake up. We're here."
 
     #sfx car doors + lock
-    
-    #sfx key noises
-
-    #sfx walking up stairs
+    play sound "audio/sfx/21-sfx_cardoors_lock.ogg" volume 0.3
+    pause(1)
+    play sound "audio/sfx/22-sfx_unlockingfrontdoor.ogg" volume 0.3
 
     scene bg_flat_stairs with fade
-    pause(2)
+    pause(1)
+    
     scene black with fade
-    #fade to bg_aptstairs, #bg fade to black
+    play sound "audio/sfx/23-sfx_stairsascendingtogether.ogg" volume 0.3
+    pause(2)
 
     scene bg_flat_hall with fade
 
     show sa at top with dissolve
     sa "Where are your keys?"
-
+    stop sound fadeout 0.5
     jo "Purse."
 
-    #sfx digging through purse
+    play sound "audio/sfx/24-sfx_keysinpurse.ogg" volume 0.3
 
     sa "Why do you have so many napkins– nevermind, found them."
-
     jo "Mmm."
-
-    sa "Hey, stay with me, you're almost there."
-
+    sa "Hey, stay with me, you're almost there.ogg"
     jo "Sleepy."
 
-    #sfx door unlocking
-
+    play sound "audio/sfx/25-sfx_unlockMCdoor.ogg" volume 0.3
+    pause(2)
     scene bg_flat_mc_dark with dissolve
     pause(1)
     scene bg_flat_mc with dissolve
     show sa at top with dissolve
 
     sa "Shoes."
-
     "I attempt to kick my shoes off."
-
     jo "Ah! Cramp, cramp in my leg, ow ow ow ow."
-
     "Sam sighs loudly."
-
     sa "Sit down and hold still."
-
     "Sam firmly removes my shoes for me."
-
     sa "I'm going to leave your purse on the table. Do you want your phone?"
-
     jo "Mmm."
-
     sa "Is that a yes?"
-
     jo "Yeah."
-
     sa "How's your leg?"
-
     jo "Still feels tense but… *yawn* false alarm, I guess."
-
     sa "You feeling alright otherwise?"
-
     jo "Sleepyyyy."
-
     sa "[playerName!q]."
-
     jo "Yeah, I'm fine just– *yawn*"
-
     sa "Okay."
-
     sa "I can stay if– Well, no I don't think I should. But if you need me, call me or knock on my door, okay?"
-
     jo "'kay."
 
     hide sa with dissolve
 
-    #sfx door closing in the distance
+    play sound "audio/sfx/26-sfx_samleaves_doorclose.ogg" volume 0.3
+    pause(3)
 
     scene bg_flat_mc_bed with dissolve
 
-    #sfx flopping into bed
-
+    play sound "audio/sfx/27-sfx_gettingintobed.ogg" volume 0.3
+    play music "audio/SAD - A Cool Electric Rainy Night by Mike Durek.mp3" fadein 2 volume 0.6
     "..."
-
     "Of course, as soon as I'm in bed, I'm wide awake."
-
     "I should change out of these clothes."
-
     "Ah but my bed is so soft and…"
-
     "...What if I– One little peek…?"
-
     "No. I shouldn't."
-
     "I find myself opening the Tangram app anyway."
-
     jo "Not going to do anything silly."
-
     jo "..."
-
     jo "It's my alt account anyway."
 
-    #sfx typing poetry
+    play sound "audio/sfx/28-sfx_poetrytyping.ogg" volume 0.3
 
     #Insta post:
     scene black with fade
@@ -1254,554 +1102,10 @@ label bernardIntro:
 
     "I would have been"
     "Your forever"
-
-<<<<<<< HEAD
     "Now you are another"
     "Learning experience"
+    stop music fadeout 2
     jump introWeekOne
-=======
-        scene bg_bar with fade
-        #sfx bar crowd
-
-        show be at top with dissolve
-
-        be "Hey. Good to see you. The usual?"
-
-        jo "Actually, something stronger today, if you could, Bernard."
-
-        be "Long day?"
-
-        jo "That's everyday, isn't it?"
-
-        be "Longer day than usual?"
-
-        jo "For now. Bet it won't be long before \"usual\" is just a distant memory and this becomes the standard."
-
-        be "Mhmm."
-
-        "Bernard grabs a bottle off the shelf and pours a glass of amber liquid for me."
-
-        #sfx pour drink
-
-        jo "Had to finish up someone else's work today."
-
-        be "That Marcos guy?"
-
-        jo "Wow, was it that obvious?"
-
-        be "Seems to be a recurring antagonist."
-
-        jo "Yeah well, I don't know why I fall for it every time."
-
-        "I think about Sonal's reaction to his request."
-
-        "She was so good at getting out of it. I'm such a pushover."
-
-        "I take a sip of my drink, letting the burn in my throat mingle with the bitterness of my emotions."
-
-        be "How many times has he done this already?"
-
-        jo "...well,  I guess, if I really think about it, this is only the second time."
-
-        jo "Fool me twice and all, I guess. Next time though. I'll say no."
-
-        "I punctuate that thought with a longer sip."
-
-        jo "I mean he's not terrible. He's not like a serial killer for example."
-
-        jo "And his work is well done and easy to pick up and I don't know… maybe he has normal expectations for how long things will take and I'm just slow."
-
-        jo "So I guess… I guess it's not exactly a crime for him to ask me for help but…."
-
-        jo "Although, he was being a right arse during the meeting this morning."
-
-        jo "But I guess that's what they call confidence."
-
-        jo "I suppose I should respect that."
-
-        "Bernard raises his eyebrows but doesn't say anything."
-
-        scene black with fade
-
-        centered "*One drink later*"
-
-        scene bg_bar with fade
-
-        hide be with dissolve
-
-        jo "And I don't want Sonal to hate me! I think I'm a good person– I'm a good person right, Bernard?"
-
-        "I squint at the blurry bottles on the wall and take a few seconds to realise Bernard isn't even in front of me. He's filling a pint for another person at the bar."
-
-        "I have enough presence of mind to stage whisper at Bernard instead of yelling my head off."
-
-        jo "Bernard. Bernaaaard, listen."
-
-        "Bernard makes his way back at his own pace."
-        show be at top with dissolve
-
-        be "I'm listening."
-
-        jo "...What was I saying?"
-
-        jo "Oh right, Sonal has everything together and it's not like I'm causing her problems, y'know? Even when I try to show that I'm on her side though…she seems to think I'm not? God, I don't want her to hate me."
-
-        be "I'm sure she doesn't…or that there's an explanation if she does."
-
-        jo "Yeah well–"
-
-        jo "Issa vibe. A feeling. You wouldn't get it."
-
-        jo "Nobody gets it."
-
-        jo "Can I get another drink?"
-
-        scene black with fade
-
-        centered "*Several drinks later.*"
-
-        scene bg_bar with fade
-
-        hide be with dissolve
-
-        
-
-        show be sad at top with dissolve
-
-        jo "...And this morning! My ex posted another picture with that– that– the one– the one with the hair–  from the other photo! Like why do I need to see their slow progression into a–"
-
-        jo "It hasn't even been that long! I can't b'lieve they'd do this to me! To me! Did I do something to deserve this?"
-
-        jo "I just don't– I don't understaaaaaand. What do they have that I don't?!"
-
-        be "I couldn't say…"
-
-        jo "Can't say what?"
-
-        be "...I think you've had enough, [playerName!q]."
-
-        jo "Oh gosh, what time is it?"
-
-        "Bernard glances at the register."
-
-        be "Twenty five to eleven."
-
-        jo "......"
-
-        jo "I have work in the morning!"
-
-        be "Yes."
-
-        jo "Thanks Bern'd."
-
-        show be happy at top with dissolve
-
-        be "My pleasure. Be safe."
-
-        scene bg_street_bar with fade
-        #sfx door close
-        #sfx street
-
-
-        "Be safe…"
-
-        "I'm a big girl. I can make it home."
-
-        "Be safe…" 
-
-        "M-maybe I shouldn't risk it."
-
-        #choice
-        menu:
-            "Call Alex":
-                jump callAlex
-            "Call Sam":
-                jump callSam
-
-    label callAlex:
-
-        "I do have Alex's number…Somewhere in the… Somewhere–"
-
-        #sfx: dial tone
-
-        sa "Hello?"
-
-        jo "Alex!"
-
-        sa "No, did you mean to call Alex?"
-
-        jo "Uh…no."
-
-        jo "Maybe. You're not Alex though."
-
-        sa "No."
-
-        jo "S'course, I knew that. You're Sam."
-
-        sa "Yes."
-
-        jo "Hear me out, okay… I'm a little out of it. Had a cheeky spot of something at the bar. Not hammered or anything just– whoops tripped a bit in place there."
-
-        jump samIntro
-
-    label callSam:
-
-        "Sam! Sam."
-
-        #sfx: dial tone
-
-        sa "Hello?"
-
-        jo "Sam!"
-
-        sa "Yes, hi. Is something up?"
-
-        jo "No, why?"
-
-        sa "You sound a bit too excited to speak to me."
-
-        jo "Do I?"
-
-        jo "You're just such a great– a great–"
-
-        sa "Are you drunk?"
-
-        jo "No."
-
-        jo "Okay, maybe. Not plastered just you know… had a cheeky drink or three and now the street is a little worgly. Wuggy. Wiggly."
-
-        jump samIntro
-    
-    label samIntro:
-
-        sa "Right."
-
-        jo "And since I've got you on the phone…"
-
-        sa "*sigh* Mhmm."
-
-        jo "Could you come pick me up, pretty pleaaasseee?"
-
-        sa "Where are you right now?"
-
-        jo "Outside the Better Days Bar… come quickly or I'll abscond with the next nice person I seeeeee." 
-
-        sa "*sigh* I'll be right there."
-
-        jo "Hurry, I'm this close to rebounding with a stranger."
-
-        sa "Go sit inside till I'm there."
-
-        jo "Alright, Mr. Bossy."
-
-        sa "I'm hanging up. Remember, sit inside, please."
-
-        #sfx call ending
-
-        "I mean I could sit inside."
-
-        "Bar won't close for another… soon."
-
-        "I'm too tired to go back in though." 
-
-        "I'll just… sit myself down here on the sidewalk. People can go around me if they're so bothered."
-
-        "..."
-
-        "...Where is Sam anyway?"
-
-        "..."
-
-        "How long has it been since I called him?"
-
-        "Feels like it's been a while."
-
-        "Should I call him again?"
-
-        "What if he's not coming?"
-
-        #sfx dial numbers sound
-        #sfx dial tone
-
-        #sfx phone ringtone
-
-        #sfx phone call ended
-
-        show sa_street_annoyed at top with dissolve
-
-        sa "What did I say about sitting outside?"
-
-        sa "Bernard would've been better company than the ground."
-
-        jo "Did you just hang up on me without picking up?!"
-
-        jo "Everyone's always hanging up on me. Leaving me behind."
-
-        sa "I was literally a few feet away. I could already see you."
-
-        jo "Well you took your time!"
-
-        sa "I was actually going as fast as I could without triggering feelings of annoyance."
-
-        #shaky text?
-        jo "I am annoying, aren't I? You probably want to replace me too."
-
-        jo "If you wait at least a month, you won't– you won't even be the worst–"
-
-        jo "We were together for *hic* so many years and I'm just tossed aside like rubbish at the sight of the next pretty face?!"
-
-        jo "I'm pretty enough right?! Why didn't he and I ever go on trips to the sea? Post cringe photos on Tangram?"
-
-        jo "We should take a selfie right now! Show that jerk what he's missing out on."
-
-        sa "..."
-
-        show sam_street_resigned at top with dissolve
-
-        sa "No, thanks."
-
-        jo "Yeah, thought you'd say that."
-
-        sa "..."
-
-        jo "*sniff*"
-
-        sa "Done throwing a wobbly?"
-
-        jo "You're throwing a wobbly."
-
-        sa "Alright. Up you get."
-
-        sa "You have all your stuff? Phone, wallet, keys? Purse?"
-
-        jo "Yes, mum."
-
-        sa "You're okay to walk?"
-
-        jo "*sniff* Yes."
-
-        sa "You can lean on me if you need to."
-
-        jo "*sniff* 'Kay."
-
-        hide sa with dissolve
-
-        scene bg_car_interior with fade
-        #sfx car stuff
-        #sfx car doors
-        #sfx car starting
-        #sfx driving noise
-
-        #basically they're on the way home
-
-        sa "You know, you're lucky I was awake."
-
-        jo "You don't even sleep at night."
-
-        jo "Besides it doesn't take that long to get here."
-
-        sa "Sure. Just so we're clear, I'm always happy to make sure you're safe, but like I did last time, I am gently reminding you that taxis exist."
-
-        jo "*sniff* Isn't it nice to hang out?"
-
-        sa "There are better ways to hang out. This is not one of them."
-
-        #bg starts fading in and out until black.
-
-        #sfx ignition off
-
-        scene black with fade
-
-        sa "[playerName!q]? [playerName!q], wake up. We're here."
-
-        #sfx car doors + lock
-
-        #bg black
-        #sfx key noises
-
-        #sfx walking up stairs
-
-        scene bg flat stairs with fade
-
-        pause 1.0
-
-        scene bg flat hall with fade
-
-
-        sa "Where are your keys?"
-
-        jo "Purse."
-
-        #sfx digging through purse
-
-        sa "Why do you have so many napkins– nevermind, found them."
-
-        jo "Mmm."
-
-        sa "Hey, stay with me, you're almost there."
-
-        jo "Sleepy."
-
-        #sfx door unlocking
-
-        scene bg_flat_mc_dark with fade
-
-        show sa_street_neutral with dissolve
-
-        sa "Shoes."
-
-        "I attempt to kick my shoes off."
-
-        jo "Ah! Cramp, cramp in my leg, ow ow ow ow."
-
-        show sa street resigned sign with dissolve
-
-        "Sam sighs loudly."
-
-        sa "Sit down and hold still."
-
-        "Sam firmly removes my shoes for me."
-
-        show sa street neutral with dissolve
-
-        sa "I'm going to leave your purse on the table. Do you want your phone?"
-
-        jo "Mmm."
-
-        sa "Is that a yes?"
-
-        jo "Yeah."
-
-        sa "How's your leg?"
-
-        jo "Still feels tense but… *yawn* false alarm, I guess."
-
-        sa "You feeling alright otherwise?"
-
-        jo "Sleepyyyy."
-
-        show sa street annoyed with dissolve
-
-        sa "[playerName!q]."
-
-        jo "Yeah, I'm fine just– *yawn*"
-
-        show sa street neutral with dissolve
-
-        sa "Okay."
-
-        sa "I can stay if– Well, no I don't think I should. But if you need me, call me or knock on my door, okay?"
-
-        jo "'kay."
-
-        #sam leaves
-
-        #sfx door closing in the distance
-
-        scene bg_flat_mc_bed with fade
-
-        #sfx flopping into bed
-
-        "..."
-
-        "Of course, as soon as I'm in bed, I'm wide awake."
-
-        "I should change out of these clothes."
-
-        "Ah but my bed is so soft and…"
-
-        "...What if I– One little peek…?"
-
-        "No. I shouldn't."
-
-        "I find myself opening the Tangram app anyway."
-
-        jo "Not going to do anything silly."
-
-        jo "..."
-
-        jo "It's my alt account anyway."
-
-        #sfx typing poetry
-
-        #Insta post:
-        scene black with fade
-        show cringepoetry1 with dissolve
-
-        "You could have been"
-        "My everything"
-
-        "I would have been"
-        "Your forever"
-
-        "Now you are another"
-        "Learning experience"
-        jump introWeekOne
-        #Week 1
-    label introWeekOne:
-        scene bg_flat_mc_bed with fade
-
-        jo "Ugh my mouth is so dry…"
-
-        scene black with fade
-        centered "One week later..."
-
-        scene bg_flat_mc_bed_morning with fade
-        jo "What time is it even?"
-        jo "5:30 AM?"
-        "Did I wake up from dehydration? I feel like a husk of a being."
-        "There's a strange, dull ache in my legs too."
-        jo "...What did I do last night?"
-
-        scene black with fade
-        centered "Last night..."
-        scene bg_flashback_mall with fade
-
-        jo "I deserve to treat myself. {w}I deserve to look amazing."
-        jo "This is a definite yes. {w}Oh and this too!"
-
-        play sound "audio/sfx/29-sfx_chaching.ogg" 
-
-        jo "Ah I feel so much better! So much lighter!"
-
-        scene bg_flat_mc_bed_morning with fade
-
-        jo "Oh god."
-        jo "My poor bank account."
-        jo "How many clothes did I buy?"
-        "The light from my window illuminates a few bulky shapes, but I'm afraid to look too closely."
-        "As I get out of bed, I trip over at least three bags."
-        jo "..."
-        jo "Tea first and then we can face my sins."
-
-        scene bg_flat_mc with fade
-        play sound "audio/sfx/30-sfx_makingtea.ogg"
-
-        "What was it that even triggered all of this?"
-        "Something is bothering me but I can't quite remember what it is, like my brain is trying to protect itself from a source of danger."
-        jo "I suppose I can figure it out later. {w}Let's look through these bags first."
-
-        play sound "audio/sfx/31-sfx_rustlebags.ogg" 
-
-        jo "Well, these aren't terrible outfits at least–but oof, that is expensive. As is this. And that." 
-        "My poor, poor wallet. I can't even imagine how much worse it would be if I had done some online retail therapy instead."
-        jo "I'll see if I can return some things. {w}I should still have all my receipts here. Somewhere."
-        "But I can't deny, it would be nice to wear something new today. {w}Maybe if I look better than I feel, I can get through the day just fine."
-        "I rifle through the bags until I find something that works for the office."
-        jo "These heels are pushing the boundaries of business appropriate but… {w}They're so cute… And just the right shade of green…"
-        "I'm sure no one will call me on it."
-        "Hmm, but fashion aside, is it a physically bad idea to wear brand new heels to work?"
-
-        menu: 
-            "Yes, this is a terrible idea.":
-                jump firstSonalDecision
-            "No, I'm an adult who makes adult decisions.":
-                jump firstSonalDecision
-
-    label firstSonalDecision:
-        "...I'm sure it'll be fine this time."
-        "After all, I'd have to break them in anyway. Might as well be today."
->>>>>>> johanne
         
 #Week 1
 label introWeekOne:
