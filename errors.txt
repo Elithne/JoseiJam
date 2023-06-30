@@ -2,11 +2,9 @@
 errors listed below, and try again.
 
 
-The label intro is defined twice, at File "game/script.rpy", line 50:
-label intro:
-and File "game/script.rpy", line 1376:
-    label intro:
-
+File "game/script.rpy", line 1433: choice menuitem expects a non-empty block.
+    "Yes, this is a terrible idea.":
+                                    ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Thu Jun 29 22:16:34 2023
+Thu Jun 29 22:27:55 2023

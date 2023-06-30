@@ -1383,99 +1383,69 @@ label intro:
 
         scene bg_flat_mc_bed_morning with fade
         jo "What time is it even?"
-
         jo "5:30 AM?"
-
         "Did I wake up from dehydration? I feel like a husk of a being."
-
         "There's a strange, dull ache in my legs too."
-
         jo "...What did I do last night?"
 
         scene black with fade
         centered "Last night..."
+        scene bg_flashback_mall with fade
 
-        #bg_shoppingcentre (maybe grey scale lol for flashback)
+        jo "I deserve to treat myself. {w}I deserve to look amazing."
+        jo "This is a definite yes. {w}Oh and this too!"
 
-        jo "I deserve to treat myself. I deserve to look amazing."
-
-        #sfx cha-ching noise
-
-        jo "This is a definite yes. Oh and this too!"
-
-        #sfx cha-ching 
+        play sound "audio/sfx/29-sfx_chaching.ogg" 
 
         jo "Ah I feel so much better! So much lighter!"
 
-        #end flashback
+        scene bg_flat_mc_bed_morning with fade
 
         jo "Oh god."
-
         jo "My poor bank account."
-
         jo "How many clothes did I buy?"
-
         "The light from my window illuminates a few bulky shapes, but I'm afraid to look too closely."
-
         "As I get out of bed, I trip over at least three bags."
-
         jo "..."
-
         jo "Tea first and then we can face my sins."
 
-        #bg_joflat_kitchen
-
-        #sfx pour hot water, make teakettle beep
+        scene bg_flat_mc with fade
+        play sound "audio/sfx/30-sfx_makingtea.ogg"
 
         "What was it that even triggered all of this?"
-
         "Something is bothering me but I can't quite remember what it is, like my brain is trying to protect itself from a source of danger."
+        jo "I suppose I can figure it out later. {w}Let's look through these bags first."
 
-        jo "I suppose I can figure it out later. Let's look through these bags first."
-
-        #sfx rustle bags
+        play sound "audio/sfx/31-sfx_rustlebags.ogg" 
 
         jo "Well, these aren't terrible outfits at least–but oof, that is expensive. As is this. And that." 
-
         "My poor, poor wallet. I can't even imagine how much worse it would be if I had done some online retail therapy instead."
-
-        jo "I'll see if I can return some things. I should still have all my receipts here. Somewhere."
-
-        "But I can't deny, it would be nice to wear something new today. Maybe if I look better than I feel, I can get through the day just fine."
-
+        jo "I'll see if I can return some things. {w}I should still have all my receipts here. Somewhere."
+        "But I can't deny, it would be nice to wear something new today. {w}Maybe if I look better than I feel, I can get through the day just fine."
         "I rifle through the bags until I find something that works for the office."
-
-        jo "These heels are pushing the boundaries of business appropriate but… they're so cute… and just the right shade of green…"
-
+        jo "These heels are pushing the boundaries of business appropriate but… {w}They're so cute… And just the right shade of green…"
         "I'm sure no one will call me on it."
-
         "Hmm, but fashion aside, is it a physically bad idea to wear brand new heels to work?"
 
-        #Choice:
+        menu: 
+            "Yes, this is a terrible idea.":
+                jump firstSonalDecision
+            "No, I'm an adult who makes adult decisions.":
+                jump firstSonalDecision
 
-        #choice 1:
-        #"Yes, this is a terrible idea."
-
-
-        #choice 2:
-        #"No, I'm an adult who makes adult decisions."
-
-        #both choices lead to:
-
+    label firstSonalDecision:
         "...I'm sure it'll be fine this time."
-
         "After all, I'd have to break them in anyway. Might as well be today."
+        
+        scene bg_transition_subwaytrain with fade
+        play sound "audio/sfx/11-sfx_subwaytransition.ogg"
 
-        #bg_subwaytransitiontransition to the street or the subway
-        #sfx subway transition
-
+        scene bg_transition_subwaysign with fade
         "Since I woke up so early, I'm able to head to work at a leisurely pace."
-
         "Which is good, because the heels pinch a bit, but at least they look great!"
 
-        #transition into work??? (maybe fade to black then into elevator?)
-
-        #bg_workelevator
+        scene bg_office_elevator with fade
+        play sound "audio/sfx/32-sfx_elevatording.ogg" 
 
         #sfx elevatording
 
