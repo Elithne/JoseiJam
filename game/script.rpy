@@ -341,7 +341,6 @@ label intro:
         show ma laughing at topleft with dissolve
         ma "Question–"
 
-        #transition
         scene bg_office_conferenceroom with fade
 
         show son at top with dissolve
@@ -559,7 +558,8 @@ label intro:
         show son annoyed at topright
         son "..."
 
-        show son exasperated sigh at topright
+        hide son annoyed
+        show son at topright
         son "No, not at all."
 
         scene bg_office_lunchspot with dissolve
@@ -578,32 +578,36 @@ label intro:
         hide al
         show al at topleft
         
-        son "Vegetarian. Only for the last few years though. Though, there were a few other options–I just thought a salad was faster."
+        son "Vegetarian. Only for the last few years though.{w} Though, there were a few other options–I just thought a salad was faster."
 
         jo "I actually had no idea."
 
-        jo "That you were vegetarian. Not about the speed of grabbing a salad. Though I understand of course. You certainly don't have to heat it up and all."
+        jo "That you were vegetarian. {w}Not about the speed of grabbing a salad. {w}Though I understand of course. {w}You certainly don't have to heat it up and all."
 
         "Sonal nods, not quite sure how to follow up that blurb of information."
 
-        al "Well, you're technically newer to the company than Sonal, right [playerName!q]? You haven't had a chance to get to know each other for very long."
+        al "Well, you're technically newer to the company than Sonal, right [playerName!q]? {w}You haven't had a chance to get to know each other for very long."
 
         son "We hired in at the same time, I think."
 
         al "Oh forgive me, you just seem like a more seasoned worker, Sonal."
 
+        show son laughing at topright
         son "Thanks. I'm trying my best to keep up."
 
         "I mean, I do try too. Not all of us can be a Sonal."
 
         jo "...So you just personally decided to be vegetarian one day?"
 
+        show son annoyed at topright
         son "Er…yes. That's how it works for a lot of people, I thought."
 
         "Why do I feel like I've offended her somehow?"
 
+
         al "Mm, did you know Marcos is a vegan too?"
 
+        show son annoyed disgust at topright
         son "I'm not– "
 
         "Sonal pauses and then seems to let whatever she wanted to say go."
@@ -612,44 +616,51 @@ label intro:
 
         jo "With how often you're put on projects with him, I would've thought that the topic had arisen by now."
 
-        #sonal slightly annoyed
-
+        hide son annoyed disgust at topright
+        show son angry at topright
         son "Unfortunately, Marcos rarely stays around long enough to have a meal with me."
 
         "What, has Sonal tried to ask Marcos to dinner?"
 
-        "I mean, Marcos is fanciable if we're talking visuals alone. And he comes from money. He has connections. And his hair is always so soft-looking– I could see where she's coming from."
+        "I mean, Marcos is fanciable if we're talking visuals alone. {w}And he comes from money. He has connections. And his hair is always so soft-looking– I could see where she's coming from."
 
         "And like Alex said, Sonal is so good at her job. Plus her hair is just as nice as his and she always looks so pretty. They'd make a perfect couple. "
 
         "God, I must seem even more of a mess next to her."
-
+        
         al "H-have you asked him to?"
 
+        show son shocked at topright
+        show al shocked at topleft
         son "What."
 
+        show son exasperated at topright
         son "I mean, sorry, no, I– it never occurred to me."
 
         son "I get things done faster without him there anyway, you see."
-
+        show son at topright
+        hide al
+        show al at topleft
         son "I'm sure he wouldn't enjoy my power… dinners."
 
         "Oh wow. Is this how Alex feels when she sniffs out a new workplace romance?"
 
+
         "I glance at Alex but I can't read her expression for once."
 
+    menu:
+
         #choice
+            "Try to subtly find out if Sonal likes Marcos.": 
+                jump prologueLunchContinue
+            "Ask Sonal outright if she likes Marcos.":
+                jump prologueLunchContinue
 
-        #choice 1
-        #"Try to subtly find out if Sonal likes Marcos."
-
-        #choice 2
-        #"Ask Sonal outright if she likes Marcos."
-
-        #both choices lead to:
-
+    label prologueLunchContinue:
         jo "I'm sure you want him to."
 
+        show son annoyed questionmark at topright
+        show al angry flyingsweat at topleft
         jo "I mean, I'm sure he'd love you."
 
         jo "Dinner with you."
@@ -659,16 +670,18 @@ label intro:
         "Oh god, why did I open my mouth?"
 
         "For that matter, why does talking to Sonal intimidate me so much?"
-
+        
+        show al laughing sweat at topleft
         al "Yes, I'm sure any of us would love to have dinner with you, that's what you meant, right [playerName!q]?"
 
         "Yes. No. I don't know."
 
         "I nod anyway."
 
-
+        show son fork at topright
         son "...I would rather not have to stay behind to tie up loose ends at all."
 
+        show al shocked at topleft
         "Sonal punctuates her point by stabbing the last bit of her salad with her fork."
 
         son "But thank you."
@@ -679,13 +692,17 @@ label intro:
 
         "She stands, efficiently grabbing all her trash and belongings, before pushing her chair in with her leg."
 
+        hide al
+        show al happy at topleft
         al "Okay, see ya!"
 
         son "Enjoy the rest of your lunch."
 
-        #sonal leaves
+        hide son with dissolve
 
         "Once Sonal leaves the space entirely, I turn to Alex."
+        hide al with dissolve
+        show al at top with dissolve
 
         jo "...Alex, hear me out okay?"
 
@@ -701,9 +718,10 @@ label intro:
 
         jo "It's probably just me then."
 
+        show al happy tinyflowers at top
         al "Don't get in your head too much! Take it from someone who's been here a bit longer than you–we have a good set of coworkers here."
 
-        al "Trust me when i say it could have been much worse."
+        al "Trust me when I say it could have been much worse."
 
         jo "Right."
 
@@ -715,17 +733,14 @@ label intro:
 
         "After all, I don't make trouble for Sonal on a regular basis like some people."
 
-        "At least…I don't think I do?"
+        "At least… I don't think I do?"
 
+        scene bg_office_desks with fade
 
-        #transition
-        #bg_workplace
-
-        #sfx of typing
-        #cue marcos music
-
+        #sfx of typing, marcos music
+        
         ma "Still hard at work, sweetheart?"
-
+        show ma at top with dissolve
         "I look up to see Marcos standing at my side."
 
         "...He's really quite tall. Like model level proportions."
@@ -740,49 +755,54 @@ label intro:
 
         jo "...For the evening?"
 
-        "Don't panic, [playerName!q], he's likely just finding people for an after work pub visit… although I didn't realise we had interacted enough for him to want to hang out like that."
+        "Don't panic, [playerName!q], he's likely just finding people for an after work pub visit… Although I didn't realise we had interacted enough for him to want to hang out like that."
 
-        jo "N-nothing special, I think. Go down to the local, probably, but–"
+        jo "N-nothing special, I think. {w} Go down to the local, probably, but–"
 
         ma "Great, great, see, I have a bit of work left to do–"
 
         jo "Oh no!"
 
-        ma "Yes, it's a shame because I'm busy this evening. The remainder probably won't take too long but I would hate to cut into my plans."
+        show ma sad at top
+        ma "Yes, it's a shame because I'm busy this evening. {w}The remainder probably won't take too long but I would hate to cut into my plans."
 
         "I almost feel a sense of relief that he's not asking me out, platonically or romantically. Instinctively, I know that Marcos is trouble."
 
         jo "That is a shame. I wish there was something that could be done."
 
-        "...What would that even look like? A relationship with Marcos? Even in my anger at my ex, I feel like that's a step in the wrong direction… but maybe the right message to send?"
+        "...What would that even look like? A relationship with Marcos? {w}Even in my anger at my ex, I feel like that's a step in the wrong direction… But maybe the right message to send?"
 
-        ma "Isn't it? You're the only one who understands. If it's not too much, you wouldn't mind finishing everything up for me, right? Since you don't have anything special planned."
+        ma "Isn't it? You're the only one who understands. {w}If it's not too much, you wouldn't mind finishing everything up for me, right? {w}Since you don't have anything special planned."
 
         jo "Um…"
 
         "Wait, how did we get to this point? Did I accidentally agree to something? I don't think I did but…"
 
-        ma "I understand if you're busy after all. Only, you'd be helping me out of a major bind and I won't forget it…"
+        show ma happy sparkle at top
+        ma "I understand if you're busy after all. {w}Only, you'd be helping me out of a major bind and I won't forget it…"
 
         "I didn't plan on staying behind either, if I could help it!"
 
-        ma "I don't want to pressure you so, think on it if you need the extra time. I know you're a really nice person and I don't want to take advantage of your niceness."
+        ma "I don't want to pressure you so, think on it if you need the extra time. {w}I know you're a really nice person and I don't want to take advantage of your niceness."
 
         "Well… I mean, it's good to help people out right? And… he's basically saying he'll owe me one right?"
 
         #choice
+    menu: 
+        "Tell Marcos I can't do it.":
+            jump prologueSonvsMar
+        "Agree to take on the work.":
+            jump prologueSonvsMar
 
-        #choice 1
-        #"Tell Marcos I can't do it."
-
-        #choice 2
-        #"Agree to take on the work."
-
-        #both lead to:
-
+    
+    label prologueSonvsMar:
         jo "Actually…"
 
         "Sonal walks by and actively turns back around to stop and talk to the both of us."
+
+        hide ma with dissolve
+        show ma at topright with dissolve
+        show son at topleft with dissolve
 
         son "Hey, before either of you leave for the evening, make sure to change your passwords. IT sent out an email but I was specifically instructed to remind everyone verbally."
 
@@ -790,6 +810,7 @@ label intro:
 
         "Sonal hesitates, though her body is still turned away as if she's poised to leave as soon as possible."
 
+        show son annoyed disgust 
         #son shocked/disgusted face but mild
 
         son "...Did you already change your password? Great. I applaud your industriousness, Marcos."
@@ -820,9 +841,14 @@ label intro:
 
         ma "Aw, what a shame. Isn't that such a shame [playerName!q]?"
 
-        #choice
-        #"Agree with Marcos."
+        menu: 
+            "Agree with Marcos":
+                jump prologueAgreeMarcos
+            "Backup Sonal":
+                jump prologueAgreeSonal
 
+    
+    label prologueAgreeMarcos:
         jo "Yes, that's too bad." 
 
         ma "Well, what can we do? It can't be helped if Sonal is lacking."
@@ -847,10 +873,13 @@ label intro:
 
         ma "Oh good, I didn't want to have to get on my knees and beg."
 
+        jump bernardIntro
 
         #end choice 1
 
         #"Backup Sonal."
+
+    label prologueAgreeSonal:
 
         jo "I think Sonal deserves a day off."
 
@@ -874,8 +903,9 @@ label intro:
 
         ma "You and Sonal! Look at you, taking on extra work for her."
 
-        #end choice 2
+        jump bernardIntro
 
+    label bernardIntro:
 
         "What–?"
 
@@ -2664,8 +2694,6 @@ label intro:
         jo "Gonna head out now, Bernard. Cheers."
 
         be "See you around. Get home safe."
-
-
 
         #jump to week 1 ending
 
