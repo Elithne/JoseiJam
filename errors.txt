@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 252: end of line expected.
-    show ma smug at top maxsparkles with fade 
-                        ^
+File "game/script.rpy", line 1433: choice menuitem expects a non-empty block.
+    "Yes, this is a terrible idea.":
+                                    ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Thu Jun 29 09:54:02 2023
+Thu Jun 29 22:27:55 2023
