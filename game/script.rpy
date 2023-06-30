@@ -853,7 +853,9 @@ label bernardIntro:
 
     "I think about Sonal's reaction to his request."
 
+
     "She was so good at getting out of it. I'm such a pushover."
+        show be neutral at top with dissolve
 
     "I take a sip of my drink, letting the burn in my throat mingle with the bitterness of my emotions."
 
@@ -914,6 +916,13 @@ label bernardIntro:
     #bernard looks a little tired
 
     jo "...And this morning! My ex posted another picture with that– that– the one– the one with the hair–  from the other photo! Like why do I need to see their slow progression into a–"
+        scene black with fade
+
+        "*One drink later*"
+
+        scene bg_bar with fade
+
+        hide be with dissolve
 
     jo "It hasn't even been that long! I can't b'lieve they'd do this to me! To me! Did I do something to deserve this?"
 
@@ -941,12 +950,12 @@ label bernardIntro:
 
     be "My pleasure. Be safe."
 
-    #bg_barstreet
-    #sfx door close
-    #sfx street
 
+        scene bg_bar with fade
 
-    "Be safe…"
+        hide be with dissolve
+
+        show be sad at top with dissolve
 
     "I'm a big girl. I can make it home."
 
@@ -978,7 +987,9 @@ label bernardIntro:
 
     sa "Yes."
 
-    jo "Hear me out, okay… I'm a little out of it. Had a cheeky spot of something at the bar. Not hammered or anything just– whoops tripped a bit in place there."
+        scene bg_street_bar with fade
+        #sfx door close
+        #sfx street
 
     #end choice 1
 
