@@ -612,7 +612,7 @@ label intro:
 
         jo "With how often you're put on projects with him, I would've thought that the topic had arisen by now."
 
-        #sonal slightly annoyed
+        show son
 
         son "Unfortunately, Marcos rarely stays around long enough to have a meal with me."
 
@@ -638,15 +638,13 @@ label intro:
 
         "I glance at Alex but I can't read her expression for once."
 
-        #choice
+        menu:
+            "Try to subtly find out if Sonal likes Marcos.":
+                jump awkward
+            "Ask Sonal outright if she likes Marcos.":
+                jump awkward
 
-        #choice 1
-        #"Try to subtly find out if Sonal likes Marcos."
-
-        #choice 2
-        #"Ask Sonal outright if she likes Marcos."
-
-        #both choices lead to:
+    label awkward:
 
         jo "I'm sure you want him to."
 
@@ -683,7 +681,7 @@ label intro:
 
         son "Enjoy the rest of your lunch."
 
-        #sonal leaves
+        hide son with dissolve
 
         "Once Sonal leaves the space entirely, I turn to Alex."
 
