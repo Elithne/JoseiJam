@@ -2903,15 +2903,18 @@ label firstMarcosDecision:
             $ weekOneGoOut = True
             jump firstWeekGoBar
     #—--------- HOME
-label firstWeekGoHome:
+label firstWeekBackHome:
     "Even standing up is a chore. I can feel my heels cutting into my feet in a way I must not have felt all day through sheer willpower."
     jo "Best to get home as soon as possible."
 
-    scene bg_transition_subwaysign with fade
+    #bg_subwaytransition
+
     jo "Ow."
-    scene bg_street_night with fade
+
+    #bg_streetnight
     jo "Ow."
-    scene bg_flat_stairs with fade
+
+    #bg_aptstairs
     jo "Owwww."
 
     "Let's just… let's just sit on the stairs."
@@ -2920,15 +2923,12 @@ label firstWeekGoHome:
     jo "I can't even take them off, they're actually stuck to my skin."
     jo "I would kill to have a massage right now."
 
-    play sound "audio/sfx/36-sfx_samdescendingstairs.ogg"
-    pause(4)
+    #sfx walking down the steps
 
-    show sa home_neutral at top with dissolve
     sa "I thought I heard you whining."
     jo "How? Don't you usually have headphones on?"
     sa "Was coming down to get my mail. And besides, your voice is one of those unblockable frequencies even with noise cancelling, like a baby crying. Whaa, whaaa."
     jo "You try wearing brand new heels for a full work day. See if you don't 'whaa whaa' yourself."
-    show sa home_amused at top
     sa "And why did you decide that was a good idea?"
     jo "I… I guess I just wanted to… look you know… like I can dress up too. Clean up well."
     sa "You already do that every day for work."
@@ -2937,27 +2937,22 @@ label firstWeekGoHome:
     jo "Not at work, of course. Just… in general."
     sa "You know, your ex can't see what you look like at work."
     jo "I was so vague about it. How did you know?"
-    show sa home_neutral at top
     sa "You're more predictable than you think." 
     sa "And prone to not knowing what's healthy and what's not."
-    "Well. {w}Sam speaks from experience, considering our mutual history. {w}I wince again."
+    "Well. Sam speaks from experience  considering our mutual history. I wince again."
     sa "Also, I'm friends with him on Tangram."
     sa "Anyway, I know you're not looking for advice, but maybe consider only doing things that make you happy, you know?"
     sa "At least, that's how I get around doing too much for other people. How I keep myself safe from bad, foot breaking decisions."
-    "I stick my tongue out at him. {w}Sam continues unfazed."
+    "I stick my tongue out at him. Sam continues unfazed."
     sa "Then, if the decision you made goes sideways, you don't really regret it because you stuck to your guns or it made you genuinely happy."
     sa "Of course, some part of this relies on knowing the difference between confidence and hubris and I think you have a special brand of shamelessness that stops you from thinking before you leap."
-    jo "I'm not shameless. {w}I have plenty of shame."
-    sa "Mmm… not enough that you've learned your lesson. {w}I think I should leave you here to let you think on it some more."
-    jo "No please. {w}Help me up the stairs."
+    jo "I'm not shameless. I have plenty of shame."
+    sa "Mmm… not enough that you've learned your lesson. I think I should leave you here to let you think on it some more."
+    jo "No please. Help me up the stairs."
     jo "I can think about things in the comfort of my own bed."
     sa "....."
     jo "Okay, I might go right to sleep but please, you can't leave me here."
-
-    show sa home_amused at top
     sa "Fine, but you owe me three cans of cat food."
-
-    show sa home_neutral at top
     jo "For your dinner?"
     "Sam rolls his eyes as he leans in to help me up."
     jo "Speaking of, what are you having for dinner?"
@@ -2966,11 +2961,7 @@ label firstWeekGoHome:
     sa "You would be getting a resounding 'no' if you were."
     jo "Yes, I'm aware."
     jo "...Doesn't hurt to try though every once in a while, right?"
-
-    show sa home_annoyed at top
     sa "A no is a no."
-
-    show sa home_neutral at top
     jo "Alright, alright. I'm just asking– about dinner, not dinner with you–I just remembered that I spent all weekend shopping for clothes but I never picked up more groceries."
     sa "So…"
     "So…I could ask Sam if he wants to go with me to get groceries…"
@@ -2983,147 +2974,105 @@ label firstWeekGoHome:
             $ goodChoiceSam+=1
 
             "Sam stops to think about my offer."
-
-            show sa home_happy at top
             sa "To be honest, I haven't had a proper meal today–very unhealthy, I know."
-            show sa home_shocked disgust at top
             "Sam's stomach grumbles as if to support the point and he laughs."
-            hide sa home_shocked disgust
-            show sa home_laughing at top
-            sa "Alright, yes, kebabs sound pretty damn delicious right now. {w}I'll take you up on your offer."
-            jo "Great! {w}Let me just change shoes and I'll be on my way. As soon as I can. Which is, you know, whenever I can walk with a little less pain."
+            sa "Alright, yes, kebabs sound pretty damn delicious right now. I'll take you up on your offer."
+            jo "Great! Let me just change shoes and I'll be on my way. As soon as I can. Which is, you know, whenever I can walk with a little less pain."
 
         "\"I'm getting a kebab and I'm ordering something for you too.\"":
 
             "Sam stops walking."
-            sa "Huh. {w}And if I said I wasn't hungry, what then?"
-            jo "Uh… well… {w}It's good that you said that."
-            jo "Now I know. {w}Happy to eat alone."
+            sa "Huh. And if I said I wasn't hungry, what then?"
+            jo "Uh… well… it's good that you said that."
+            jo "Now I know. Happy to eat alone."
             jo "But I knew you were going to turn me down anyway so…"
-            show sa home_amused sigh at top
             "Sam sighs and gives me a tired smile."
-            sa "Since you know me so well, I would've thought you'd know to ask. {w}I'm not a big fan of having decisions made for me."
-            "Oh right. {w}I did know that. {w}Sam's pet peeve is when people assume they know the best for him."
-            jo "Sorry. {w}You don't have to go with me–"
-            hide sa home_amused sigh
-            show sa home_neutral at top
-            sa "But, the good news is I actually am hungry. And luckily, I've got nothing against getting kebabs with you."
+            sa "Since you know me so well, I would've thought you'd know to ask. I'm not a big fan of having decisions made for me."
+            "Oh right. I did know that. Sam's pet peeve is when people assume they know the best for him."
+            jo "Sorry. You don't have to go with me–"
+            sa "But, the good news, is I actually am hungry. And luckily, I've got nothing against getting kebabs with you."
             sa "I can order something for myself though, no worries about having to bribe me with free food."
             jo "Really? I mean, alright, give me a moment to change my shoes and then we can be on our way."
 
-    show sa home_neutral at top
     sa "What, you're going to walk there?"
     jo "Yeah, why not?"
     "Sam gestures at my feet."
     sa "Confidence or hubris?"
     jo "Yeah but it makes me happy to get kebabs for us."
 
-    hide sa home_neutral
-    scene bg_flat_hall with dissolve
+    #transition to hallway
 
     "As we reach the top step and enter the upper level of the building, I grimace in pain."
-    show sa home_neutral at top with dissolve
     sa "..."
-    show sa home_neutral sweat at top
     sa "I'm not doubting your ability to get your own kebab but how about this: you call in the order and I pick it up?"
-    jo "No, I couldn't do that. {w}I offered."
-
-    hide sa home_neutral sweat
-    show sa home_neutral at top
-    sa "Alright but here's my counter offer. {w}You order, I pick up, and you catsit while I'm gone."
+    jo "No, I couldn't do that. I offered."
+    sa "Alright but here's my counter offer. You order, I pick up, and you catsit while I'm gone."
     "I waver at the word 'sit', feeling like I'm on the verge of irreparable damage to my feet already."
     jo "You drive a hard bargain."
     sa "Final answer?"
-    jo "Fine, fine, yes, you can pick up the kebabs since you're willing and I'll sit. {w}I mean catsit."
-    show sa home_amused at top
+    jo "Fine, fine, yes, you can pick up the kebabs since you're willing and I'll sit. I mean catsit."
     "Sam smirks at my obvious Freudian slip."
-    sa "You can still stop by your place to change first, if you want. {w}Otherwise, you're going to get cat hair on your clothes."
+    sa "You can still stop by your place to change first, if you want. Otherwise, you're going to get cat hair on your clothes."
     jo "Eh, I can take a little fur."
     sa "Alright but don't say I didn't warn you–they're all shedding like crazy."
 
-    scene black with fade
-    play sound "audio/sfx/45-sfx_samopendoor.ogg"
-    pause(2)
-    scene bg_flat_sam with fade
+    #transition to sam's flat
+    #sfx door unlocking (maybe on black?)
+    #bg_samflat
 
-    show sa home_neutral at top with dissolve
     jo "Feels like I haven't been in here in forever."
     "Sam raises an eyebrow."
     sa "You were here early last month."
     jo "Oh."
-    "Right. {w}Probably right after the breakup."
+    "Right. Probably right after the breakup."
     jo "Sorry about that."
-    sa "About your last visit? No, don't worry about it. {w}You weren't exactly at your peak state to be the perfect house guest."
+    sa "About your last visit? No, don't worry about it. You weren't exactly at your peak state to be the perfect house guest."
     jo "Mmm."
 
-    play sound "audio/sfx/37-sfx_catmrp.ogg"
-    ex "Mrrp."
+    #sfx_mrp
+    cat "Mrrp."
 
     "I feel something rub against my leg."
     "Staring up at me with glistening, blue eyes is a very fluffy white cat."
     jo "How are you GarJo?"
 
-    hide sa home_neutral with dissolve
-    show sa home_neutral at topright with dissolve
-    show garlic at left with dissolve
-    play sound "audio/sfx/38-sfx_catmrao.ogg"
+    #sfx_cat_mrao
     gar "Mrao."
 
     "She leans into my palm as I run my hand down her back."
     "Within seconds, I feel another warm, furry body pressing into my other leg."
     "This time, it's a lithe tuxedo cat, winding around my heels."
-    play sound "audio/sfx/39-sfx_catpurr.ogg"
     jo "Miss Scallion."
-    hide garlic with dissolve
-    show garlic with dissolve
-    show rapscallion at left with dissolve
-    
-    "Rapscallion purrs."
 
-    show sa home_amused at topright
+    #sfx_cat_purr
+    "Rapscallion purrs."
     sa "If you keep petting them, they'll never let you sit down."
     sa "Do you need help getting your shoes off?"
     jo "Um… yes, thanks. Seems like we're doing this every week."
     sa "Your fault for being shoe challenged."
-
-    show sa home_neutral at topright
-    "Sam tries to remove my heels as gently as possible but it still hurts. {w}I feel blood flooding into my numb toes as well as the telltale sign of blisters having formed."
+    "Sam tries to remove my heels as gently as possible but it still hurts. I feel blood flooding into my numb toes as well as the telltale sign of blisters having formed."
     jo "Owwww."
-    show sa home_happy at topright
     sa "You're free now, Cinderella."
     sa "C'mon ladies, let her pass."
-
-    hide garlic with dissolve
-    hide rapscallion with dissolve
-
-    show sa home_neutral at topright
     "Sam leads my hobbling self to the couch where an orange cat is already loafing with a wary expression on its face."
     sa "Ginger's a bit bitey today so watch yourself."
-    jo "Mr. Gingersnap is always bitey. {w}A big spicy boy."
-    show ginger with dissolve
+    jo "Mr. Gingersnap is always bitey. A big spicy boy."
     "Gingersnap blinks ever so slowly at me and then looks away."
-    hide ginger with dissolve
     sa "You're ordering by phone, right?"
     jo "Oh, right."
     "Sam gives me his order and I make the call"
     jo "They said they'll be ready in 20 minutes."
-
-    hide sa with dissolve
-    show sa home_amused at top with dissolve
-    
-    sa "Cool, I'll be on my way then. {w}You good here?"
+    sa "Cool, I'll be on my way then. You good here?"
     jo "Yeah."
     sa "Alright. Back in a minute."
 
-    hide sa with dissolve
-    play sound "audio/sfx/26-sfx_samleaves_doorclose.ogg"
+    #Sam leaves
+    #sfx_doorclosing
 
     "The flat is unnaturally silent once Sam is gone–if only for a moment."
     "Almost as soon as the thought passes my mind, the room is filled with a plaintive meow that gets progressively agitated."
 
-    show garlic with dissolve
-    play sound "audio/sfx/40-sfx_catmeowloud.ogg"
-
+    #sfx_cat_meow_loud
     gar "MEOW"
 
     "Garlic screams into the void at being abandoned."
@@ -3132,15 +3081,12 @@ label firstWeekGoHome:
     "She dismisses my presence in a single glance and continues to meow demandingly."
 
     #sfx continued meowing
-    show rapscallion at left with dissolve
     "Rapscallion joins in the fray shortly afterwards, meowing and eyeing the kitchen counter tops with clear premeditated intent."
-    play sound "audio/sfx/41-sfx_catmeowmultiple.ogg"
+    #sfx_multiple_meows
 
     jo "Not you too, Scallion."
-    "Ginger bristles a bit and yawns. {w}He hops off the couch and smoothly segues into a full body stretch."
-
-    show ginger at right with dissolve
-    "I watch him warily as he pauses to swipe halfheartedly at my phone on the coffee table… {w}Then my keys… {w}Then my purse."
+    "Ginger bristles a bit and yawns. He hops off the couch and smoothly segues into a full body stretch."
+    "I watch him warily as he pauses to swipe halfheartedly at my phone on the coffee table…then my keys…then my purse."
     "I can just imagine the fallout of Sam returning to find his cats committing their devious kitty crimes under my watch." 
     jo "Maybe I can placate them with treats?"
     "As far as I know, Sam isn't one to over-pamper his cats with extra snacks but, like most cat owners, he does have emergency treats tucked away."
@@ -3148,10 +3094,10 @@ label firstWeekGoHome:
     jo "Treats, treats, treats…"
     "As I look through the cabinets, Garlic, Scallion, and even Ginger start winding themselves around my ankles."
     jo "I see you already know what's up."
-    jo "I guess it's faster just to text Sam and ask where they are. {w}Even if it gets me a lecture about cat nutrition."
+    jo "I guess it's faster just to text Sam and ask where they are. Even if it gets me a lecture about cat nutrition."
     "I grab my phone and send Sam a message, only to hear a soft pinging noise from inside the same room."
     
-    play sound "audio/sfx/43-sfx_textnotif.ogg"
+    #sfx text notif
     "The sound came from a mobile on the dining table that I didn't see before."
     jo "No way, did he leave his phone here?"
     "A rare occurrence. Sam usually has a tight grip on his belongings."
@@ -3162,7 +3108,7 @@ label firstWeekGoHome:
     jo "Is Sam dating someone new?"
     "As far as I knew, he wasn't even looking to be in a relationship."
 
-    play sound "audio/sfx/43-sfx_textnotif.ogg"
+    #sfx_textnotif
     "Another text message notification sound goes off."
 
     menu: 
@@ -3174,8 +3120,7 @@ label firstWeekGoHome:
             "I can't help but start to wonder who this mystery person is as well as what Sam is sending them to warrant a \"So cute\" with two exclamation marks."
             jo "Not that I have any say over Sam's social life."
             "But I feel a little possessive, if only because I don't fully understand the context of the relationship here."
-            
-            play sound "audio/sfx/44-sfx_catmeow.ogg"
+            #sfx_meow
             gar "Meow."
 
             "I'm jolted out of my racing thoughts."
@@ -3191,41 +3136,27 @@ label firstWeekGoHome:
             jo "You didn't see anything, [playerName!q]."
             "I step away from Sam's phone and actively try to think about other things."
 
-            play sound "audio/sfx/44-sfx_catmeow.ogg"
+            #sfx_meow
             gar "Meowrao."
             jo "Oh right, treats."
 
-    hide garlic with dissolve
-    pause(1)
-    hide rapscallion with dissolve
     "Suddenly, Garlic runs for the door. Scallion hops down from where she was standing on the counter, having snuck up in my moment of weakness." 
-    hide ginger with dissolve
-    show ginger with dissolve
+
     "Ginger walks by as if to also approach the door but instead tackles my foot and nips a few toes."
     jo "Ow, ow, please, Ginger, no biting."
 
-    play sound "audio/sfx/45-sfx_samopendoor.ogg"
+    #sfx_door open
     "A second later, Sam opens the door."
     sa "Ginger, no."
-
-    hide ginger with dissolve
     "Surprisingly obedient, Ginger stops kicking my heels and, after a moment, gets up to greet Sam like the others."
-
-    show sa home_neutral at top with dissolve
     sa "Everything okay here?"
     jo "Just great!"
     "My words come out a little too enthusiastic to be convincing, though it's not like I actually did anything wrong."
-
-    show sa home_amused at top
-    sa "Cool. There was a little mixup but they gave us some extra food because it's the end of the night. {w}I was going to call you to let you know I was delayed a bit but I think I left my phone here."
+    sa "Cool. There was a little mixup but they gave us some extra food because it's the end of the night. I was going to call you to let you know I was delayed a bit but I think I left my phone here."
     jo "You did."
-
-    show sa home_annoyed at top
-    "I wince. {w}Now he knows that I know his phone was here."
+    "I wince. Now he knows that I know his phone was here."
     "Except on second thought, I did have a valid reason…"
     jo "I tried to text you to ask if you had any cat treats."
-
-    show sa home_neutral at top
     sa "Oh were they giving you a hard time?"
     jo "Nothing too bad."
     "Instead of launching into his thoughts on cat parenting and rewards, like I expected, Sam picks up his phone and peruses it momentarily before putting it away in his pocket."
@@ -3233,8 +3164,6 @@ label firstWeekGoHome:
     "I feel a weird sort of pride in being placed higher up in priority than the mysterious texter."
     sa "[playerName!q]? Why are you smiling to yourself?"
     jo "Just so excited to eat!"
-
-    show sa home_happy at top
     "Sam laughs and hands me my food as a chorus of meows rise up from the cats who insist they deserve a share."
 
     jump weekOneEnding

@@ -203,7 +203,7 @@ label define_sprites:
             attribute laughing:
                 "sprites/sam/sa_street_laughing.png"
             attribute nervous:
-                "sprites/sam/sa_street_nervous.png"
+                "sprites/sam/sa_street_nervous.png"    
             attribute proud:
                 "sprites/sam/sa_street_proud.png"
             attribute resigned:
@@ -212,7 +212,6 @@ label define_sprites:
                 "sprites/sam/sa_street_sad.png"
             attribute shocked:
                 "sprites/sam/sa_street_shocked.png"
-
             #HOME
             attribute home_amused:
                 "sprites/sam/sa_home_amused.png"
@@ -229,9 +228,7 @@ label define_sprites:
             attribute home_laughing:
                 "sprites/sam/sa_home_laughing.png"
             attribute home_nervous:
-                "sprites/sam/sa_home_nervous.png" 
-            attribute home_neutral:
-                "sprites/sam/sa_home_neutral.png"    
+                "sprites/sam/sa_home_nervous.png"    
             attribute home_proud:
                 "sprites/sam/sa_home_proud.png"
             attribute home_sad:
@@ -342,7 +339,10 @@ label define_sprites:
         zoom 0.75
     image garlic:
         "sprites/cats/GarlicJohansson.png"
+        zoom 0.75
     image ginger:
         "sprites/cats/GingerSnap.png"
-    image rapscallion:
+        zoom 0.75
+    image rap:
         "sprites/cats/Rapscallion.png"
+        zoom 0.75
