@@ -30,7 +30,7 @@ default weekOneGoOut = False
         
 # The game starts here.
 init:
-    call define_sprites from _call_define_sprites
+    call define_sprites
     $ flash = Fade(0.5, 0, 0.5, color="#FFFFFF") 
 
 
