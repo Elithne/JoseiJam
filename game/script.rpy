@@ -703,6 +703,7 @@ label intro:
         son "Enjoy the rest of your lunch."
 
         hide son with dissolve
+        hide son with dissolve
 
         "Once Sonal leaves the space entirely, I turn to Alex."
         hide al with dissolve
@@ -741,8 +742,12 @@ label intro:
 
         scene bg_office_desks with fade
 
-        #sfx of typing, marcos music
-        
+        #transition
+        scene bg_office_desks with fade
+
+        #sfx of typing
+        #cue marcos music
+
         ma "Still hard at work, sweetheart?"
         show ma at top with dissolve
         "I look up to see Marcos standing at my side."
@@ -821,6 +826,8 @@ label intro:
 
         ma "Ah, still on my to-do list, I'm afraid. I have a bit of a conundrum that I was wondering if you could help me with Sonal."
 
+        show son nervous at topleft with dissolve
+
         "Sonal glances at me."
 
         "Is she asking for help?"
@@ -830,6 +837,8 @@ label intro:
         "Or is she trying to figure out if I'm a threat to her interest in Marcos?"
 
         "Maybe she wants to have Marcos in her debt?"
+
+        show ma smug at topright with dissolve
 
         ma "Oh, glad we're already on the same page!"
 
@@ -859,7 +868,7 @@ label intro:
 
         ma "We wouldn't want to push her past her limits." 
 
-        #sonal unamused
+        show son annoyed at topleft with dissolve
 
         son "..."
 
@@ -869,7 +878,9 @@ label intro:
 
         ma "Remember to take breaks, Sonal!"
 
-        #sonal leaves
+        hide all with dissolve
+
+        show ma at top with fade
 
         ma "Well, sweetheart, I wanted to spare you but you're my only hope."
 
@@ -879,7 +890,6 @@ label intro:
 
         jump bernardIntro
 
-        #end choice 1
 
         #"Backup Sonal."
 
@@ -887,17 +897,25 @@ label intro:
 
         jo "I think Sonal deserves a day off."
 
-        #ma shocked
+        show ma shocked at topright with dissolve
+
+        pause 2.0
+
+        show ma obnoxious at topright with dissolve
 
         ma "You're probably right. Sonal's looking a little tired."
 
         ma "We don't want to push her past her limits. Make sure to take breaks, Sonal!"
 
+        show son annoyed at topleft with dissolve
+
         son "..."
 
         son "I'll be sure to head home as soon as possible to get more rest. Thank you for your concern."
 
-        #sonal leaves
+        hide all with dissolve
+
+        show ma at top with fade
 
         ma "Always classy, that one."
 
@@ -921,6 +939,8 @@ label intro:
 
         jo "W-wait–!" 
 
+        hide ma with dissolve
+
         "Aaaaaand he's gone."
 
         "...This won't take too long, will it?"
@@ -939,10 +959,15 @@ label intro:
 
         jo "I need to get a drink."
 
-        #bg_subway transition
+<<<<<<< Updated upstream
+        scene bg_transition_subwaysign
+=======
+        scene bg_transition_subwaysign with fade
+        scene bg_transition_subwaytrain with fade
+>>>>>>> Stashed changes
         #sfx subway noise
 
-        #bg_bar
+        scene bg_bar with fade
         #sfx bar crowd
 
         be "Hey. Good to see you. The usual?"
