@@ -909,7 +909,7 @@ label intro:
 
         son "I'll be sure to head home as soon as possible to get more rest. Thank you for your concern."
 
-        hide all with dissolve
+        hide son annoyed with dissolve
 
         show ma at top with fade
 
@@ -962,7 +962,7 @@ label intro:
         scene bg_bar with fade
         #sfx bar crowd
 
-        show be neutral at top with dissolve
+        show be at top with dissolve
 
         be "Hey. Good to see you. The usual?"
 
@@ -1022,7 +1022,7 @@ label intro:
 
         scene black with fade
 
-        "*One drink later*"
+        centered "*One drink later*"
 
         scene bg_bar with fade
 
@@ -1055,11 +1055,15 @@ label intro:
 
         jo "Can I get another drink?"
 
+        scene black with fade
+
+        centered "*Several drinks later.*"
+
         scene bg_bar with fade
 
         hide be with dissolve
 
-        "*Several drinks later.*"
+        
 
         show be sad at top with dissolve
 
@@ -1107,8 +1111,13 @@ label intro:
         "M-maybe I shouldn't risk it."
 
         #choice
+        menu:
+            "Call Alex":
+                jump callAlex
+            "Call Sam":
+                jump callSam
 
-        #call alex
+    label callAlex:
 
         "I do have Alex's number…Somewhere in the… Somewhere–"
 
@@ -1132,9 +1141,9 @@ label intro:
 
         jo "Hear me out, okay… I'm a little out of it. Had a cheeky spot of something at the bar. Not hammered or anything just– whoops tripped a bit in place there."
 
-        #end choice 1
+        jump samIntro
 
-        #call sam
+    label callSam:
 
         "Sam! Sam."
 
@@ -1160,7 +1169,9 @@ label intro:
 
         jo "Okay, maybe. Not plastered just you know… had a cheeky drink or three and now the street is a little worgly. Wuggy. Wiggly."
 
-        #end choice 2
+        jump samIntro
+    
+    label samIntro:
 
         sa "Right."
 
@@ -1215,6 +1226,8 @@ label intro:
 
         #sfx phone call ended
 
+        show sa_street_annoyed at top with dissolve
+
         sa "What did I say about sitting outside?"
 
         sa "Bernard would've been better company than the ground."
@@ -1242,6 +1255,8 @@ label intro:
 
         sa "..."
 
+        show sam_street_resigned at top with dissolve
+
         sa "No, thanks."
 
         jo "Yeah, thought you'd say that."
@@ -1268,7 +1283,9 @@ label intro:
 
         jo "*sniff* 'Kay."
 
-        #bg_carinterior
+        hide sa with dissolve
+
+        scene bg_car_interior with fade
         #sfx car stuff
         #sfx car doors
         #sfx car starting
@@ -1292,7 +1309,7 @@ label intro:
 
         #sfx ignition off
 
-        #bg black
+        scene black with fade
 
         sa "[playerName!q]? [playerName!q], wake up. We're here."
 
@@ -1303,9 +1320,12 @@ label intro:
 
         #sfx walking up stairs
 
-        #fade to bg_aptstairs, #bg fade to black
+        scene bg flat stairs with fade
 
-        #bg_apthall
+        pause 1.0
+
+        scene bg flat hall with fade
+
 
         sa "Where are your keys?"
 
@@ -1323,7 +1343,9 @@ label intro:
 
         #sfx door unlocking
 
-        #bg_joflat_entrance
+        scene bg_flat_mc_dark with fade
+
+        show sa_street_neutral with dissolve
 
         sa "Shoes."
 
@@ -1331,11 +1353,15 @@ label intro:
 
         jo "Ah! Cramp, cramp in my leg, ow ow ow ow."
 
+        show sa street resigned sign with dissolve
+
         "Sam sighs loudly."
 
         sa "Sit down and hold still."
 
         "Sam firmly removes my shoes for me."
+
+        show sa street neutral with dissolve
 
         sa "I'm going to leave your purse on the table. Do you want your phone?"
 
@@ -1353,9 +1379,13 @@ label intro:
 
         jo "Sleepyyyy."
 
+        show sa street annoyed with dissolve
+
         sa "[playerName!q]."
 
         jo "Yeah, I'm fine just– *yawn*"
+
+        show sa street neutral with dissolve
 
         sa "Okay."
 
@@ -1367,7 +1397,7 @@ label intro:
 
         #sfx door closing in the distance
 
-        #mc enters dark bedroom
+        scene bg_flat_mc_bed with fade
 
         #sfx flopping into bed
 
