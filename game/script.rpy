@@ -1361,24 +1361,27 @@ label intro:
 
 
         #Insta post:
-        centered "You could have been"
-        centered "My everything"
+        scene black with fade
+        show cringepoetry1 with dissolve
 
-        centered "I would have been"
-        centered "Your forever"
+        "You could have been"
+        "My everything"
 
-        centered "Now you are another"
-        centered "Learning experience"
+        "I would have been"
+        "Your forever"
+
+        "Now you are another"
+        "Learning experience"
 
         #Week 1
-
-
-        #bg_joflat_room
+        scene bg_flat_mc_bed with fade
 
         jo "Ugh my mouth is so dry…"
 
-        #on screen *one week later*
+        scene black with fade
+        centered "One week later..."
 
+        scene bg_flat_mc_bed_morning with fade
         jo "What time is it even?"
 
         jo "5:30 AM?"
@@ -1388,6 +1391,9 @@ label intro:
         "There's a strange, dull ache in my legs too."
 
         jo "...What did I do last night?"
+
+                scene black with fade
+        centered "One week later..."
 
         #on screen: *last night*
 
