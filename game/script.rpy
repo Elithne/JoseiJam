@@ -955,16 +955,14 @@ label intro:
 
         jo "I need to get a drink."
 
-<<<<<<< Updated upstream
-        scene bg_transition_subwaysign
-=======
         scene bg_transition_subwaysign with fade
         scene bg_transition_subwaytrain with fade
->>>>>>> Stashed changes
         #sfx subway noise
 
         scene bg_bar with fade
         #sfx bar crowd
+
+        show be happy at top with dissolve
 
         be "Hey. Good to see you. The usual?"
 
@@ -1024,6 +1022,8 @@ label intro:
 
         "*One drink later*"
 
+        hide be with dissolve
+
         jo "And I don't want Sonal to hate me! I think I'm a good person– I'm a good person right, Bernard?"
 
         "I squint at the blurry bottles on the wall and take a few seconds to realise Bernard isn't even in front of me. He's filling a pint for another person at the bar."
@@ -1033,6 +1033,7 @@ label intro:
         jo "Bernard. Bernaaaard, listen."
 
         "Bernard makes his way back at his own pace."
+        show be at top with dissolve
 
         be "I'm listening."
 
@@ -1054,7 +1055,7 @@ label intro:
 
         "*Several drinks later.*"
 
-        #bernard looks a little tired
+        show be tired at top with dissolve
 
         jo "...And this morning! My ex posted another picture with that– that– the one– the one with the hair–  from the other photo! Like why do I need to see their slow progression into a–"
 
@@ -1081,6 +1082,8 @@ label intro:
         be "Yes."
 
         jo "Thanks Bern'd."
+
+        show be happy at top with dissolve
 
         be "My pleasure. Be safe."
 
