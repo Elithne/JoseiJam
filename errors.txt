@@ -2,9 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 21: expected '=' not found.
-    default changedPassword
-                           ^
+File "game/script.rpy", line 1406: Indentation mismatch.
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Thu Jun 29 23:40:27 2023
+Fri Jun 30 00:01:51 2023
