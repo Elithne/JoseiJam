@@ -1041,7 +1041,7 @@ label samIntro:
 
     sa "Why do you have so many napkins– nevermind, found them."
     jo "Mmm."
-    sa "Hey, stay with me, you're almost there.ogg"
+    sa "Hey, stay with me, you're almost there."
     jo "Sleepy."
 
     play sound "audio/sfx/25-sfx_unlockMCdoor.ogg" volume 0.3
